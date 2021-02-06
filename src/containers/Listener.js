@@ -14,6 +14,13 @@ export default () => {
         };
     }, []);
 
+    //launches on startup currently
+    useEffect(() => {
+        if (process.env.NODE_ENV === "development") {
+            window.postMessage({ darkWeb: "open" });
+        }
+    }, []);
+
     const actionListener = (event) => {
         switch (event.data.darkWeb) {
             case "open":

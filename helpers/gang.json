@@ -1,0 +1,40 @@
+[
+    
+    {
+        "current_gang": "Waffle Fries",
+        "char_name": "Eduardo Chupador",
+        "gangRank": "4",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "current_gang": "Waffle Fries",
+        "char_name": "Madison Chupador",
+        "gangRank": "4",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "current_gang": "Waffle Fries",
+        "char_name": "Saxy Chupador",
+        "gangRank": "3",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "current_gang": "Waffle Fries",
+        "char_name": "Tybo Chupador",
+        "gangRank": "2",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "current_gang": "Waffle Fries",
+        "char_name": "Kena Chupador",
+        "gangRank": "1",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "current_gang": "Waffle Fries",
+        "char_name": "Nerd Chupador",
+        "gangRank": "1",
+        "phone_number": "111-111-1111"
+    }
+]
+

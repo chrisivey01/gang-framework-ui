@@ -3,11 +3,11 @@ import { CLOSE_WEB, LOAD_WEB_FAILURE, LOAD_WEB_SUCCESS } from "./dark-web.action
 const initialState = {
     showWeb: false,
     characterData: {
-        gang: "",
-        characterName: "",
-        gangRank: "",
-        phoneNumber: "",
-        radioChannel: "",
+        // gang: "",
+        // characterName: "",
+        // gangRank: "",
+        // phoneNumber: "",
+        // radioChannel: "",
     },
     errorMessage: {
         message: "",

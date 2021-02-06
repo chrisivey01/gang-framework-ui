@@ -10,9 +10,11 @@ export const loadWeb = (data) => {
         if (process.env.NODE_ENV === "development") {
             dispatch(loadWebSuccess(character));
         } else {
-            Apis.openDarkWeb()
-                .then((results) => dispatch(loadWebSuccess(results)))
-                .catch(() => dispatch(loadWebFailure()));
+            if (data) {
+                dispatch(loadWebSuccess(data));
+            } else {
+                dispatch(loadWebFailure());
+            }
         }
     };
 };
@@ -37,8 +39,10 @@ export const loadWebFailure = () => {
 
 export const closeWeb = () => {
     return (dispatch) => {
-        dispatch({
-            type: CLOSE_WEB,
-        });
+        Apis.closeDarkWeb().then(() =>
+            dispatch({
+                type: CLOSE_WEB,
+            })
+        );
     };
 };

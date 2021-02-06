@@ -10,7 +10,7 @@ const store = createStore(combineReducers, applyMiddleware(...middle));
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />,
+        <App />
     </Provider>,
     document.getElementById("root")
 );
