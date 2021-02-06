@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { characterReducer } from "../store/character/character.reducer";
+import { darkWebReducer } from "../store/dark-web/dark-web.reducer";
 
 export default combineReducers({
-    character: characterReducer,
+    darkWeb: darkWebReducer,
 });

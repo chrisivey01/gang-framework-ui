@@ -4,7 +4,7 @@ const openDarkWebUrl = "http://pma-gang-framework/OpenDarkWeb";
 
 const Apis = {
     openDarkWeb(data) {
-        if(process.env.NODE_ENV === "development"){
+        if (process.env.NODE_ENV === "development") {
             return character;
         } else {
             return axios.post(openDarkWebUrl, data);

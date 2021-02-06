@@ -1,9 +1,7 @@
-import {
-    LOAD_CHARACTER_DETAILS_SUCCESS,
-    LOAD_CHARACTER_DETAILS_FAILURE,
-} from "./character.actions";
+import { CLOSE_WEB, LOAD_WEB_FAILURE, LOAD_WEB_SUCCESS } from "./dark-web.actions";
 
 const initialState = {
+    showWeb: false,
     characterData: {
         gang: "",
         characterName: "",
@@ -17,14 +15,15 @@ const initialState = {
     },
 };
 
-export const characterReducer = (state = initialState, action) => {
+export const darkWebReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_CHARACTER_DETAILS_SUCCESS:
+        case LOAD_WEB_SUCCESS:
             return {
                 ...state,
                 characterData: action.payload,
+                showWeb: true
             };
-        case LOAD_CHARACTER_DETAILS_FAILURE:
+        case LOAD_WEB_FAILURE:
             return {
                 ...state,
                 errorMessage: {
@@ -32,6 +31,11 @@ export const characterReducer = (state = initialState, action) => {
                     message: action.payload,
                     showToggle: true,
                 },
+            };
+        case CLOSE_WEB:
+            return {
+                ...state,
+                showWeb: false
             };
         default:
             return state;

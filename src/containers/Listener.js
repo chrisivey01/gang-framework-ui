@@ -1,36 +1,39 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { loadCharacterDetails } from "../store/character/character.actions";
+import { loadWeb, closeWeb } from "../store/dark-web/dark-web.actions";
 
 export default () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        window.addEventListener("message", (event) => loadDarkWeb(event));
+        window.addEventListener("message", (event) => actionListener(event));
         return () => {
             window.removeEventListener("message", (event) =>
-                loadDarkWeb(event)
+                actionListener(event)
             );
         };
     }, []);
 
-    const loadDarkWeb = (event) => {
-        if (process.env.NODE_ENV === "development") {
-            switch (event.data.loadDarkWeb) {
-                case "showDarkWeb": {
-                    dispatch(loadCharacterDetails());
+    const actionListener = (event) => {
+        switch (event.data.darkWeb) {
+            case "open":
+                if (process.env.NODE_ENV === "development") {
+                    if (event.data.darkWeb) {
+                        dispatch(loadWeb());
+                    }
+                } else {
+                    if (event.data.darkWeb) {
+                        dispatch(loadWeb(event.data.character));
+                    }
                 }
-            }
-        } else {
-            switch (event.data.loadDarkWeb) {
-                case "showDarkWeb": {
-                    dispatch(loadCharacterDetails(event.data.character));
-                }
-            }
+                break;
+            case "close":
+                dispatch(closeWeb());
+                break;
+            default:
+                null;
         }
     };
-
-    const loadDevelopment = () => {};
 
     return <Fragment />;
 };
