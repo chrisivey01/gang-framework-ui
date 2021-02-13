@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
     entry: path.resolve(__dirname, "..", "./src/index.js"),
@@ -13,6 +14,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: true,
             template: path.resolve(__dirname, "..", "./public/index.html"),
+        }),
+        new webpack.ProvidePlugin({
+            process: "process/browser",
         }),
     ],
 
@@ -31,9 +35,13 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: ["style-loader", "css-loader", "sass-loader"],
             },
+            // {
+            //     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            //     use: "url-loader?limit=100000",
+            // },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                use: "url-loader?limit=100000",
+                test: /\.(svg|woff|woff2|eot|ttf|png)$/,
+                use: ["@svgr/webpack", "url-loader"],
             },
         ],
     },

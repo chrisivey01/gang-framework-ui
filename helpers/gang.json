@@ -1,38 +1,86 @@
 [
     
     {
+        "id": 1,
         "current_gang": "Waffle Fries",
         "char_name": "Eduardo Chupador",
         "gangRank": "4",
         "phone_number": "111-111-1111"
     },
     {
+        "id": 2,
         "current_gang": "Waffle Fries",
         "char_name": "Madison Chupador",
         "gangRank": "4",
         "phone_number": "111-111-1111"
     },
     {
+        "id": 3,
         "current_gang": "Waffle Fries",
         "char_name": "Saxy Chupador",
         "gangRank": "3",
         "phone_number": "111-111-1111"
     },
     {
+        "id": 4,
         "current_gang": "Waffle Fries",
         "char_name": "Tybo Chupador",
         "gangRank": "2",
         "phone_number": "111-111-1111"
     },
     {
+        "id": 5,
         "current_gang": "Waffle Fries",
         "char_name": "Kena Chupador",
         "gangRank": "1",
         "phone_number": "111-111-1111"
     },
     {
+        "id": 6,
         "current_gang": "Waffle Fries",
         "char_name": "Nerd Chupador",
+        "gangRank": "1",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "id": 7,
+        "current_gang": "Waffle Fries",
+        "char_name": "Fearless Chupador",
+        "gangRank": "4",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "id": 8,
+        "current_gang": "Waffle Fries",
+        "char_name": "Jack Chupador",
+        "gangRank": "3",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "id": 9,
+        "current_gang": "Waffle Fries",
+        "char_name": "Razee Chupador",
+        "gangRank": "2",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "id": 10,
+        "current_gang": "Waffle Fries",
+        "char_name": "Thinkster Chupador",
+        "gangRank": "1",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "id": 11,
+        "current_gang": "Waffle Fries",
+        "char_name": "Steezy Chupador",
+        "gangRank": "1",
+        "phone_number": "111-111-1111"
+    },
+    {
+        "id": 12,
+        "current_gang": "Waffle Fries",
+        "char_name": "Ramrod Chupador",
         "gangRank": "1",
         "phone_number": "111-111-1111"
     }

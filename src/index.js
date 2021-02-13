@@ -1,4 +1,3 @@
-import "@fontsource/roboto";
 
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
