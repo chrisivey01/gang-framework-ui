@@ -8,7 +8,7 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 import Container from "./containers/Container";
-import DarkChat from "./components/DarkChat";
+import DarkChat from "./components/Chat";
 import Discussion from "./components/Discussion";
 import Photos from "./components/Photos";
 import Roster from "./components/Roster";

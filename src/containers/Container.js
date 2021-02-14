@@ -1,22 +1,20 @@
 import {
     AppBar,
+    Box,
     Container,
     Drawer,
+    Grid,
     makeStyles,
     Toolbar,
     Typography,
-    Grid,
-    SvgIcon,
-    SvgIconProps,
-    Box,
 } from "@material-ui/core";
-import { Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import LogoutButton from "../components/LogoutButton";
-import Sidebar from "../components/Sidebar";
-import Listener from "./Listener";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import swordUrl, { ReactComponent as Sword } from "../../images/sword.svg";
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
+import LogoutButton from "../components/LogoutButton";
+import Title from "../components/Title";
+import Sidebar from "../components/Title";
+import Listener from "./Listener";
 
 const drawerWidth = 200;
 
@@ -29,51 +27,56 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: "wrap",
         width: "80%",
 
-        "& .appBar": {
+        "& .app-bar": {
             zIndex: theme.zIndex.drawer + 1,
             color: "white",
             backgroundColor: "rgba(0,0,0,0.85)",
-            height: "60px",
-            "& .titleBar": {
-                justifyContent: "space-between",
-
+            "& .title-bar": {
                 "& .box-wrapper": {
                     display: "flex",
-                    width: 65,
-                },
-
-                "& svg": {
-                    paddingLeft: 8,
-                    paddingRight: 8,
+                    alignItems: "center",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    justifyContent: "center",
+                    padding: "15px 15px",
+                    bottom: 0,
+                    "&:hover": {
+                        color: "#007aac",
+                    },
+                    "& svg": {
+                        paddingLeft: 8,
+                        paddingRight: 8,
+                        width: 30,
+                    },
                 },
             },
         },
 
-        "& .wrapper": {
-            display: "flex",
-            height: "700px",
-            width: "100%",
+        // "& .wrapper": {
+        //     display: "flex",
+        //     height: "700px",
+        //     width: "100%",
 
-            "& .drawer": {
-                width: drawerWidth,
-                overflow: "auto",
-                "& .MuiDrawer-paper": {
-                    position: "unset",
-                    backgroundColor: "rgba(0, 0, 0, 0.65)",
-                    color: "rgb(227,227,227)",
-                },
+        //     "& .drawer": {
+        //         width: drawerWidth,
+        //         overflow: "auto",
+        //         "& .MuiDrawer-paper": {
+        //             position: "unset",
+        //             backgroundColor: "rgba(0, 0, 0, 0.65)",
+        //             color: "rgb(227,227,227)",
+        //         },
 
-                "& .MuiListItem-button:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.15)",
-                },
-            },
+        //         "& .MuiListItem-button:hover": {
+        //             backgroundColor: "rgba(0, 0, 0, 0.15)",
+        //         },
+        //     },
 
-            "& .content": {
-                width: "100%",
-                position: "relative",
-                backgroundColor: "rgba(0,0,0, 0.65)",
-            },
-        },
+        //     "& .content": {
+        //         width: "100%",
+        //         position: "relative",
+        //         backgroundColor: "rgba(0,0,0, 0.65)",
+        //     },
+        // },
     },
     hideContainer: {
         display: "none",
@@ -97,7 +100,7 @@ export default (props) => {
                 >
                     <Listener />
                     <AppBar position="static" className="appBar">
-                        <Toolbar className="titleBar">
+                        <Toolbar disableGutters={false} className="titleBar">
                             <Grid>
                                 <Typography variant="h6">Dark Web</Typography>
                             </Grid>
@@ -122,29 +125,17 @@ export default (props) => {
             ) : (
                 <div className={classes.showContainer}>
                     <Listener />
-                    <AppBar position="static" className="appBar">
-                        <Toolbar className="titleBar">
+                    <AppBar position="static" className="app-bar">
+                        <Toolbar className="title-bar">
                             <Grid>
-                                <Typography variant="h6">Dark Web</Typography>
+                                <Typography noWrap={true}  variant="h6">Dark Web</Typography>
                             </Grid>
-                            <Grid>
-                                <Box className="box-wrapper">
-                                    <Sword className="svg" />
-                                    <Typography>War</Typography>
-                                </Box>
+                            <Grid justify="flex-end" container>
+                                <Title />
                             </Grid>
                         </Toolbar>
                     </AppBar>
-
-                    <div className="wrapper">
-                        <Drawer className="drawer" variant="permanent">
-                            <Sidebar />
-                        </Drawer>
-
-                        <Container className="content">
-                            {props.children}
-                        </Container>
-                    </div>
+                    <div className="content">{props.children}</div>
                 </div>
             )}
         </Fragment>
