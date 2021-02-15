@@ -35,10 +35,6 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: ["style-loader", "css-loader", "sass-loader"],
             },
-            // {
-            //     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-            //     use: "url-loader?limit=100000",
-            // },
             {
                 test: /\.(svg|woff|woff2|eot|ttf|png)$/,
                 use: ["@svgr/webpack", "url-loader"],

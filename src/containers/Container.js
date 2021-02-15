@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
 
         "& .app-bar": {
             zIndex: theme.zIndex.drawer + 1,
-            color: "white",
-            backgroundColor: "rgba(0,0,0,0.85)",
+            color: "#fff",
+            backgroundColor: "#111",
             "& .title-bar": {
                 "& .box-wrapper": {
                     display: "flex",
@@ -50,6 +50,15 @@ const useStyles = makeStyles((theme) => ({
                     },
                 },
             },
+        },
+
+        "& .container": {
+            height: 750,
+            backgroundColor: "#212121",
+            color: "#fff",
+            "& .wrapper": {
+                padding: 30
+            }
         },
 
         // "& .wrapper": {
@@ -128,14 +137,19 @@ export default (props) => {
                     <AppBar position="static" className="app-bar">
                         <Toolbar className="title-bar">
                             <Grid>
-                                <Typography noWrap={true}  variant="h6">Dark Web</Typography>
+                                <Typography noWrap={true} variant="h6">
+                                    Dark Web
+                                </Typography>
                             </Grid>
                             <Grid justify="flex-end" container>
                                 <Title />
+                                <LogoutButton />
                             </Grid>
                         </Toolbar>
                     </AppBar>
-                    <div className="content">{props.children}</div>
+                    <Grid container className="container">
+                        <Grid container className="wrapper">{props.children}</Grid>
+                    </Grid>
                 </div>
             )}
         </Fragment>

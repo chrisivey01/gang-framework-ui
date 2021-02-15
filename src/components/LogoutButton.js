@@ -1,10 +1,15 @@
-import { Button, makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import { useDispatch } from "react-redux";
+import { ReactComponent as ExitIcon } from "../../images/exit.svg";
 import { closeWeb } from "../store/dark-web/dark-web.actions";
 
 const useStyles = makeStyles((theme) => ({
-    button: {
-        color: "white",
+    box: {
+        paddingLeft: 8,
+        paddingRight: 8,
+        width: 30,
+        display: "flex",
+        cursor: "pointer",
     },
 }));
 
@@ -17,8 +22,12 @@ export default () => {
     };
 
     return (
-        <Button className={classes.button} onClick={() => logOutHandler()}>
-            Logout
-        </Button>
+        <Box
+            className={classes.box}
+            component={"span"}
+            onClick={() => logOutHandler()}
+        >
+            <ExitIcon />
+        </Box>
     );
 };

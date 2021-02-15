@@ -1,5 +1,4 @@
 import {
-    AppBar,
     Card,
     CardContent,
     CardHeader,
@@ -12,7 +11,7 @@ import {
     TablePagination,
     TableRow,
 } from "@material-ui/core";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import gang from "../../helpers/gang.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -60,14 +59,6 @@ export default () => {
         setPage(0);
     };
 
-
-    // const Header = () => {
-    //     return (
-    //         <AppBar position="static">
-    //             Title!
-    //         </AppBar>
-    //     )
-    // }
 
     return (
         <Card className={classes.cardContainer}>
