@@ -1,62 +1,47 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as ChatIcon } from "../../images/chat.svg";
-import { ReactComponent as WarIcon } from "../../images/sword.svg";
-import { ReactComponent as RosterIcon } from "../../images/team.svg";
-import { ReactComponent as HomeIcon } from "../../images/home.svg";
+import ChatIcon from "../../images/chat.svg";
+import WarIcon from "../../images/sword.svg";
+import RosterIcon from "../../images/team.svg";
+import HomeIcon from "../../images/home.svg";
 
 const useStyles = makeStyles((theme) => ({
     box: {
         display: "flex",
+        position: "relative",
         alignItems: "center",
         cursor: "pointer",
         textDecoration: "none",
-        justifyContent: "center",
         color: "white",
-        "& .MuiBox-root": {
-            padding: "10px 10px 10px 10px",
-        },
-        "& svg": {
+        marginLeft: 15,
+        "& .svg": {
             paddingLeft: 8,
             paddingRight: 8,
-            width: 30,
+            width: 35,
         },
-        "& a": {
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "center",
-            position: "relative",
-            justifyContent: "center",
-            "&:hover": {
-                color: "#007aac",
-                "&::after": {
-                    transform: "scaleX(1)",
-                    transformOrigin: "left",
-                },
-            },
-            "&:after": {
-                position: "absolute",
-                content: "''",
-                width: "100%",
-                height: "3px",
-                top: "100%",
-                left: 0,
-                background: "#007aac",
-                transition: "transform 0.5s",
-                transform: "scaleX(0)",
-            },
-        },
-        "& .selected":{
+        "&:hover": {
             color: "#007aac",
+            "&:after": {
+                transform: "scale(1,1)",
+            },
         },
-        "& .selected:after": {
-            transition: "transform 0.5s",
-            transform: "scaleX(1)",
-
-            "span" :{
-                color:"#007aac"
-            }
+        "&::after": {
+            position: "absolute",
+            display: "block",
+            content: "''",
+            minWidth: "100%",
+            height: "3px",
+            bottom: 0,
+            background: "#007aac",
+            transition: "all 0.5s ease-out 0s",
+            transform: "scale(0, 1)",
+        },
+    },
+    selected: {
+        color: "#007aac",
+        "&::after": {
+            transform: "scale(1,1)",
         },
     },
 }));
@@ -64,14 +49,15 @@ const useStyles = makeStyles((theme) => ({
 export default () => {
     const classes = useStyles();
     const [previousElement, setPreviousElement] = useState(null);
+
     const pathHandler = (e) => {
         if (previousElement) {
-            previousElement.classList.remove("selected");
-            setPreviousElement(e.currentTarget.firstChild);
-            e.currentTarget.firstChild.classList.add("selected");
+            previousElement.classList.remove(classes.selected);
+            setPreviousElement(e.currentTarget);
+            e.currentTarget.classList.add(classes.selected);
         } else {
-            setPreviousElement(e.currentTarget.firstChild);
-            e.currentTarget.firstChild.classList.add("selected");
+            setPreviousElement(e.currentTarget);
+            e.currentTarget.classList.add(classes.selected);
         }
         console.log(e.currentTarget);
     };
@@ -83,40 +69,32 @@ export default () => {
                 className={classes.box}
                 onClick={(e) => pathHandler(e)}
             >
-                <Box component={"a"}>
-                    <HomeIcon className="svg" />
-                    <Typography component={"span"}>Home</Typography>
-                </Box>
+                <img src={HomeIcon} className="svg" />
+                <Typography component={"span"}>Home</Typography>
             </Link>
             <Link
                 to={"/roster"}
                 className={classes.box}
                 onClick={(e) => pathHandler(e)}
             >
-                <Box component={"a"}>
-                    <RosterIcon className="svg" />
-                    <Typography component={"span"}>Roster</Typography>
-                </Box>
+                <img src={RosterIcon} className="svg" />
+                <Typography component={"span"}>Roster</Typography>
             </Link>
             <Link
                 to={"/war"}
                 className={classes.box}
                 onClick={(e) => pathHandler(e)}
             >
-                <Box component={"a"}>
-                    <WarIcon className="svg" />
-                    <Typography component={"span"}>War</Typography>
-                </Box>
+                <img src={WarIcon} className="svg" />
+                <Typography component={"span"}>War</Typography>
             </Link>
             <Link
                 to={"/chat"}
                 className={classes.box}
                 onClick={(e) => pathHandler(e)}
             >
-                <Box component={"a"}>
-                    <ChatIcon className="svg" />
-                    <Typography component={"span"}>Chat</Typography>
-                </Box>
+                <img src={ChatIcon} className="svg" />
+                <Typography component={"span"}>Chat</Typography>
             </Link>
         </Fragment>
     );

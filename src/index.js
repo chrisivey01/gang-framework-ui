@@ -11,7 +11,7 @@ import Roster from "./components/Roster";
 import War from "./components/War";
 import Container from "./containers/Container";
 import combineReducers from "./store/index";
-
+import "@fontsource/roboto";
 const middle = [thunk, logger];
 const store = createStore(combineReducers, applyMiddleware(...middle));
 

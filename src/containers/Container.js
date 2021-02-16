@@ -16,8 +16,6 @@ import Title from "../components/Title";
 import Sidebar from "../components/Title";
 import Listener from "./Listener";
 
-const drawerWidth = 200;
-
 const useStyles = makeStyles((theme) => ({
     showContainer: {
         position: "relative",
@@ -26,28 +24,15 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexWrap: "wrap",
         width: "80%",
-
+        
         "& .app-bar": {
             zIndex: theme.zIndex.drawer + 1,
             color: "#fff",
-            backgroundColor: "#111",
+            backgroundColor: "#333",
             "& .title-bar": {
-                "& .box-wrapper": {
+                "& .wrapper": {
+                    minHeight: "100%",
                     display: "flex",
-                    alignItems: "center",
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    justifyContent: "center",
-                    padding: "15px 15px",
-                    bottom: 0,
-                    "&:hover": {
-                        color: "#007aac",
-                    },
-                    "& svg": {
-                        paddingLeft: 8,
-                        paddingRight: 8,
-                        width: 30,
-                    },
                 },
             },
         },
@@ -57,35 +42,9 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: "#212121",
             color: "#fff",
             "& .wrapper": {
-                padding: 30
-            }
+                padding: 30,
+            },
         },
-
-        // "& .wrapper": {
-        //     display: "flex",
-        //     height: "700px",
-        //     width: "100%",
-
-        //     "& .drawer": {
-        //         width: drawerWidth,
-        //         overflow: "auto",
-        //         "& .MuiDrawer-paper": {
-        //             position: "unset",
-        //             backgroundColor: "rgba(0, 0, 0, 0.65)",
-        //             color: "rgb(227,227,227)",
-        //         },
-
-        //         "& .MuiListItem-button:hover": {
-        //             backgroundColor: "rgba(0, 0, 0, 0.15)",
-        //         },
-        //     },
-
-        //     "& .content": {
-        //         width: "100%",
-        //         position: "relative",
-        //         backgroundColor: "rgba(0,0,0, 0.65)",
-        //     },
-        // },
     },
     hideContainer: {
         display: "none",
@@ -115,7 +74,6 @@ export default (props) => {
                             </Grid>
                             <Grid>
                                 <Typography
-                                    className="button"
                                     component={LogoutButton}
                                     variant="h6"
                                 >
@@ -141,14 +99,20 @@ export default (props) => {
                                     Dark Web
                                 </Typography>
                             </Grid>
-                            <Grid justify="flex-end" container>
-                                <Title />
+                            <Grid
+                                className="wrapper"
+                                justify="flex-end"
+                                container
+                            >
+                                <Box className="wrapper">
+                                    <Title />
+                                </Box>
                                 <LogoutButton />
                             </Grid>
                         </Toolbar>
                     </AppBar>
                     <Grid container className="container">
-                        <Grid container className="wrapper">{props.children}</Grid>
+                        <Box className="wrapper">{props.children}</Box>
                     </Grid>
                 </div>
             )}
