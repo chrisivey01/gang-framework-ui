@@ -1,10 +1,11 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import ChatIcon from "../../images/chat.svg";
-import WarIcon from "../../images/sword.svg";
-import RosterIcon from "../../images/team.svg";
-import HomeIcon from "../../images/home.svg";
+import ChatIcon from "../assets/svg/chat.svg";
+import WarIcon from "../assets/svg/sword.svg";
+import RosterIcon from "../assets/svg/team.svg";
+import StoreIcon from "../assets/svg/store.svg";
+import withTitle from "../hoc/TitleHOC";
 
 const useStyles = makeStyles((theme) => ({
     box: {
@@ -46,36 +47,23 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default () => {
+const Title = (props) => {
     const classes = useStyles();
-    const [previousElement, setPreviousElement] = useState(null);
-
-    const pathHandler = (e) => {
-        if (previousElement) {
-            previousElement.classList.remove(classes.selected);
-            setPreviousElement(e.currentTarget);
-            e.currentTarget.classList.add(classes.selected);
-        } else {
-            setPreviousElement(e.currentTarget);
-            e.currentTarget.classList.add(classes.selected);
-        }
-        console.log(e.currentTarget);
-    };
 
     return (
         <Fragment>
             <Link
                 to={"/"}
                 className={classes.box}
-                onClick={(e) => pathHandler(e)}
+                onClick={(e) => props.pathHandler(e)}
             >
-                <img src={HomeIcon} className="svg" />
-                <Typography component={"span"}>Home</Typography>
+                <img src={StoreIcon} className="svg" />
+                <Typography component={"span"}>Store</Typography>
             </Link>
             <Link
                 to={"/roster"}
                 className={classes.box}
-                onClick={(e) => pathHandler(e)}
+                onClick={(e) => props.pathHandler(e)}
             >
                 <img src={RosterIcon} className="svg" />
                 <Typography component={"span"}>Roster</Typography>
@@ -83,7 +71,7 @@ export default () => {
             <Link
                 to={"/war"}
                 className={classes.box}
-                onClick={(e) => pathHandler(e)}
+                onClick={(e) => props.pathHandler(e)}
             >
                 <img src={WarIcon} className="svg" />
                 <Typography component={"span"}>War</Typography>
@@ -91,7 +79,7 @@ export default () => {
             <Link
                 to={"/chat"}
                 className={classes.box}
-                onClick={(e) => pathHandler(e)}
+                onClick={(e) => props.pathHandler(e)}
             >
                 <img src={ChatIcon} className="svg" />
                 <Typography component={"span"}>Chat</Typography>
@@ -99,3 +87,5 @@ export default () => {
         </Fragment>
     );
 };
+
+export default withTitle(Title);

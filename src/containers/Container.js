@@ -1,7 +1,6 @@
 import {
     AppBar,
     Box,
-    Container,
     Drawer,
     Grid,
     makeStyles,
@@ -12,8 +11,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../components/LogoutButton";
-import Title from "../components/Title";
-import Sidebar from "../components/Title";
+import { default as Sidebar, default as Title } from "../components/Title";
 import Listener from "./Listener";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexWrap: "wrap",
         width: "80%",
-        
+
         "& .app-bar": {
             zIndex: theme.zIndex.drawer + 1,
             color: "#fff",

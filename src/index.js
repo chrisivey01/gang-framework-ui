@@ -6,7 +6,7 @@ import { applyMiddleware, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import Chat from "./components/Chat";
-import Home from "./components/Home";
+import Store from "./components/Store";
 import Roster from "./components/Roster";
 import War from "./components/War";
 import Container from "./containers/Container";
@@ -21,7 +21,7 @@ ReactDOM.render(
             <HashRouter>
                 <Container>
                     <Switch>
-                        <Route exact path="/" component={Home}></Route>
+                        <Route exact path="/" component={Store}></Route>
                         <Route exact path="/roster" component={Roster}></Route>
                         <Route exact path="/war" component={War}></Route>
                         <Route exact path="/chat" component={Chat}></Route>

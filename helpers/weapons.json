@@ -1,0 +1,302 @@
+[
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "ammo": 128
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "ammo": 48
+    }
+]
