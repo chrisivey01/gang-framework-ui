@@ -24,6 +24,8 @@ export const storeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
+                totalCostDisplay: 0,
+                totalCost: 0
             };
         }
         case LOAD_STORE_SUCCESS:

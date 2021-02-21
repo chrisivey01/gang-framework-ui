@@ -5,7 +5,7 @@ import ChatIcon from "../assets/svg/chat.svg";
 import StoreIcon from "../assets/svg/store.svg";
 import WarIcon from "../assets/svg/sword.svg";
 import RosterIcon from "../assets/svg/team.svg";
-import withTitle from "../hoc/TitleHOC";
+import withTitle from "../hoc/withTitle";
 
 const useStyles = makeStyles((theme) => ({
     box: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Title = ({pathHandler}) => {
+const Title = ({ pathHandler }) => {
     const classes = useStyles();
 
     return (

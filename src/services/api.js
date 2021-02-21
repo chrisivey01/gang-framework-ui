@@ -1,5 +1,5 @@
 import axios from "axios";
-import character from "../../helpers/character.json";
+import character from "../helpers/character.json";
 const openDarkWebUrl = "http://pma-gang-framework/OpenDarkWeb";
 const closeDarkWebUrl = "http://pma-gang-framework/CloseDarkWeb";
 

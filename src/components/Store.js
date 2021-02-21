@@ -1,4 +1,5 @@
 import {
+    Button,
     Card,
     CardContent,
     CardHeader,
@@ -6,54 +7,42 @@ import {
     Grid,
     makeStyles,
 } from "@material-ui/core";
-import { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import data from "../../helpers/weapons.json";
-import { loadStore } from "../store/web-store/store.actions";
+import { Fragment } from "react";
+import withStore from "../hoc/withStore.js";
 import Bids from "./Bids";
-import ItemForSale from "./ItemForSale";
 
 const useStyles = makeStyles((theme) => ({
     card: {
         backgroundColor: "#333",
         color: "#fff",
         boxShadow: "0 8px 16px 0 rgb(0,0,0)",
+
+        "& .button": {
+            backgroundColor: "#212121",
+            color: "#fff",
+        },
+
+        "& .divider": {
+            backgroundColor: "rgba(0, 0, 0, 0.52)",
+        },
     },
 }));
 
-const Store = () => {
-    const dispatch = useDispatch();
+const Store = ({ renderItemsForSale }) => {
     const classes = useStyles();
-    const items = useSelector((state) => state.store.items);
-    const cart = useSelector((state) => state.store.cart);
-    const totalCost = useSelector((state) => state.store.totalCost);
-
-    useEffect(() => {
-        dispatch(loadStore(data));
-    }, []);
 
     return (
         <Fragment>
             <Grid>
                 <Card className={classes.card}>
-                    <CardHeader title={"Black Market"} />
-                    <Divider light />
-                    <Bids />
+                    <CardHeader title={<Bids />} />
+                    <Divider className="divider" variant="middle" />
                     <CardContent>
                         <Grid justify="center" container>
-                            {items !== undefined
-                                ? [...items.keys()].map((item) => {
-                                      return (
-                                          <ItemForSale
-                                              items={items}
-                                              cart={cart}
-                                              cartItem={cart.get(item)}
-                                              item={items.get(item)}
-                                              totalCost={totalCost}
-                                          />
-                                      );
-                                  })
-                                : null}
+                            {renderItemsForSale()}
+                            <Grid container justify="flex-end">
+                                <Button className="button">Purchase</Button>
+                            </Grid>
                         </Grid>
                     </CardContent>
                 </Card>
@@ -62,4 +51,4 @@ const Store = () => {
     );
 };
 
-export default Store;
+export default withStore(Store);

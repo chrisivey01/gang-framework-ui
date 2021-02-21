@@ -1,5 +1,4 @@
-import { Box, Card, CardHeader, makeStyles } from "@material-ui/core";
-import { useEffect } from "react";
+import { Grid, makeStyles } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(() => ({
@@ -9,7 +8,7 @@ const useStyles = makeStyles(() => ({
     wrapper: {
         display: "flex",
         width: "100%",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         "& .card": {
             backgroundColor: "#212121",
             color: "#fff",
@@ -21,14 +20,15 @@ const useStyles = makeStyles(() => ({
 
 const Bids = () => {
     const classes = useStyles();
-    const totalCostDisplay = useSelector((state) => state.store.totalCostDisplay);
+    const totalCostDisplay = useSelector(
+        (state) => state.store.totalCostDisplay
+    );
 
     return (
-        <Box className={classes.wrapper}>
-            <Card className="card">
-                <CardHeader title={`Total: $${totalCostDisplay}`} />
-            </Card>
-        </Box>
+        <Grid className={classes.wrapper}>
+            <Grid>Black Market</Grid>
+            <Grid>{`Total: $${totalCostDisplay}`}</Grid>
+        </Grid>
     );
 };
 

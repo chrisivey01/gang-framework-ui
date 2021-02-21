@@ -1,5 +1,5 @@
 import Apis from "../../services/api";
-import character from "../../../helpers/character.json";
+import character from "../../helpers/character.json";
 export const LOAD_WEB = "LOAD_WEB";
 export const LOAD_WEB_SUCCESS = "LOAD_WEB_SUCCESS";
 export const LOAD_WEB_FAILURE = "LOAD_WEB_FAILURE";
