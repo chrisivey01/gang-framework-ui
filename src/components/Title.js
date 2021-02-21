@@ -1,10 +1,10 @@
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import { Fragment, useState } from "react";
+import { makeStyles, Typography } from "@material-ui/core";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import ChatIcon from "../assets/svg/chat.svg";
+import StoreIcon from "../assets/svg/store.svg";
 import WarIcon from "../assets/svg/sword.svg";
 import RosterIcon from "../assets/svg/team.svg";
-import StoreIcon from "../assets/svg/store.svg";
 import withTitle from "../hoc/TitleHOC";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Title = (props) => {
+const Title = ({pathHandler}) => {
     const classes = useStyles();
 
     return (
@@ -55,7 +55,7 @@ const Title = (props) => {
             <Link
                 to={"/"}
                 className={classes.box}
-                onClick={(e) => props.pathHandler(e)}
+                onClick={(e) => pathHandler(e)}
             >
                 <img src={StoreIcon} className="svg" />
                 <Typography component={"span"}>Store</Typography>
@@ -63,7 +63,7 @@ const Title = (props) => {
             <Link
                 to={"/roster"}
                 className={classes.box}
-                onClick={(e) => props.pathHandler(e)}
+                onClick={(e) => pathHandler(e)}
             >
                 <img src={RosterIcon} className="svg" />
                 <Typography component={"span"}>Roster</Typography>
@@ -71,7 +71,7 @@ const Title = (props) => {
             <Link
                 to={"/war"}
                 className={classes.box}
-                onClick={(e) => props.pathHandler(e)}
+                onClick={(e) => pathHandler(e)}
             >
                 <img src={WarIcon} className="svg" />
                 <Typography component={"span"}>War</Typography>
@@ -79,7 +79,7 @@ const Title = (props) => {
             <Link
                 to={"/chat"}
                 className={classes.box}
-                onClick={(e) => props.pathHandler(e)}
+                onClick={(e) => pathHandler(e)}
             >
                 <img src={ChatIcon} className="svg" />
                 <Typography component={"span"}>Chat</Typography>

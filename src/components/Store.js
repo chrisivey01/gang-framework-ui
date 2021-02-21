@@ -7,8 +7,11 @@ import {
     makeStyles,
 } from "@material-ui/core";
 import { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import data from "../../helpers/weapons.json";
-import ItemsForSale from "./ItemsForSale";
+import { loadStore } from "../store/web-store/store.actions";
+import Bids from "./Bids";
+import ItemForSale from "./ItemForSale";
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -18,13 +21,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default () => {
+const Store = () => {
+    const dispatch = useDispatch();
     const classes = useStyles();
-    const [items, setItems] = useState([]);
+    const items = useSelector((state) => state.store.items);
+    const cart = useSelector((state) => state.store.cart);
+    const totalCost = useSelector((state) => state.store.totalCost);
 
     useEffect(() => {
-        setItems(data);
-        console.log(items);
+        dispatch(loadStore(data));
     }, []);
 
     return (
@@ -33,11 +38,20 @@ export default () => {
                 <Card className={classes.card}>
                     <CardHeader title={"Black Market"} />
                     <Divider light />
+                    <Bids />
                     <CardContent>
-                        <Grid container spacing={6} wrap="wrap">
+                        <Grid justify="center" container>
                             {items !== undefined
-                                ? items.map((item) => {
-                                      return <ItemsForSale item={item} />;
+                                ? [...items.keys()].map((item) => {
+                                      return (
+                                          <ItemForSale
+                                              items={items}
+                                              cart={cart}
+                                              cartItem={cart.get(item)}
+                                              item={items.get(item)}
+                                              totalCost={totalCost}
+                                          />
+                                      );
                                   })
                                 : null}
                         </Grid>
@@ -47,3 +61,5 @@ export default () => {
         </Fragment>
     );
 };
+
+export default Store;

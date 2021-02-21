@@ -1,302 +1,302 @@
 [
     {
         "name": "WEAPON_BULLPUPRIFLE",
-        "ammo": 128
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
     },
     {
         "name": "WEAPON_BULLPUPRIFLE",
-        "ammo": 128
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
     },
     {
         "name": "WEAPON_BULLPUPRIFLE",
-        "ammo": 128
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
     },
     {
         "name": "WEAPON_BULLPUPRIFLE",
-        "ammo": 128
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
     },
     {
         "name": "WEAPON_BULLPUPRIFLE",
-        "ammo": 128
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
+    },
+    {
+        "name": "WEAPON_ASSAULTRIFLE",
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
+    },
+    {
+        "name": "WEAPON_MINISMG",
+        "label": "Minismg",
+        "ammo": 128,
+        "price": 95000
+    },
+    {
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "ammo": 48,
+        "price": 35000
     },
     {
         "name": "WEAPON_BULLPUPRIFLE",
-        "ammo": 128
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
+    },
+    {
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
         "name": "WEAPON_ASSAULTRIFLE",
-        "ammo": 128
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
     },
     {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
+        "name": "WEAPON_BULLPUPRIFLE",
+        "label": "Bullpup Rifle",
+        "ammo": 128,
+        "price": 125000
     },
     {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_MINISMG",
-        "ammo": 128
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
-    },
-    {
-        "name": "WEAPON_HEAVYPISTOL",
-        "ammo": 48
+        "name": "WEAPON_ASSAULTRIFLE",
+        "label": "Assault Rifle",
+        "ammo": 128,
+        "price": 175000
     }
 ]
