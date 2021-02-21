@@ -20,7 +20,7 @@ const withRoster = (WrappedComponent) => (props) => {
                         );
                     } else {
                         return (
-                            <ListItem dense button>
+                            <ListItem key={i} dense button>
                                 <ListItemText primary={gang.char_name} />
                             </ListItem>
                         );
@@ -41,7 +41,7 @@ const withRoster = (WrappedComponent) => (props) => {
                         );
                     } else {
                         return (
-                            <ListItem dense button>
+                            <ListItem key={i} dense button>
                                 <ListItemText primary={gang.char_name} />
                             </ListItem>
                         );
