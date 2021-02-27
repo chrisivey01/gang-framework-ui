@@ -1,13 +1,13 @@
-import { Card, CardContent, List, makeStyles } from "@material-ui/core";
+import { List, makeStyles, Paper } from "@material-ui/core";
 import withRoster from "../hoc/withRoster";
 
 const useStyles = makeStyles((theme) => ({
-    cardContainer: {
+    sidebarContainer: {
         backgroundColor: "#333",
         fontSize: 14,
         color: "rgba(227,227,227)",
-        margin: 10,
         padding: 0,
+        height: "fit-content",
         "& .MuiCardContent-root": {
             padding: 0,
         },
@@ -23,18 +23,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Roster = ({ renderRoster }) => {
+const RosterList = ({ renderRoster }) => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.cardContainer}>
-            <CardContent className={classes.content}>
-                <List component="nav" className="list">
-                    {renderRoster()}
-                </List>
-            </CardContent>
-        </Card>
+        <Paper className={classes.sidebarContainer}>
+            <List component="nav" className="list">
+                {renderRoster()}
+            </List>
+        </Paper>
     );
 };
 
-export default withRoster(Roster);
+export default withRoster(RosterList);

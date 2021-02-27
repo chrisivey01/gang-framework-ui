@@ -1,23 +1,21 @@
 import {
     AppBar,
     Box,
-    Drawer,
     Grid,
     makeStyles,
     Toolbar,
     Typography,
 } from "@material-ui/core";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../components/LogoutButton";
-import { default as Sidebar, default as Title } from "../components/Title";
+import { default as Title } from "../components/Title";
 import Listener from "./Listener";
 
 const useStyles = makeStyles((theme) => ({
     showContainer: {
         position: "relative",
-        top: "30px",
+        top: "90px",
         margin: "0 auto",
         display: "flex",
         flexWrap: "wrap",
@@ -27,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
             zIndex: theme.zIndex.drawer + 1,
             color: "#fff",
             backgroundColor: "#333",
+            minWidth: "790px",
+
             "& .title-bar": {
                 "& .wrapper": {
                     minHeight: "100%",
@@ -36,11 +36,15 @@ const useStyles = makeStyles((theme) => ({
         },
 
         "& .container": {
-            height: 750,
+            height: 645,
             backgroundColor: "#212121",
             color: "#fff",
+            padding: 30,
+            minWidth: "790px",
+
             "& .wrapper": {
-                padding: 30,
+                display: "flex",
+                width: "100%",
             },
         },
     },
@@ -54,40 +58,41 @@ export default (props) => {
     const showWeb = useSelector((state) => state.darkWeb.showWeb);
     const character = useSelector((state) => state.darkWeb.characterData);
 
-    //If development it will not use the ternary and wait for the postMessage
-    //It will just open the UI immediately with the JSON required.
-    return (
-        <Fragment>
-            {process.env.NODE_ENV !== "development" ? (
+    const renderEnvironment = () => {
+        if (process.env.NODE_ENV !== "development") {
+            return (
                 <div
                     className={
                         showWeb ? classes.showContainer : classes.hideContainer
                     }
                 >
                     <Listener />
-                    <AppBar position="static" className="appBar">
-                        <Toolbar disableGutters={false} className="titleBar">
+                    <AppBar position="static" className="app-bar">
+                        <Toolbar className="title-bar">
                             <Grid>
-                                <Typography variant="h6">Dark Web</Typography>
-                            </Grid>
-                            <Grid>
-                                <Typography
-                                    component={LogoutButton}
-                                    variant="h6"
-                                >
-                                    Logout
+                                <Typography noWrap={true} variant="h6">
+                                    Dark Web
                                 </Typography>
-                                <ExitToAppIcon />
+                            </Grid>
+                            <Grid
+                                className="wrapper"
+                                justify="flex-end"
+                                container
+                            >
+                                <Box className="wrapper">
+                                    <Title />
+                                    <LogoutButton />
+                                </Box>
                             </Grid>
                         </Toolbar>
                     </AppBar>
-
-                    <Drawer className="drawer" variant="permanent">
-                        <Sidebar />
-                    </Drawer>
-                    <main className="content">{props.children}</main>
+                    <Grid container className="container">
+                        <Grid className="wrapper">{props.children}</Grid>
+                    </Grid>
                 </div>
-            ) : (
+            );
+        } else {
+            return (
                 <div className={classes.showContainer}>
                     <Listener />
                     <AppBar position="static" className="app-bar">
@@ -104,16 +109,20 @@ export default (props) => {
                             >
                                 <Box className="wrapper">
                                     <Title />
+                                    <LogoutButton />
                                 </Box>
-                                <LogoutButton />
                             </Grid>
                         </Toolbar>
                     </AppBar>
                     <Grid container className="container">
-                        <Box className="wrapper">{props.children}</Box>
+                        <Grid className="wrapper">{props.children}</Grid>
                     </Grid>
                 </div>
-            )}
-        </Fragment>
-    );
+            );
+        }
+    };
+
+    //If development it will not use the ternary and wait for the postMessage
+    //It will just open the UI immediately with the JSON required.
+    return <Fragment>{renderEnvironment()}</Fragment>;
 };

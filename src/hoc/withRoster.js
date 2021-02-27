@@ -1,17 +1,35 @@
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import gangRoster from "../helpers/gang.json";
-
+import { loadRoster, viewMember } from "../store/roster/roster.actions";
 const withRoster = (WrappedComponent) => (props) => {
+    const dispatch = useDispatch();
+    const roster = useSelector((state) => state.gang.roster)
+
+    useEffect(() => {
+        dispatch(loadRoster());
+    }, [roster]);
+
+    const selectPlayer = (i) => {
+        dispatch(viewMember(roster[i]))
+        console.log(roster[i]);
+    };
 
     const renderRoster = () => {
         if (process.env.NODE_ENV === "development") {
             return gangRoster
-                .sort((a, b) => b.gangRank - a.gangRank)
+                .sort((a, b) => b.gang_rank - a.gang_rank)
                 .map((gang, i) => {
-                    if (gang.gangRank === "4") {
+                    if (gang.gang_rank === 4) {
                         return (
-                            <ListItem dense button key={i}>
+                            <ListItem
+                                onClick={() => selectPlayer(i)}
+                                dense
+                                button
+                                key={i}
+                            >
                                 <ListItemIcon>
                                     <StarIcon />
                                 </ListItemIcon>
@@ -20,19 +38,29 @@ const withRoster = (WrappedComponent) => (props) => {
                         );
                     } else {
                         return (
-                            <ListItem key={i} dense button>
+                            <ListItem
+                                onClick={() => selectPlayer(i)}
+                                key={i}
+                                dense
+                                button
+                            >
                                 <ListItemText primary={gang.char_name} />
                             </ListItem>
                         );
                     }
                 });
         } else {
-            return gangRoster
-                .sort((a, b) => b.gangRank - a.gangRank)
+            return roster
+                .sort((a, b) => b.gang_rank - a.gang_rank)
                 .map((gang, i) => {
-                    if (gang.gangRank === "4") {
+                    if (gang.gang_rank === 4) {
                         return (
-                            <ListItem dense button key={i}>
+                            <ListItem
+                                onClick={() => selectPlayer(i)}
+                                dense
+                                button
+                                key={i}
+                            >
                                 <ListItemIcon>
                                     <StarIcon />
                                 </ListItemIcon>
@@ -41,7 +69,12 @@ const withRoster = (WrappedComponent) => (props) => {
                         );
                     } else {
                         return (
-                            <ListItem key={i} dense button>
+                            <ListItem
+                                onClick={() => selectPlayer(i)}
+                                key={i}
+                                dense
+                                button
+                            >
                                 <ListItemText primary={gang.char_name} />
                             </ListItem>
                         );
