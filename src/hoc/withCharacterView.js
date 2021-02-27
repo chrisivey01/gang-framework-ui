@@ -99,10 +99,10 @@ const withCharacterView = (WrappedComponent) => (props) => {
                         </Box>
                         <Box className="wrapper-box">
                             <TextField
-                                className="notes"
-                                label="Notes"
+                                className="backstory"
+                                label="Backstory"
                                 multiline
-                                rows={10}
+                                rows={22}
                                 variant="filled"
                             />
                             <Box className="submit-button">

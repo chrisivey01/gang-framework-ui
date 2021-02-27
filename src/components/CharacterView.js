@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
         "& .MuiFilledInput-underline:after": {
             borderBottom: "#fff",
         },
-        "& .notes": {
+        "& .backstory": {
             width: 400,
         },
 
