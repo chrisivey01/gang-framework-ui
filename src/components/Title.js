@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import ChatIcon from "../assets/svg/chat.svg";
+import CalendarIcon from "../assets/svg/calendar.svg";
 import StoreIcon from "../assets/svg/store.svg";
 import WarIcon from "../assets/svg/sword.svg";
 import RosterIcon from "../assets/svg/team.svg";
@@ -81,8 +81,8 @@ const Title = ({ pathHandler }) => {
                 className={classes.box}
                 onClick={(e) => pathHandler(e)}
             >
-                <img src={ChatIcon} className="svg" />
-                <Typography component={"span"}>Chat</Typography>
+                <img src={CalendarIcon} className="svg" />
+                <Typography component={"span"}>Calendar</Typography>
             </Link>
         </Fragment>
     );
