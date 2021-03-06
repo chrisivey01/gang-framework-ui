@@ -23,8 +23,12 @@ export const getEvents = () => {
 export const createEvent = (data) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post("/api/calendar/events/new", data);
-            dispatch({ type: CREATE_EVENT, payload: response.data });
+            if(process.env.NODE_ENV !== "development"){
+                const response = await axios.post("/api/calendar/events/new", data);
+                dispatch({ type: CREATE_EVENT, payload: response.data });
+            } else {
+                dispatch({ type: CREATE_EVENT, payload: data });
+            }
         } catch (e) {
             console.log(e);
         }
@@ -32,7 +36,9 @@ export const createEvent = (data) => {
 };
 
 export const selectEvent = (eventId) => {
-    dispatch({ type: SELECT_EVENT, payload: eventId });
+    return (dispatch) => {
+        dispatch({ type: SELECT_EVENT, payload: eventId });
+    }
 };
 
 export const updateEvent = (eventId, update) => {

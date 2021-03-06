@@ -66,18 +66,12 @@ const CalendarToolbar = ({
       spacing={3}
       {...rest}
     >
-      <Grid item>
-        <ButtonGroup size="small">
-          <Button onClick={onDatePrev}>Prev</Button>
-          <Button onClick={onDateToday}>Today</Button>
-          <Button onClick={onDateNext}>Next</Button>
-        </ButtonGroup>
-      </Grid>
+
       <Hidden smDown>
         <Grid item>
           <Typography
-            variant="h3"
-            color="textPrimary"
+            variant="h5"
+            color="initial"
           >
             {moment(date).format('MMMM YYYY')}
           </Typography>

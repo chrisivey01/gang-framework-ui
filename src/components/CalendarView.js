@@ -27,9 +27,9 @@ import {
     openModal,
     closeModal,
 } from "../store/calendar/calendar.actions";
+import CalendarAddEvent from "./CalendarAddEvent";
 import CalendarHeader from "./CalendarHeader";
 import CalendarToolbar from "./CalendarToolbar";
-import CalendarAddEvent from "./CalendarAddEvent";
 import { Fragment } from "react";
 
 const selectedEventSelector = (state) => {
@@ -87,11 +87,9 @@ const useStyles = makeStyles((theme) => ({
             borderWidth: 2,
             opacity: 0.9,
             "& .fc-time": {
-                ...theme.typography.h6,
                 color: "inherit",
             },
             "& .fc-title": {
-                ...theme.typography.body1,
                 color: "inherit",
             },
         },

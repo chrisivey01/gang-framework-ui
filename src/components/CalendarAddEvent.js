@@ -117,8 +117,8 @@ const CalendarAddEvent = ({
           const data = {
             allDay: values.allDay,
             description: values.description,
-            end: values.end,
-            start: values.start,
+            end: values.end._d,
+            start: values.start._d,
             title: values.title
           };
 

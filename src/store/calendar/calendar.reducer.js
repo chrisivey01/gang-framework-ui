@@ -31,7 +31,7 @@ export const calendarReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isModalOpen: true,
-                selectedEventId: selectedEventId,
+                selectedEventId: action.payload.eventId,
             };
         case UPDATE_EVENT:
             return {

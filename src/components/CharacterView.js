@@ -1,19 +1,6 @@
-import {
-    Box,
-    Button,
-    Card,
-    CardContent,
-    CardHeader,
-    FormControl,
-    Grid,
-    makeStyles,
-    MenuItem,
-    TextField,
-    Typography,
-} from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
+import { Card, CardHeader, makeStyles } from "@material-ui/core";
+import { useSelector } from "react-redux";
 import withCharacterView from "../hoc/withCharacterView";
-import { changeRank } from "../store/roster/roster.actions";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -73,16 +60,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const CharacterView = ({renderIfNotNull}) => {
+const CharacterView = ({ renderIfNotNull }) => {
     const classes = useStyles();
-
-
+    const roster = useSelector((state) => state.gang.roster)
     return (
         <Card className={classes.container}>
             {process.env.NODE_ENV === "development" ? (
                 <CardHeader title={"Boobs"} />
             ) : (
-                <CardHeader title={gangTitle} />
+                <CardHeader title={roster[0].current_gang} />
             )}
             {renderIfNotNull()}
         </Card>

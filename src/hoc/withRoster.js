@@ -8,9 +8,9 @@ const withRoster = (WrappedComponent) => (props) => {
     const dispatch = useDispatch();
     const roster = useSelector((state) => state.gang.roster)
 
-    useEffect(() => {
-        dispatch(loadRoster());
-    }, [roster]);
+    // useEffect(() => {
+    //     dispatch(loadRoster());
+    // }, [roster]);
 
     const selectPlayer = (i) => {
         dispatch(viewMember(roster[i]))

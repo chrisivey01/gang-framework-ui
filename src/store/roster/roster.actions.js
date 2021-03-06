@@ -1,4 +1,4 @@
-import data from "../../helpers/gang.json";
+import gangJsonData from "../../helpers/gang.json";
 
 export const LOAD_ROSTER = "LOAD_ROSTER";
 export const LOAD_ROSTER_FAILURE = "LOAD_ROSTER_FAILURE";
@@ -6,19 +6,17 @@ export const LOAD_ROSTER_SUCCESS = "LOAD_ROSTER_SUCCESS";
 export const VIEW_MEMBER = "VIEW_MEMBER";
 export const CHANGE_RANK = "CHANGE_RANK";
 
-export const loadRoster = () => {
+export const loadRoster = (data) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
             try {
-                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: data });
+                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: gangJsonData });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTER_FAILURE });
             }
         } else {
             try {
-                // need api call still
-                // const data = call()
-                dispatch({ type: LOAD_ROSTER_SUCCESS });
+                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: data });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTER_FAILURE });
             }
