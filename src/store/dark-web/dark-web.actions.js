@@ -1,5 +1,6 @@
 import Apis from "../../services/api";
-import character from "../../helpers/character.json";
+import gangRoster from "../../helpers/gang.json";
+
 export const LOAD_WEB = "LOAD_WEB";
 export const LOAD_WEB_SUCCESS = "LOAD_WEB_SUCCESS";
 export const LOAD_WEB_FAILURE = "LOAD_WEB_FAILURE";
@@ -8,7 +9,7 @@ export const CLOSE_WEB = "CLOSE_WEB";
 export const loadWeb = (data) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
-            dispatch(loadWebSuccess(character));
+            dispatch(loadWebSuccess(gangRoster));
         } else {
             if (data) {
                 dispatch(loadWebSuccess(data));

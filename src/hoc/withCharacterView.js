@@ -4,10 +4,13 @@ import {
     CardContent,
     FormControl,
     Grid,
+    Input,
     MenuItem,
     TextField,
     Typography,
 } from "@material-ui/core";
+import moment from "moment";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeRank } from "../store/roster/roster.actions";
 
@@ -15,6 +18,8 @@ const withCharacterView = (WrappedComponent) => (props) => {
     const dispatch = useDispatch();
     const character = useSelector((state) => state.gang.character);
     const roster = useSelector((state) => state.gang.roster);
+    const [imgUrl, setImgUrl] = useState("");
+    const [isEdit, setIsEdit] = useState(false);
 
     const items = [
         { key: "Name", value: "char_name" },
@@ -22,20 +27,19 @@ const withCharacterView = (WrappedComponent) => (props) => {
             key: "Rank",
             value: [0, 1, 2, 3, 4],
         },
-        { key: "Last Seen", value: "last_seen" },
-        { key: "Age", value: "age" },
+        { key: "Last Seen", value: "last_logged" },
         { key: "Phone", value: "phone_number" },
-        { key: "Legal Job", value: "legal_job" },
     ];
+
+    const handleEditChange = () => {
+        setIsEdit(!isEdit);
+    };
 
     const chooseRank = (event) => {
         let copyRoster = [...roster];
         copyRoster = copyRoster.map((char) => {
             if (char.char_name === character.char_name) {
                 char.gang_rank = event.target.value;
-                console.log(
-                    "Changed " + char.char_name + " rank to " + char.gang_rank
-                );
                 return char;
             } else {
                 return char;
@@ -47,21 +51,7 @@ const withCharacterView = (WrappedComponent) => (props) => {
 
     const renderCharacterInfo = (character) => {
         return items.map((option) => {
-            if (option.key !== "Rank") {
-                return (
-                    <FormControl className="margin">
-                        <TextField
-                            className="inputs"
-                            InputLabelProps={{ shrink: true }}
-                            label={option.key}
-                            multiline
-                            disabled
-                            variant="filled"
-                            value={character[option.value]}
-                        />
-                    </FormControl>
-                );
-            } else {
+            if (option.key === "Rank") {
                 return (
                     <FormControl className="margin">
                         <TextField
@@ -85,8 +75,56 @@ const withCharacterView = (WrappedComponent) => (props) => {
                         </TextField>
                     </FormControl>
                 );
+            } else if (option.key === "Last Seen") {
+                return (
+                    <FormControl className="margin">
+                        <TextField
+                            className="inputs"
+                            InputLabelProps={{ shrink: true }}
+                            label={option.key}
+                            variant="filled"
+                            value={moment(
+                                new Date(character.last_logged)
+                            ).format("MMMM Do YYYY")}
+                        ></TextField>
+                    </FormControl>
+                );
+            } else {
+                return (
+                    <FormControl className="margin">
+                        <TextField
+                            className="inputs"
+                            InputLabelProps={{ shrink: true }}
+                            label={option.key}
+                            multiline
+                            disabled
+                            variant="filled"
+                            value={character[option.value]}
+                        />
+                    </FormControl>
+                );
             }
         });
+    };
+
+    const renderImageOrInput = () => {
+        return (
+            <Box className="wrapper-image">
+                {isEdit ? (
+                    <TextField
+                        variant="filled"
+                        label="Image Link"
+                        value={imgUrl}
+                        onChange={handleImgChange}
+                    />
+                ) : null}
+                <img src={imgUrl} />
+            </Box>
+        );
+    };
+
+    const handleImgChange = (event) => {
+        setImgUrl(event.target.value);
     };
 
     const renderIfNotNull = () => {
@@ -94,6 +132,7 @@ const withCharacterView = (WrappedComponent) => (props) => {
             return (
                 <CardContent>
                     <Grid container justify="center">
+                        {renderImageOrInput()}
                         <Box className="wrapper-text">
                             {renderCharacterInfo(character)}
                         </Box>
@@ -126,7 +165,13 @@ const withCharacterView = (WrappedComponent) => (props) => {
         }
     };
 
-    return <WrappedComponent renderIfNotNull={renderIfNotNull} />;
+    return (
+        <WrappedComponent
+            renderIfNotNull={renderIfNotNull}
+            handleEditChange={handleEditChange}
+            isEdit={isEdit}
+        />
+    );
 };
 
 export default withCharacterView;

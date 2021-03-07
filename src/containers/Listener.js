@@ -27,7 +27,10 @@ export default () => {
             case "open":
                 if (process.env.NODE_ENV === "development") {
                     if (event.data.darkWeb) {
-                        dispatch(loadWeb());
+                        document.querySelector("#blur").style =
+                        "position: absolute; height: 100%;width: 100%;filter: blur(200px);background-color: rgba(0, 0, 0, 0.8);bottom: 0;left: 0; display:block;";
+                        dispatch(loadWeb('{}'));
+                        dispatch(loadRoster(event.data.roster));
                     }
                 } else {
                     if (event.data.darkWeb) {

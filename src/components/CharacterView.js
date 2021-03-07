@@ -1,4 +1,12 @@
-import { Card, CardHeader, makeStyles } from "@material-ui/core";
+import {
+    Card,
+    CardHeader,
+    Grid,
+    makeStyles,
+    Switch,
+    Typography,
+} from "@material-ui/core";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import withCharacterView from "../hoc/withCharacterView";
 
@@ -8,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
         width: "inherit",
         backgroundColor: "#333",
         color: "#fff",
+
+        "& .edit": {
+            justifyContent: "flex-end",
+            paddingRight: 10,
+        },
 
         "& .wrapper-text": {
             width: "225px",
@@ -27,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
                 },
             },
         },
+        "& .wrapper-image": {
+            width: "300px",
+            height: "300px",
+
+            "& img": {
+                objectFit: "contain",
+                height: "100%",
+                width: "100%",
+            },
+        },
 
         "& .margin": {
             margin: theme.spacing(1),
@@ -43,28 +66,34 @@ const useStyles = makeStyles((theme) => ({
             fontSize: 12,
             backgroundColor: "#212121",
         },
-
         "& .MuiFilledInput-underline:after": {
             borderBottom: "#fff",
         },
         "& .backstory": {
             width: 400,
         },
-
         "& .excommunicado": {
             display: "flex",
             justifyContent: "flex-end",
-            top: "55px",
+            top: "50px",
             position: "relative",
         },
     },
 }));
 
-const CharacterView = ({ renderIfNotNull }) => {
+const CharacterView = ({ renderIfNotNull, handleEditChange, isEdit }) => {
     const classes = useStyles();
-    const roster = useSelector((state) => state.gang.roster)
+    const roster = useSelector((state) => state.gang.roster);
+
     return (
         <Card className={classes.container}>
+            <Grid container alignItems="center" className="edit">
+                <Grid item>Disable</Grid>
+                <Grid item>
+                    <Switch checked={isEdit} onChange={handleEditChange} />
+                </Grid>
+                <Grid item>Edit</Grid>
+            </Grid>
             {process.env.NODE_ENV === "development" ? (
                 <CardHeader title={"Boobs"} />
             ) : (
