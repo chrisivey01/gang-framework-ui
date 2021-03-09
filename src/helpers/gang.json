@@ -9,7 +9,8 @@
         "legal_job": "police",
         "age": 29,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 2,
@@ -21,7 +22,8 @@
         "legal_job": "",
         "age": 25,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fbgn2018media%2Fwp-content%2Fuploads%2F2017%2F10%2F28232301%2Fsailor-moon.jpg"
     },
     {
         "id": 3,
@@ -33,7 +35,8 @@
         "legal_job": "lumberjack",
         "age": 34,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 4,
@@ -45,7 +48,8 @@
         "legal_job": "lumberjack",
         "age": 39,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 5,
@@ -57,7 +61,8 @@
         "legal_job": "lumberjack",
         "age": 49,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 6,
@@ -69,7 +74,8 @@
         "legal_job": "lumberjack",
         "age": 43,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 7,
@@ -81,7 +87,8 @@
         "legal_job": "lumberjack",
         "age": 54,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 8,
@@ -93,7 +100,8 @@
         "legal_job": "lumberjack",
         "age": 59,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 9,
@@ -105,7 +113,8 @@
         "legal_job": "pegasus",
         "age": 19,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 10,
@@ -117,7 +126,8 @@
         "legal_job": "taco",
         "age": 25,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 11,
@@ -129,7 +139,8 @@
         "legal_job": "miner",
         "age": 24,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     },
     {
         "id": 12,
@@ -141,6 +152,7 @@
         "legal_job": "taxi",
         "age": 36,
         "last_seen": "2/27/2021",
-        "backstory": ""
+        "backstory": "",
+        "profile_photo": ""
     }
 ]

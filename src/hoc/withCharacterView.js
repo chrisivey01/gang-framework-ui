@@ -4,7 +4,7 @@ import {
     CardContent,
     FormControl,
     Grid,
-    Input,
+    Menu,
     MenuItem,
     TextField,
     Typography,
@@ -19,7 +19,7 @@ const withCharacterView = (WrappedComponent) => (props) => {
     const character = useSelector((state) => state.gang.character);
     const roster = useSelector((state) => state.gang.roster);
     const [imgUrl, setImgUrl] = useState("");
-    const [isEdit, setIsEdit] = useState(false);
+    const [isEdit, setIsEdit] = useState(true);
 
     const items = [
         { key: "Name", value: "char_name" },
@@ -56,18 +56,18 @@ const withCharacterView = (WrappedComponent) => (props) => {
                     <FormControl className="margin">
                         <TextField
                             className="inputs"
-                            InputLabelProps={{ shrink: true }}
                             label={option.key}
                             select
                             variant="filled"
                             onChange={chooseRank}
                             value={character.gang_rank}
+                            disabled={isEdit}
                         >
                             {option.value
                                 .sort((a, b) => b - a)
                                 .map((rank, i) => {
                                     return (
-                                        <MenuItem key={i} value={rank}>
+                                        <MenuItem dense key={i} value={rank}>
                                             {rank}
                                         </MenuItem>
                                     );
@@ -110,21 +110,33 @@ const withCharacterView = (WrappedComponent) => (props) => {
     const renderImageOrInput = () => {
         return (
             <Box className="wrapper-image">
-                {isEdit ? (
+                {!isEdit ? (
                     <TextField
+                        style={{marginBottom:10}}
                         variant="filled"
                         label="Image Link"
-                        value={imgUrl}
+                        value={character.profile_photo}
                         onChange={handleImgChange}
                     />
                 ) : null}
-                <img src={imgUrl} />
+                <img src={character.profile_photo} />
             </Box>
         );
     };
 
     const handleImgChange = (event) => {
-        setImgUrl(event.target.value);
+        // setImgUrl(event.target.value);
+        let copyRoster = [...roster];
+        copyRoster = copyRoster.map((char) => {
+            if (char.char_name === character.char_name) {
+                char.profile_photo = event.target.value;
+                return char;
+            } else {
+                return char;
+            }
+        });
+
+        dispatch(changeRank(copyRoster));
     };
 
     const renderIfNotNull = () => {
@@ -132,7 +144,7 @@ const withCharacterView = (WrappedComponent) => (props) => {
             return (
                 <CardContent>
                     <Grid container justify="center">
-                        {renderImageOrInput()}
+                        {renderImageOrInput(character)}
                         <Box className="wrapper-text">
                             {renderCharacterInfo(character)}
                         </Box>
@@ -143,6 +155,7 @@ const withCharacterView = (WrappedComponent) => (props) => {
                                 multiline
                                 rows={22}
                                 variant="filled"
+                                disabled={isEdit}
                             />
                             <Box className="submit-button">
                                 <Button>Submit</Button>

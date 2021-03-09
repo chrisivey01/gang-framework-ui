@@ -1,12 +1,4 @@
-import {
-    Card,
-    CardHeader,
-    Grid,
-    makeStyles,
-    Switch,
-    Typography,
-} from "@material-ui/core";
-import { useState } from "react";
+import { Card, CardHeader, Grid, makeStyles, Switch } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import withCharacterView from "../hoc/withCharacterView";
 
@@ -24,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
         "& .wrapper-text": {
             width: "225px",
+            textAlign: "center",
         },
 
         "& .wrapper-box": {
@@ -50,9 +43,9 @@ const useStyles = makeStyles((theme) => ({
                 width: "100%",
             },
         },
-
         "& .margin": {
-            margin: theme.spacing(1),
+            width: "80%",
+            padding: theme.spacing(1),
         },
         "& .inputLabel": {
             fontSize: 12,
@@ -78,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
             top: "50px",
             position: "relative",
         },
+
     },
 }));
 
@@ -88,16 +82,16 @@ const CharacterView = ({ renderIfNotNull, handleEditChange, isEdit }) => {
     return (
         <Card className={classes.container}>
             <Grid container alignItems="center" className="edit">
-                <Grid item>Disable</Grid>
+                <Grid item>Edit</Grid>
                 <Grid item>
                     <Switch checked={isEdit} onChange={handleEditChange} />
                 </Grid>
-                <Grid item>Edit</Grid>
+                <Grid item>Disable</Grid>
             </Grid>
             {process.env.NODE_ENV === "development" ? (
-                <CardHeader title={"Boobs"} />
+                <CardHeader className="header" title={"Boobs"} />
             ) : (
-                <CardHeader title={roster[0].current_gang} />
+                <CardHeader className="header" title={roster[0].current_gang} />
             )}
             {renderIfNotNull()}
         </Card>
