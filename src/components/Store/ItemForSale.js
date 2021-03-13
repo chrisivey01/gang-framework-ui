@@ -8,8 +8,8 @@ import {
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import { useDispatch } from "react-redux";
-import withItemsForSale from "../hoc/withItemsForSale";
-import { addToCart } from "../store/web-store/store.actions";
+import withItemsForSale from "../../hoc/withItemsForSale";
+import { addToCart } from "../../store/web-store/store.actions";
 
 const useStyles = makeStyles(() => ({
     item: {

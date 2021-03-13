@@ -1,6 +1,8 @@
 import { Card, CardHeader, Grid, makeStyles, Switch } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import withCharacterView from "../hoc/withCharacterView";
+import withRoster from "../../hoc/withRoster";
+import EditDisableSwitch from "./EditDisableSwitch";
+import Excommunicado from "./Excommunicado";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -54,6 +56,9 @@ const useStyles = makeStyles((theme) => ({
         "& .MuiInputLabel-root": {
             color: "#fff",
         },
+        "& .MuiTypography-root": {
+            color: "#fff",
+        },
         "& .MuiInputBase-root": {
             color: "#fff",
             fontSize: 12,
@@ -68,34 +73,40 @@ const useStyles = makeStyles((theme) => ({
         "& .excommunicado": {
             display: "flex",
             justifyContent: "flex-end",
-            top: "50px",
+            top: "30px",
             position: "relative",
         },
-
     },
 }));
 
-const CharacterView = ({ renderIfNotNull, handleEditChange, isEdit }) => {
+const RosterView = ({ renderIfNotNull, handleEditChange, isEdit }) => {
     const classes = useStyles();
     const roster = useSelector((state) => state.gang.roster);
+    const gangCap = useSelector((state) => state.gang.gangCap);
 
     return (
         <Card className={classes.container}>
-            <Grid container alignItems="center" className="edit">
-                <Grid item>Edit</Grid>
-                <Grid item>
-                    <Switch checked={isEdit} onChange={handleEditChange} />
-                </Grid>
-                <Grid item>Disable</Grid>
-            </Grid>
+            <EditDisableSwitch
+                isEdit={isEdit}
+                handleEditChange={handleEditChange}
+            />
             {process.env.NODE_ENV === "development" ? (
-                <CardHeader className="header" title={"Boobs"} />
+                <CardHeader
+                    className="header"
+                    title={"Boobs"}
+                    subheader={"Member count:" + roster.length + "/" + gangCap}
+                />
             ) : (
-                <CardHeader className="header" title={roster[0].current_gang} />
+                <CardHeader
+                    className="header"
+                    title={roster[0].current_gang}
+                    subheader={"Member count:" + roster.length + "/" + gangCap}
+                />
             )}
             {renderIfNotNull()}
+            <Excommunicado />
         </Card>
     );
 };
 
-export default withCharacterView(CharacterView);
+export default withRoster(RosterView);

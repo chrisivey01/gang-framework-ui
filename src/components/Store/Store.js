@@ -8,7 +8,7 @@ import {
     makeStyles,
 } from "@material-ui/core";
 import { Fragment } from "react";
-import withStore from "../hoc/withStore.js";
+import withStore from "../../hoc/withStore.js";
 import Bids from "./Bids";
 
 const useStyles = makeStyles((theme) => ({

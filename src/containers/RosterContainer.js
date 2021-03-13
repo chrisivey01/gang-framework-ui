@@ -1,13 +1,14 @@
 import { Button } from "@material-ui/core";
 import { Fragment } from "react";
-import CharacterView from "../components/CharacterView";
-import RosterList from "../components/RosterList";
+import RosterView from "../components/Roster/RosterView";
+import RosterList from "../components/Roster/RosterList";
+import Excommunicado from "../components/Roster/Excommunicado";
 
 const RosterContainer = () => {
     return (
         <Fragment>
             <RosterList />
-            <CharacterView />       
+            <RosterView />    
         </Fragment>
     );
 };

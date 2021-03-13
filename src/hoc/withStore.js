@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ItemForSale from "../components/ItemForSale";
+import ItemForSale from "../components/Store/ItemForSale";
 import { loadStore } from "../store/web-store/store.actions";
 import data from "../helpers/weapons.json";
 

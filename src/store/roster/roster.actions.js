@@ -1,16 +1,27 @@
-import gangJsonData from "../../helpers/gang.json";
+import gangJson from "../../helpers/gang.json";
+import Apis from "../../services/api";
 
 export const LOAD_ROSTER = "LOAD_ROSTER";
 export const LOAD_ROSTER_FAILURE = "LOAD_ROSTER_FAILURE";
 export const LOAD_ROSTER_SUCCESS = "LOAD_ROSTER_SUCCESS";
 export const VIEW_MEMBER = "VIEW_MEMBER";
 export const CHANGE_RANK = "CHANGE_RANK";
+export const UPDATE_CHARACTER = "UPDATE_CHARACTER";
+export const UPDATE_BACKSTORY = "UPDATE_BACKSTORY";
+
+export const EXCOMMUNICADO_PROMPT_SHOW = "EXCOMMUNICADO_PROMPT_SHOW";
+export const EXCOMMUNICADO_PROMPT_HIDE = "EXCOMMUNICADO_PROMPT_HIDE";
+export const EXCOMMUNICADO_PROMPT_SUCCESS = "EXCOMMUNICADO_PROMPT_SUCCESS";
+
+export const SHOW_GANG_INVITE = "SHOW_GANG_INVITE";
+export const JOIN_GANG = "JOIN_GANG";
+export const DENY_GANG = "DENY_GANG";
 
 export const loadRoster = (data) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
             try {
-                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: gangJsonData });
+                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: gangJson });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTER_FAILURE });
             }
@@ -30,8 +41,95 @@ export const viewMember = (data) => {
     };
 };
 
-export const changeRank = (data) => {
+export const updateCharacter = (roster, character) => {
     return (dispatch) => {
-        dispatch({ type: CHANGE_RANK, payload: data });
+        const data = { roster: roster, character: character };
+        Apis.updateCharacter(data);
+        dispatch({ type: UPDATE_CHARACTER, payload: data });
+    };
+};
+
+export const excommunicadoPromptShow = () => {
+    return (dispatch) => {
+        dispatch({ type: EXCOMMUNICADO_PROMPT_SHOW });
+    };
+};
+
+export const excommunicadoPromptHide = () => {
+    return (dispatch) => {
+        dispatch({ type: EXCOMMUNICADO_PROMPT_HIDE });
+    };
+};
+
+export const excommunicadoPromptSuccess = (roster, character) => {
+    return (dispatch) => {
+        roster = roster.filter(
+            (member) => member.char_name !== character.char_name
+        );
+        const data = { roster: roster, character: character };
+        if (process.env.NODE_ENV === "production") {
+            Apis.excommunicadoMember(data).then(() => {
+                dispatch({
+                    type: EXCOMMUNICADO_PROMPT_SUCCESS,
+                    payload: data,
+                });
+                //go back to leader
+                dispatch(viewMember(roster[0]));
+            });
+        } else {
+            console.log("Success!");
+            dispatch({ type: EXCOMMUNICADO_PROMPT_SUCCESS, payload: roster });
+            //go back to leader
+            dispatch(viewMember(roster[0]));
+        }
+    };
+};
+
+export const updateBackstory = (character, roster, event) => {
+    return (dispatch) => {
+        let copyRoster = [...roster];
+        let copyCharacter = { ...character };
+
+        copyRoster = copyRoster.map((char) => {
+            if (char.char_name === character.char_name) {
+                char.backstory = event.target.value;
+                copyCharacter.backstory = event.target.value;
+                return char;
+            } else {
+                return char;
+            }
+        });
+
+        const data = {
+            roster: copyRoster,
+            character: copyCharacter,
+        };
+        dispatch({ type: UPDATE_CHARACTER, payload: data });
+    };
+};
+
+export const showGangInvite = () => {
+    return (dispatch) => {
+        dispatch({ type: SHOW_GANG_INVITE });
+    };
+};
+
+export const joinGang = (character, roster) => {
+    return (dispatch) => {
+        if (process.env.NODE_ENV === "production") {
+            dispatch({ type: JOIN_GANG, payload: data });
+        } else {
+            dispatch({ type: JOIN_GANG });
+        }
+    };
+};
+
+export const denyGang = (character, roster) => {
+    return (dispatch) => {
+        if (process.env.NODE_ENV === "production") {
+            dispatch({ type: DENY_GANG, payload: data });
+        } else {
+            dispatch({ type: DENY_GANG });
+        }
     };
 };

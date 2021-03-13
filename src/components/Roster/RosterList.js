@@ -1,5 +1,5 @@
 import { List, makeStyles, Paper } from "@material-ui/core";
-import withRoster from "../hoc/withRoster";
+import withRoster from "../../hoc/withRoster";
 
 const useStyles = makeStyles((theme) => ({
     sidebarContainer: {

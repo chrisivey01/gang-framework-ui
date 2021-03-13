@@ -25,7 +25,7 @@ import {
   createEvent,
   updateEvent,
   deleteEvent
-} from '../store/calendar/calendar.actions';
+} from '../../store/calendar/calendar.actions';
 
 const getInitialValues = (event, range) => {
   if (event) {

@@ -93,7 +93,7 @@ export default (props) => {
             );
         } else {
             return (
-                <div className={classes.showContainer}>
+                <div className={showWeb ? classes.showContainer : classes.hideContainer}>
                     <Listener />
                     <AppBar position="static" className="app-bar">
                         <Toolbar className="title-bar">

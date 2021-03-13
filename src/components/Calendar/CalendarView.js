@@ -26,7 +26,7 @@ import {
     selectRange,
     openModal,
     closeModal,
-} from "../store/calendar/calendar.actions";
+} from "../../store/calendar/calendar.actions";
 import CalendarAddEvent from "./CalendarAddEvent";
 import CalendarHeader from "./CalendarHeader";
 import CalendarToolbar from "./CalendarToolbar";
