@@ -114,10 +114,13 @@ export const showGangInvite = () => {
     };
 };
 
+
+//TODO
 export const joinGang = (character, roster) => {
     return (dispatch) => {
+        //character and roster need to be added to cache
         if (process.env.NODE_ENV === "production") {
-            dispatch({ type: JOIN_GANG, payload: data });
+            dispatch({ type: JOIN_GANG });
         } else {
             dispatch({ type: JOIN_GANG });
         }
@@ -127,9 +130,14 @@ export const joinGang = (character, roster) => {
 export const denyGang = (character, roster) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "production") {
-            dispatch({ type: DENY_GANG, payload: data });
+            dispatch({ type: DENY_GANG });
         } else {
             dispatch({ type: DENY_GANG });
         }
+        Apis.closeGangInvite();
     };
 };
+
+// const closeGangInvite = (joinOrNo) => {
+    
+// };

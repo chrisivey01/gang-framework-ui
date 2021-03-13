@@ -4,6 +4,7 @@ const openDarkWebUrl = "http://pma-gang-framework/OpenDarkWeb";
 const closeDarkWebUrl = "http://pma-gang-framework/CloseDarkWeb";
 const updateCharacterUrl = "http://pma-gang-framework/UpdateGangCharacter";
 const excommunicadoUrl = "http://pma-gang-framework/ExcommunicadoMember";
+const closeGangInviteUrl = "http://pma-gang-framework/CloseGangInvite";
 
 const Apis = {
     openDarkWeb(data) {
@@ -37,6 +38,14 @@ const Apis = {
             return axios.post(excommunicadoUrl, data);
         }
     },
+
+    closeGangInvite(data) {
+        if (process.env.NODE_ENV === "development") {
+            return true;
+        } else {
+            return axios.post(closeGangInviteUrl, data);
+        }
+    }
 };
 
 export default Apis;

@@ -94,13 +94,13 @@ const RosterView = ({ renderIfNotNull, handleEditChange, isEdit }) => {
                 <CardHeader
                     className="header"
                     title={"Boobs"}
-                    subheader={"Member count:" + roster.length + "/" + gangCap}
+                    subheader={"Member count: " + roster.length + "/" + gangCap}
                 />
             ) : (
                 <CardHeader
                     className="header"
                     title={roster[0].current_gang}
-                    subheader={"Member count:" + roster.length + "/" + gangCap}
+                    subheader={"Member count: " + roster.length + "/" + gangCap}
                 />
             )}
             {renderIfNotNull()}

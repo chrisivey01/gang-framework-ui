@@ -1,7 +1,7 @@
 import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import ScriptImage from "../assets/png/script.png";
 import { useDispatch, useSelector } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import XIcon from "../assets/svg/x.svg";
 import CheckIcon from "../assets/svg/check.svg";
 import { denyGang, joinGang } from "../store/roster/roster.actions";
@@ -15,15 +15,14 @@ const useStyles = makeStyles((theme) => ({
         left: "25%",
         zIndex: 1,
 
-        "& .img": {
-            width: "inherit",
-            height: "inherit",
-            zIndex: 0,
+        "& .svg": {
+            width: 50,
+            height: 50,
         },
 
         "& .script-wrapper": {
-            top: "275px",
-            left: "450px",
+            top: "330px",
+            left: "535px",
             position: "fixed",
         },
 
