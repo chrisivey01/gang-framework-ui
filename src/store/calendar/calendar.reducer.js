@@ -31,14 +31,14 @@ export const calendarReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isModalOpen: true,
-                selectedEventId: action.payload.eventId,
+                selectedEventId: action.payload,
             };
         case UPDATE_EVENT:
             return {
                 ...state,
                 events:  _.map(state.events, (_event) => {
-                    if (_event.id === action.payload.id) {
-                        return action.payload;
+                    if (_event.id === action.payload.eventId) {
+                        return action.payload.update;
                     }
     
                     return _event;
@@ -47,7 +47,7 @@ export const calendarReducer = (state = initialState, action) => {
         case DELETE_EVENT:
             return {
                 ...state,
-                events: _.reject(state.events, { id: action.payload.eventId })
+                events: _.reject(state.events, { id: action.payload })
             };
         case SELECT_RANGE:
             return {

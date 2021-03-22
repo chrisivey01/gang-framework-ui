@@ -36,7 +36,7 @@ const selectedEventSelector = (state) => {
     const { events, selectedEventId } = state.calendar;
 
     if (selectedEventId) {
-        return events.find((_event) => _event.id === selectedEventId);
+        return events.find((_event) => _event.id === parseInt(selectedEventId));
     } else {
         return null;
     }
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
         },
         "& .fc-unthemed .fc-row": {
             borderColor: theme.palette.divider,
-            height: '35px !important'
+            height: "35px !important",
         },
         "& .fc-unthemed .fc-axis": {
             ...theme.typography.body2,
@@ -128,7 +128,6 @@ const useStyles = makeStyles((theme) => ({
         "& .fc-unthemed .fc-list-item-time": {
             ...theme.typography.body2,
         },
-
     },
 }));
 
@@ -246,24 +245,16 @@ const CalendarView = () => {
     };
 
     useEffect(() => {
-        dispatch(getEvents());
-    }, [dispatch]);
-
-    useEffect(() => {
-        const calendarEl = calendarRef.current;
-
-        if (calendarEl) {
-            const calendarApi = calendarEl.getApi();
-            const newView = mobileDevice ? "listWeek" : "dayGridMonth";
-
-            calendarApi.changeView(newView);
-            setView(newView);
-        }
-    }, [mobileDevice]);
+        dispatch(getEvents(events));
+    }, []);
 
     return (
-        <Fragment >
-            <Container maxWidth={false} className={classes.root} title="Calendar">
+        <Fragment>
+            <Container
+                maxWidth={false}
+                className={classes.root}
+                title="Calendar"
+            >
                 <CalendarToolbar
                     date={date}
                     onDateNext={handleDateNext}

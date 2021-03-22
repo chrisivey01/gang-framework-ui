@@ -1,0 +1,25 @@
+{
+    "data": [
+        {
+            "allDay": true,
+            "description": "doing code",
+            "end": 1616152798410,
+            "start": 1616152798410,
+            "title": "THE title"
+        },
+        {
+            "allDay": true,
+            "description": "doing code",
+            "end": 1616452798410,
+            "start": 1616452798410,
+            "title": "THE title"
+        },
+        {
+            "allDay": true,
+            "description": "doing code",
+            "end": 1616752798410,
+            "start": 1616752798410,
+            "title": "THE title"
+        }
+    ]
+}

@@ -17,7 +17,7 @@ export const SHOW_GANG_INVITE = "SHOW_GANG_INVITE";
 export const JOIN_GANG = "JOIN_GANG";
 export const DENY_GANG = "DENY_GANG";
 
-export const loadRoster = (data) => {
+export const loadRoster = (roster, character, gangCap) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
             try {
@@ -27,6 +27,11 @@ export const loadRoster = (data) => {
             }
         } else {
             try {
+                const data = {
+                    roster: roster,
+                    character: character,
+                    gangCap: gangCap
+                }
                 dispatch({ type: LOAD_ROSTER_SUCCESS, payload: data });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTER_FAILURE });

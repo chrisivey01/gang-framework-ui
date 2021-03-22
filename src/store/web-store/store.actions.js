@@ -34,16 +34,12 @@ export const loadStoreSuccess = (items) => {
             } else {
                 const stock = {
                     quantity: 1,
-                    price: item.price,
-                    displayPrice: `$${addComa(item.price, 3)}`,
                     name: item.name,
                     label: item.label,
                 };
 
                 const cart = {
                     quantity: 0,
-                    price: item.price,
-                    displayPrice: `$${addComa(item.price, 3)}`,
                     name: item.name,
                     label: item.label,
                 };
@@ -74,7 +70,7 @@ export const loadStoreFailure = () => {
     };
 };
 
-export const addToCart = (items, item, cart, totalCost, totalCostDisplay) => {
+export const addToCart = (items, item, cart) => {
     return (dispatch) => {
         let clonedItems = new Map(items);
         let clonedCart = new Map(cart);
@@ -86,10 +82,7 @@ export const addToCart = (items, item, cart, totalCost, totalCostDisplay) => {
             clonedCart.get(item.name).quantity++;
         }
 
-        totalCost = item.price + totalCost;
         const data = {
-            totalCost: totalCost,
-            totalCostDisplay: `${addComa(totalCost, 3)}`,
             cart: clonedCart,
             items: clonedItems,
         };
@@ -101,13 +94,7 @@ export const addToCart = (items, item, cart, totalCost, totalCostDisplay) => {
     };
 };
 
-export const removeFromCart = (
-    items,
-    item,
-    cart,
-    totalCost,
-    totalCostDisplay
-) => {
+export const removeFromCart = (items, item, cart) => {
     return (dispatch) => {
         let clonedItems = new Map(items);
         let clonedCart = new Map(cart);
@@ -119,10 +106,7 @@ export const removeFromCart = (
             clonedItems.get(item.name).quantity++;
         }
 
-        totalCost = totalCost - item.price;
         const data = {
-            totalCost: totalCost,
-            totalCostDisplay: `${addComa(totalCost, 3)}`,
             cart: clonedCart,
             items: clonedItems,
         };
@@ -132,22 +116,4 @@ export const removeFromCart = (
             payload: data,
         });
     };
-};
-
-const addComa = (num, per) => {
-    let aComma = "";
-    let count = 0;
-    let cWhole = num.toString();
-
-    if (cWhole.length > per) {
-        for (let i = cWhole.length - 1; i >= 0; i--) {
-            aComma = cWhole.charAt(i) + aComma;
-            count++;
-            if (count == per && i != 0) {
-                aComma = "," + aComma;
-                count = 0;
-            }
-        }
-    }
-    return aComma;
 };

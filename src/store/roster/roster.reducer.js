@@ -25,6 +25,7 @@ export const rosterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 roster: action.payload.roster,
+                character: action.payload.character,
                 gangCap: action.payload.gangCap,
             };
         case LOAD_ROSTER_FAILURE:
