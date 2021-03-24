@@ -1,5 +1,18 @@
 {
     "gangCap": 10,
+    "character": {
+        "id": 1,
+        "current_gang": "Waffle Fries",
+        "char_name": "Eduardo Chupador",
+        "gang_rank": 4,
+        "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
+        "phone_number": "111-111-1111",
+        "legal_job": "police",
+        "age": 29,
+        "last_seen": "2/27/2021",
+        "backstory": "",
+        "profile_photo": ""
+    },
     "roster": [
         {
             "id": 1,

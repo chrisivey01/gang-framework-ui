@@ -1,6 +1,5 @@
 import { Grid, Switch } from "@material-ui/core";
 
-
 const EditDisableSwitch = ({ isEdit, handleEditChange }) => {
     return (
         <Grid container alignItems="center" className="edit">

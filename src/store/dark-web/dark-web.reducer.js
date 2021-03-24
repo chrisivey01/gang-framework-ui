@@ -2,13 +2,7 @@ import { CLOSE_WEB, LOAD_WEB_FAILURE, LOAD_WEB_SUCCESS } from "./dark-web.action
 
 const initialState = {
     showWeb: false,
-    characterData: {
-        // gang: "",
-        // characterName: "",
-        // gangRank: "",
-        // phoneNumber: "",
-        // radioChannel: "",
-    },
+    character: {},
     errorMessage: {
         message: "",
         showToggle: false,
@@ -20,7 +14,7 @@ export const darkWebReducer = (state = initialState, action) => {
         case LOAD_WEB_SUCCESS:
             return {
                 ...state,
-                characterData: action.payload,
+                character: action.payload,
                 showWeb: true
             };
         case LOAD_WEB_FAILURE:

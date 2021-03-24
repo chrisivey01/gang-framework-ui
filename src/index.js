@@ -10,7 +10,7 @@ import MomentUtils from "@date-io/moment";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import Store from "./components/Store/Store";
-import War from "./components/War";
+import WarContainer from "./containers/WarContainer";
 import Container from "./containers/Container";
 import combineReducers from "./store/index";
 import "@fontsource/roboto";
@@ -37,7 +37,7 @@ ReactDOM.render(
                                 <Route
                                     exact
                                     path="/war"
-                                    component={War}
+                                    component={WarContainer}
                                 ></Route>
                                 <Route
                                     exact

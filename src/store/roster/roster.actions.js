@@ -21,7 +21,12 @@ export const loadRoster = (roster, character, gangCap) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
             try {
-                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: gangJson });
+                const data = {
+                    roster: gangJson.roster,
+                    gangCap: gangJson.gangCap
+                }
+                
+                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: data });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTER_FAILURE });
             }

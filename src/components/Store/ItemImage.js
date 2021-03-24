@@ -17,7 +17,7 @@ import { Fragment } from "react";
 const ItemImage = ({ name }) => {
     switch (name) {
         case "WEAPON_BULLPUPRIFLE_MK2":
-            return <img className="image" src={WEAPON_ASSAULTRIFLE_MK2} />;
+            return <img className="image" src={WEAPON_BULLPUPRIFLE_MK2} />;
         case "WEAPON_HEAVYPISTOL":
             return <img className="image" src={WEAPON_HEAVYPISTOL} />;
         case "WEAPON_ASSAULTRIFLE_MK2":

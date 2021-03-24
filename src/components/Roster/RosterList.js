@@ -1,5 +1,15 @@
-import { List, makeStyles, Paper } from "@material-ui/core";
+import {
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    makeStyles,
+    Paper,
+} from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
 import withRoster from "../../hoc/withRoster";
+import StarIcon from "@material-ui/icons/Star";
+import { viewMember } from "../../store/roster/roster.actions";
 
 const useStyles = makeStyles((theme) => ({
     sidebarContainer: {
@@ -23,16 +33,53 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const RosterList = ({ renderRoster }) => {
+const Roster = ({ roster }) => {
+    const dispatch = useDispatch();
+
+    return roster
+        .sort((a, b) => b.gang_rank - a.gang_rank)
+        .map((gang, i) => {
+            if (gang.gang_rank === 4) {
+                return (
+                    <ListItem
+                        onClick={() => dispatch(viewMember(roster[i]))}
+                        dense
+                        button
+                        key={i}
+                    >
+                        <ListItemIcon>
+                            <StarIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={gang.char_name} />
+                    </ListItem>
+                );
+            } else {
+                return (
+                    <ListItem
+                        onClick={() => dispatch(viewMember(roster[i]))}
+                        key={i}
+                        dense
+                        button
+                    >
+                        <ListItemText primary={gang.char_name} />
+                    </ListItem>
+                );
+            }
+        });
+};
+
+const RosterList = () => {
     const classes = useStyles();
+    const roster = useSelector((state) => state.gang.roster);
+    const character = useSelector((state) => state.gang.character);
 
     return (
         <Paper className={classes.sidebarContainer}>
             <List component="nav" className="list">
-                {renderRoster()}
+                <Roster roster={roster} character={character} />
             </List>
         </Paper>
     );
 };
 
-export default withRoster(RosterList);
+export default RosterList;

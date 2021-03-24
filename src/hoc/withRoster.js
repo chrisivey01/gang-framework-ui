@@ -15,9 +15,7 @@ import StarIcon from "@material-ui/icons/Star";
 import moment from "moment";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Excommunicado from "../components/Roster/Excommunicado";
 import {
-    excommunicado,
     excommunicadoPromptShow,
     updateBackstory,
     updateCharacter,
@@ -77,98 +75,98 @@ const withRoster = (WrappedComponent) => (props) => {
         dispatch(updateCharacter(copyRoster, copyCharacter));
     };
 
-    const renderRoster = () => {
-        if (roster) {
-            return roster
-                .sort((a, b) => b.gang_rank - a.gang_rank)
-                .map((gang, i) => {
-                    if (gang.gang_rank === 4) {
-                        return (
-                            <ListItem
-                                onClick={() => dispatch(viewMember(roster[i]))}
-                                dense
-                                button
-                                key={i}
-                            >
-                                <ListItemIcon>
-                                    <StarIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={gang.char_name} />
-                            </ListItem>
-                        );
-                    } else {
-                        return (
-                            <ListItem
-                                onClick={() => dispatch(viewMember(roster[i]))}
-                                key={i}
-                                dense
-                                button
-                            >
-                                <ListItemText primary={gang.char_name} />
-                            </ListItem>
-                        );
-                    }
-                });
-        }
-    };
+    // const renderRoster = () => {
+    //     if (roster) {
+    //         return roster
+    //             .sort((a, b) => b.gang_rank - a.gang_rank)
+    //             .map((gang, i) => {
+    //                 if (gang.gang_rank === 4) {
+    //                     return (
+    //                         <ListItem
+    //                             onClick={() => dispatch(viewMember(roster[i]))}
+    //                             dense
+    //                             button
+    //                             key={i}
+    //                         >
+    //                             <ListItemIcon>
+    //                                 <StarIcon />
+    //                             </ListItemIcon>
+    //                             <ListItemText primary={gang.char_name} />
+    //                         </ListItem>
+    //                     );
+    //                 } else {
+    //                     return (
+    //                         <ListItem
+    //                             onClick={() => dispatch(viewMember(roster[i]))}
+    //                             key={i}
+    //                             dense
+    //                             button
+    //                         >
+    //                             <ListItemText primary={gang.char_name} />
+    //                         </ListItem>
+    //                     );
+    //                 }
+    //             });
+    //     }
+    // };
 
-    const renderCharacterInfo = (character) => {
-        return items.map((option, i) => {
-            if (option.key === "Rank") {
-                return (
-                    <FormControl key={i} className="margin">
-                        <TextField
-                            className="inputs"
-                            label={option.key}
-                            select
-                            variant="filled"
-                            onChange={chooseRank}
-                            value={character.gang_rank}
-                            disabled={isEdit}
-                        >
-                            {option.value
-                                .sort((a, b) => b - a)
-                                .map((rank, i) => {
-                                    return (
-                                        <MenuItem dense key={i} value={rank}>
-                                            {rank}
-                                        </MenuItem>
-                                    );
-                                })}
-                        </TextField>
-                    </FormControl>
-                );
-            } else if (option.key === "Last Seen") {
-                return (
-                    <FormControl key={i} className="margin">
-                        <TextField
-                            className="inputs"
-                            InputLabelProps={{ shrink: true }}
-                            label={option.key}
-                            variant="filled"
-                            value={moment(
-                                new Date(character.last_logged)
-                            ).format("MMMM Do YYYY")}
-                        ></TextField>
-                    </FormControl>
-                );
-            } else {
-                return (
-                    <FormControl key={i} className="margin">
-                        <TextField
-                            className="inputs"
-                            InputLabelProps={{ shrink: true }}
-                            label={option.key}
-                            multiline
-                            disabled
-                            variant="filled"
-                            value={character[option.value]}
-                        />
-                    </FormControl>
-                );
-            }
-        });
-    };
+    // const renderCharacterInfo = (character) => {
+    //     return items.map((option, i) => {
+    //         if (option.key === "Rank") {
+    //             return (
+    //                 <FormControl key={i} className="margin">
+    //                     <TextField
+    //                         className="inputs"
+    //                         label={option.key}
+    //                         select
+    //                         variant="filled"
+    //                         onChange={chooseRank}
+    //                         value={character.gang_rank}
+    //                         disabled={isEdit}
+    //                     >
+    //                         {option.value
+    //                             .sort((a, b) => b - a)
+    //                             .map((rank, i) => {
+    //                                 return (
+    //                                     <MenuItem dense key={i} value={rank}>
+    //                                         {rank}
+    //                                     </MenuItem>
+    //                                 );
+    //                             })}
+    //                     </TextField>
+    //                 </FormControl>
+    //             );
+    //         } else if (option.key === "Last Seen") {
+    //             return (
+    //                 <FormControl key={i} className="margin">
+    //                     <TextField
+    //                         className="inputs"
+    //                         InputLabelProps={{ shrink: true }}
+    //                         label={option.key}
+    //                         variant="filled"
+    //                         value={moment(
+    //                             new Date(character.last_logged)
+    //                         ).format("MMMM Do YYYY")}
+    //                     ></TextField>
+    //                 </FormControl>
+    //             );
+    //         } else {
+    //             return (
+    //                 <FormControl key={i} className="margin">
+    //                     <TextField
+    //                         className="inputs"
+    //                         InputLabelProps={{ shrink: true }}
+    //                         label={option.key}
+    //                         multiline
+    //                         disabled
+    //                         variant="filled"
+    //                         value={character[option.value]}
+    //                     />
+    //                 </FormControl>
+    //             );
+    //         }
+    //     });
+    // };
 
     const renderImageOrInput = () => {
         return (
@@ -187,63 +185,63 @@ const withRoster = (WrappedComponent) => (props) => {
         );
     };
 
-    const renderIfNotNull = () => {
-        if (Object.keys(character).length > 0) {
-            return (
-                <CardContent>
-                    <Grid container justify="center">
-                        {renderImageOrInput(character)}
-                        <Box className="wrapper-text">
-                            {renderCharacterInfo(character)}
-                        </Box>
-                        <Box className="wrapper-box">
-                            <TextField
-                                className="backstory"
-                                label="Backstory"
-                                multiline
-                                rows={22}
-                                variant="filled"
-                                disabled={isEdit}
-                                value={character.backstory}
-                                onChange={(e) =>
-                                    dispatch(
-                                        updateBackstory(character, roster, e)
-                                    )
-                                }
-                            />
-                            <Box className="submit-button">
-                                <Button
-                                    onClick={() =>
-                                        dispatch(
-                                            updateCharacter(roster, character)
-                                        )
-                                    }
-                                >
-                                    Submit
-                                </Button>
-                            </Box>
-                        </Box>
-                    </Grid>
-                    <Box className="excommunicado">
-                        <Button
-                            color="secondary"
-                            onClick={() => dispatch(excommunicadoPromptShow())}
-                        >
-                            Excommunicado
-                        </Button>
-                    </Box>
-                </CardContent>
-            );
-        } else {
-            return (
-                <CardContent>
-                    <Typography>
-                        Please select a member from the roster.
-                    </Typography>
-                </CardContent>
-            );
-        }
-    };
+    // const renderIfNotNull = () => {
+    //     if (Object.keys(character).length > 0) {
+    //         return (
+    //             <CardContent>
+    //                 <Grid container justify="center">
+    //                     {renderImageOrInput(character)}
+    //                     <Box className="wrapper-text">
+    //                         {renderCharacterInfo(character)}
+    //                     </Box>
+    //                     <Box className="wrapper-box">
+    //                         <TextField
+    //                             className="backstory"
+    //                             label="Backstory"
+    //                             multiline
+    //                             rows={22}
+    //                             variant="filled"
+    //                             disabled={isEdit}
+    //                             value={character.backstory}
+    //                             onChange={(e) =>
+    //                                 dispatch(
+    //                                     updateBackstory(character, roster, e)
+    //                                 )
+    //                             }
+    //                         />
+    //                         <Box className="submit-button">
+    //                             <Button
+    //                                 onClick={() =>
+    //                                     dispatch(
+    //                                         updateCharacter(roster, character)
+    //                                     )
+    //                                 }
+    //                             >
+    //                                 Submit
+    //                             </Button>
+    //                         </Box>
+    //                     </Box>
+    //                 </Grid>
+    //                 <Box className="excommunicado">
+    //                     <Button
+    //                         color="secondary"
+    //                         onClick={() => dispatch(excommunicadoPromptShow())}
+    //                     >
+    //                         Excommunicado
+    //                     </Button>
+    //                 </Box>
+    //             </CardContent>
+    //         );
+    //     } else {
+    //         return (
+    //             <CardContent>
+    //                 <Typography>
+    //                     Please select a member from the roster.
+    //                 </Typography>
+    //             </CardContent>
+    //         );
+    //     }
+    // };
 
     return (
         <WrappedComponent

@@ -9,14 +9,14 @@ const Excommunicado = () => {
     const dispatch = useDispatch();
     const roster = useSelector((state) => state.gang.roster);
     const character = useSelector((state) => state.gang.character);
-
     const showDialog = useSelector((state) => state.gang.showDialog);
 
     return (
         <Dialog open={showDialog}>
             <DialogTitle>
                 {"Are you sure you wish to excommunicado " +
-                    character.char_name + "?"}
+                    character.char_name +
+                    "?"}
             </DialogTitle>
             <DialogActions>
                 <Button
@@ -27,7 +27,9 @@ const Excommunicado = () => {
                     Disagree
                 </Button>
                 <Button
-                    onClick={() => dispatch(excommunicadoPromptSuccess(roster, character))}
+                    onClick={() =>
+                        dispatch(excommunicadoPromptSuccess(roster, character))
+                    }
                     color="primary"
                     autoFocus
                 >
