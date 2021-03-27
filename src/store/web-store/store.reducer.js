@@ -1,9 +1,10 @@
 import {
-    LOAD_STORE,
-    LOAD_STORE_SUCCESS,
-    LOAD_STORE_FAILURE,
-    ADD_TO_CART,
-    REMOVE_FROM_CART,
+    ADD_TO_CART, LOAD_STORE,
+
+    LOAD_STORE_FAILURE, LOAD_STORE_SUCCESS,
+
+
+    REMOVE_FROM_CART
 } from "./store.actions";
 
 const initialState = {
@@ -25,7 +26,7 @@ export const storeReducer = (state = initialState, action) => {
                 ...state,
                 loading: true,
                 totalCostDisplay: 0,
-                totalCost: 0
+                totalCost: 0,
             };
         }
         case LOAD_STORE_SUCCESS:
@@ -48,7 +49,7 @@ export const storeReducer = (state = initialState, action) => {
                 cart: action.payload.cart,
                 items: action.payload.items,
                 totalCost: action.payload.totalCost,
-                totalCostDisplay: action.payload.totalCostDisplay
+                totalCostDisplay: action.payload.totalCostDisplay,
             };
         case REMOVE_FROM_CART:
             return {
@@ -56,7 +57,7 @@ export const storeReducer = (state = initialState, action) => {
                 cart: action.payload.cart,
                 items: action.payload.items,
                 totalCost: action.payload.totalCost,
-                totalCostDisplay: action.payload.totalCostDisplay
+                totalCostDisplay: action.payload.totalCostDisplay,
             };
         default:
             return state;

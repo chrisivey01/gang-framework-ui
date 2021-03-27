@@ -4,7 +4,7 @@ import {
     Grid,
     makeStyles,
     Toolbar,
-    Typography,
+    Typography
 } from "@material-ui/core";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
@@ -93,7 +93,11 @@ export default (props) => {
             );
         } else {
             return (
-                <div className={showWeb ? classes.showContainer : classes.hideContainer}>
+                <div
+                    className={
+                        showWeb ? classes.showContainer : classes.hideContainer
+                    }
+                >
                     <Listener />
                     <AppBar position="static" className="app-bar">
                         <Toolbar className="title-bar">

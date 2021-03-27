@@ -1,5 +1,3 @@
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -14,9 +12,7 @@ const TabPanel = ({ children, value, index }) => {
             aria-labelledby={`vertical-tab-${index}`}
             style={{ flexGrow: 1 }}
         >
-            {panel === index && (
-                children
-            )}
+            {panel === index && children}
         </div>
     );
 };

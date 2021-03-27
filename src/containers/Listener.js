@@ -52,43 +52,63 @@ export default () => {
     }, []);
 
     const actionListener = (event) => {
-        if(event.data.darkWeb) {
+        if (event.data.darkWeb) {
             switch (event.data.darkWeb) {
                 case "open":
                     if (process.env.NODE_ENV === "development") {
                         if (event.data.darkWeb) {
                             document.querySelector("#blur").style =
                                 "position: absolute; height: 100%;width: 100%;filter: blur(200px);background-color: rgba(0, 0, 0, 0.8);bottom: 0;left: 0; display:block;";
-                            dispatch(loadWeb("{}"));
+                            dispatch(loadWeb());
                             dispatch(loadRoster(event.data.roster));
                         }
                     } else {
                         if (event.data.darkWeb) {
                             document.querySelector("#blur").style =
                                 "position: absolute; height: 100%;width: 100%;filter: blur(200px);background-color: rgba(0, 0, 0, 0.8);bottom: 0;left: 0; display:block;";
-                            dispatch(loadWeb("{}"));
+                            dispatch(loadWeb());
                             dispatch(
                                 loadRoster(
-                                    event.data.gang[event.data.character.current_gang]['members'],
+                                    event.data.gang[
+                                        event.data.character.current_gang
+                                    ]["members"],
                                     event.data.character,
                                     event.data.gangCap
                                 )
                             );
-                            if(event.data.gang[event.data.character.current_gang]['calendar']){
-                                dispatch(getEvents(event.data.gang[event.data.character.current_gang]['calendar']));
+                            if (
+                                event.data.gang[
+                                    event.data.character.current_gang
+                                ]["calendar"]
+                            ) {
+                                dispatch(
+                                    getEvents(
+                                        event.data.gang[
+                                            event.data.character.current_gang
+                                        ]["calendar"]
+                                    )
+                                );
                             } else {
-                                event.data.gang[event.data.character.current_gang]['calendar'] = []
-                                dispatch(getEvents(event.data.gang[event.data.character.current_gang]['calendar']));
+                                event.data.gang[
+                                    event.data.character.current_gang
+                                ]["calendar"] = [];
+                                dispatch(
+                                    getEvents(
+                                        event.data.gang[
+                                            event.data.character.current_gang
+                                        ]["calendar"]
+                                    )
+                                );
                             }
                         }
                     }
                     break;
-    
+
                 default:
                     null;
             }
-        } else if(event.data.updateCalendar) {
-            dispatch(getEvents(event.data.calendar))
+        } else if (event.data.updateCalendar) {
+            dispatch(getEvents(event.data.calendar));
         }
     };
 

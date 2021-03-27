@@ -10,7 +10,7 @@ export const CLOSE_WEB = "CLOSE_WEB";
 export const loadWeb = (data) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
-            dispatch(loadWebSuccess(character));
+            dispatch(loadWebSuccess());
         } else {
             if (data) {
                 dispatch(loadWebSuccess(data));

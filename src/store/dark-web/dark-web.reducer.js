@@ -14,7 +14,6 @@ export const darkWebReducer = (state = initialState, action) => {
         case LOAD_WEB_SUCCESS:
             return {
                 ...state,
-                character: action.payload,
                 showWeb: true
             };
         case LOAD_WEB_FAILURE:
