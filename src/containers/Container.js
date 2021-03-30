@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         },
 
         "& .container": {
-            height: 645,
+            height: "inherit",
             backgroundColor: "#212121",
             color: "#fff",
             padding: 30,
@@ -55,8 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default (props) => {
     const classes = useStyles();
-    const showWeb = useSelector((state) => state.darkWeb.showWeb);
-    const character = useSelector((state) => state.darkWeb.characterData);
+    const showWeb = useSelector((state) => state.web.showWeb);
 
     const renderEnvironment = () => {
         if (process.env.NODE_ENV !== "development") {

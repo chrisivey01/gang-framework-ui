@@ -1,11 +1,10 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import data from "../helpers/weapons.json";
-import { getEvents } from "../store/calendar/calendar.actions";
-import { loadWeb } from "../store/dark-web/dark-web.actions";
-import { loadRoster, showGangInvite } from "../store/roster/roster.actions";
+import { loadWeb } from "../store/web/web.actions";
+import { loadRosters, showGangInvite } from "../store/roster/roster.actions";
 import { loadStore } from "../store/web-store/store.actions";
-
+import { getEvents } from "../store/calendar/calendar.actions";
 export default () => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.store.items);
@@ -60,7 +59,7 @@ export default () => {
                             document.querySelector("#blur").style =
                                 "position: absolute; height: 100%;width: 100%;filter: blur(200px);background-color: rgba(0, 0, 0, 0.8);bottom: 0;left: 0; display:block;";
                             dispatch(loadWeb());
-                            dispatch(loadRoster(event.data.roster));
+                            dispatch(loadRosters(event.data.roster));
                         }
                     } else {
                         if (event.data.darkWeb) {
@@ -68,47 +67,43 @@ export default () => {
                                 "position: absolute; height: 100%;width: 100%;filter: blur(200px);background-color: rgba(0, 0, 0, 0.8);bottom: 0;left: 0; display:block;";
                             dispatch(loadWeb());
                             dispatch(
-                                loadRoster(
-                                    event.data.gang[
-                                        event.data.character.current_gang
-                                    ]["members"],
+                                loadRosters(
+                                    event.data.gang.members,
                                     event.data.character,
+                                    event.data.gangs,
                                     event.data.gangCap
                                 )
                             );
-                            if (
-                                event.data.gang[
-                                    event.data.character.current_gang
-                                ]["calendar"]
-                            ) {
-                                dispatch(
-                                    getEvents(
-                                        event.data.gang[
-                                            event.data.character.current_gang
-                                        ]["calendar"]
-                                    )
-                                );
-                            } else {
-                                event.data.gang[
-                                    event.data.character.current_gang
-                                ]["calendar"] = [];
-                                dispatch(
-                                    getEvents(
-                                        event.data.gang[
-                                            event.data.character.current_gang
-                                        ]["calendar"]
-                                    )
-                                );
-                            }
+                            dispatch(
+                                getEvents(
+                                    event.data.gangs[
+                                        event.data.character["current_gang"]
+                                    ]["calendar"]
+                                )
+                            );
                         }
                     }
                     break;
+                case "update":
+                    dispatch(
+                        loadRosters(
+                            event.data.gang.members,
+                            event.data.character,
+                            event.data.gangs,
+                            event.data.gangCap
+                        )
+                    );
+                    dispatch(
+                        getEvents(
+                            event.data.gangs[
+                                event.data.character["current_gang"]
+                            ]["calendar"]
+                        )
+                    );
 
                 default:
                     null;
             }
-        } else if (event.data.updateCalendar) {
-            dispatch(getEvents(event.data.calendar));
         }
     };
 

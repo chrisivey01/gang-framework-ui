@@ -6,9 +6,9 @@ export const SHOW_WAR_PROMPT = "SHOW_WAR_PROMPT";
 export const CLOSE_WAR_PROMPT = "CLOSE_WAR_PROMPT";
 export const ACCEPT_WAR_PROMPT = "ACCEPT_WAR_PROMPT";
 
-export const updatePanel = (data) => {
+export const updatePanel = (gangKey, gangText) => {
     return (dispatch) => {
-        dispatch({ type: UPDATE_PANEL, payload: data });
+        dispatch({ type: UPDATE_PANEL, payload: { gangKey, gangText } });
     };
 };
 

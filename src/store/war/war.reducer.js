@@ -8,11 +8,12 @@ import {
 } from "./war.actions";
 
 const initialState = {
-    panel: 1,
+    gangKey: 1,
+    gangText: '',
     points: 0,
     dispute: "",
     reward: "",
-    showWarPrompt: true,
+    showWarPrompt: false,
 };
 
 export const warReducer = (state = initialState, action) => {
@@ -20,7 +21,8 @@ export const warReducer = (state = initialState, action) => {
         case UPDATE_PANEL:
             return {
                 ...state,
-                panel: action.payload,
+                gangKey: action.payload.gangKey,
+                gangText: action.payload.gangText,
             };
         case UPDATE_POINTS:
             return {

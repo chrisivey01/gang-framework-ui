@@ -7,7 +7,7 @@ import {
     Typography
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { closeWarPrompt } from "../../store/war/war.actions";
+import { acceptWarPrompt, closeWarPrompt } from "../../store/war/war.actions";
 
 const WarDialog = () => {
     const dispatch = useDispatch();

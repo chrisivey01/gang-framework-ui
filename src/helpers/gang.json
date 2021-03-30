@@ -1,174 +1,121 @@
 {
-    "gangCap": 10,
-    "character": {
-        "id": 1,
-        "current_gang": "Waffle Fries",
-        "char_name": "Eduardo Chupador",
-        "gang_rank": 4,
-        "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-        "phone_number": "111-111-1111",
-        "legal_job": "police",
-        "age": 29,
-        "last_seen": "2/27/2021",
-        "backstory": "",
-        "profile_photo": ""
-    },
-    "roster": [
+    "Swedenies": {
+      "members": [
         {
-            "id": 1,
-            "current_gang": "Waffle Fries",
-            "char_name": "Eduardo Chupador",
-            "gang_rank": 4,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "police",
-            "age": 29,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 2,
-            "current_gang": "Waffle Fries",
-            "char_name": "Madison Chupador",
-            "gang_rank": 3,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "",
-            "age": 25,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3.amazonaws.com%2Fbgn2018media%2Fwp-content%2Fuploads%2F2017%2F10%2F28232301%2Fsailor-moon.jpg"
-        },
-        {
-            "id": 3,
-            "current_gang": "Waffle Fries",
-            "char_name": "Saxy Chupador",
-            "gang_rank": 3,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "lumberjack",
-            "age": 34,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 4,
-            "current_gang": "Waffle Fries",
-            "char_name": "Tybo Chupador",
-            "gang_rank": 2,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "lumberjack",
-            "age": 39,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 5,
-            "current_gang": "Waffle Fries",
-            "char_name": "Kena Chupador",
-            "gang_rank": 2,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "lumberjack",
-            "age": 49,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 6,
-            "current_gang": "Waffle Fries",
-            "char_name": "Nerd Chupador",
-            "gang_rank": 1,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "lumberjack",
-            "age": 43,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 7,
-            "current_gang": "Waffle Fries",
-            "char_name": "Fearless Chupador",
-            "gang_rank": 3,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "lumberjack",
-            "age": 54,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 8,
-            "current_gang": "Waffle Fries",
-            "char_name": "Jack Chupador",
-            "gang_rank": 3,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "lumberjack",
-            "age": 59,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 9,
-            "current_gang": "Waffle Fries",
-            "char_name": "Razee Chupador",
-            "gang_rank": 2,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "pegasus",
-            "age": 19,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 10,
-            "current_gang": "Waffle Fries",
-            "char_name": "Thinkster Chupador",
-            "gang_rank": 1,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "taco",
-            "age": 25,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 11,
-            "current_gang": "Waffle Fries",
-            "char_name": "Steezy Chupador",
-            "gang_rank": 1,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "miner",
-            "age": 24,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
-        },
-        {
-            "id": 12,
-            "current_gang": "Waffle Fries",
-            "char_name": "Ramrod Chupador",
-            "gang_rank": 1,
-            "available_ranks": [{ "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 }],
-            "phone_number": "111-111-1111",
-            "legal_job": "taxi",
-            "age": 36,
-            "last_seen": "2/27/2021",
-            "backstory": "",
-            "profile_photo": ""
+          "gang_rank": 0,
+          "char_name": "Ivan Petrov",
+          "gang_snake_case": "swedenies",
+          "backstory": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta, dolores quae unde laudantium expedita, cumque repellat dignissimos ab doloremque impedit pariatur, obcaecati numquam eligendi debitis nesciunt exercitationem. Accusantium tenetur cupiditate reiciendis explicabo, excepturi nemo? Accusantium provident nam sint est laudantium ipsa inventore incidunt suscipit tenetur sunt. Quam minus illum hic officiis ad optio ipsum accusamus laudantium debitis repudiandae at cupiditate a incidunt corrupti, quisquam, quas ullam, esse cumque. Vel, aut obcaecati fuga officia quibusdam voluptates atque commodi iste blanditiis, neque alias maxime error cumque est delectus, nobis dolore officiis ab accusantium animi? Dolor, quisquam explicabo. Quis placeat odio exercitationem?",
+          "phone_number": "420-666-1337",
+          "unique_id": 18,
+          "last_logged": 1617058243000,
+          "profile_photo": "https://via.placeholder.com/350",
+          "current_gang": "Swedenies"
         }
-    ]
-}
+      ],
+      "calendar": []
+    },
+    "The Bootyella's": {
+      "members": [
+        {
+          "gang_rank": 0,
+          "char_name": "Jacenda Clarke",
+          "gang_snake_case": "the_bootyellas",
+          "backstory": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta, dolores quae unde laudantium expedita, cumque repellat dignissimos ab doloremque impedit pariatur, obcaecati numquam eligendi debitis nesciunt exercitationem. Accusantium tenetur cupiditate reiciendis explicabo, excepturi nemo? Accusantium provident nam sint est laudantium ipsa inventore incidunt suscipit tenetur sunt. Quam minus illum hic officiis ad optio ipsum accusamus laudantium debitis repudiandae at cupiditate a incidunt corrupti, quisquam, quas ullam, esse cumque. Vel, aut obcaecati fuga officia quibusdam voluptates atque commodi iste blanditiis, neque alias maxime error cumque est delectus, nobis dolore officiis ab accusantium animi? Dolor, quisquam explicabo. Quis placeat odio exercitationem?",
+          "phone_number": "170-697-8459",
+          "unique_id": 29101,
+          "last_logged": 1616920166000,
+          "profile_photo": "https://via.placeholder.com/350",
+          "current_gang": "The Bootyella's"
+        }
+      ],
+      "calendar": []
+    },
+    "Gambetti's": {
+      "members": [
+        {
+          "gang_rank": 0,
+          "char_name": "Tony Soprano",
+          "gang_snake_case": "gambettis",
+          "backstory": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta, dolores quae unde laudantium expedita, cumque repellat dignissimos ab doloremque impedit pariatur, obcaecati numquam eligendi debitis nesciunt exercitationem. Accusantium tenetur cupiditate reiciendis explicabo, excepturi nemo? Accusantium provident nam sint est laudantium ipsa inventore incidunt suscipit tenetur sunt. Quam minus illum hic officiis ad optio ipsum accusamus laudantium debitis repudiandae at cupiditate a incidunt corrupti, quisquam, quas ullam, esse cumque. Vel, aut obcaecati fuga officia quibusdam voluptates atque commodi iste blanditiis, neque alias maxime error cumque est delectus, nobis dolore officiis ab accusantium animi? Dolor, quisquam explicabo. Quis placeat odio exercitationem?",
+          "phone_number": "784-441-2279",
+          "unique_id": 27490,
+          "last_logged": 1617063005000,
+          "profile_photo": "https://via.placeholder.com/350",
+          "current_gang": "Gambetti's"
+        }
+      ],
+      "calendar": []
+    },
+    "Vanilla Wafers": {
+      "members": [
+        {
+          "gang_rank": 1,
+          "char_name": "Madison Chupador",
+          "gang_snake_case": "vanilla_wafers",
+          "backstory": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta, dolores quae unde laudantium expedita, cumque repellat dignissimos ab doloremque impedit pariatur, obcaecati numquam eligendi debitis nesciunt exercitationem. Accusantium tenetur cupiditate reiciendis explicabo, excepturi nemo? Accusantium provident nam sint est laudantium ipsa inventore incidunt suscipit tenetur sunt. Quam minus illum hic officiis ad optio ipsum accusamus laudantium debitis repudiandae at cupiditate a incidunt corrupti, quisquam, quas ullam, esse cumque. Vel, aut obcaecati fuga officia quibusdam voluptates atque commodi iste blanditiis, neque alias maxime error cumque est delectus, nobis dolore officiis ab accusantium animi? Dolor, quisquam explicabo. Quis placeat odio exercitationem?",
+          "phone_number": "736-661-0600",
+          "unique_id": 23410,
+          "last_logged": 1617051157000,
+          "profile_photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fklyker.com%2Fwp-content%2Fuploads%2F2017%2F02%2Fbig-boobs-16.jpg&f=1&nofb=1",
+          "current_gang": "Vanilla Wafers"
+        },
+        {
+          "gang_rank": 4,
+          "char_name": "Eduardo Chupador",
+          "gang_snake_case": "vanilla_wafers",
+          "backstory": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta, dolores quae unde laudantium expedita, cumque repellat dignissimos ab doloremque impedit pariatur, obcaecati numquam eligendi debitis nesciunt exercitationem. Accusantium tenetur cupiditate reiciendis explicabo, excepturi nemo? Accusantium provident nam sint est laudantium ipsa inventore incidunt suscipit tenetur sunt. Quam minus illum hic officiis ad optio ipsum accusamus laudantium debitis repudiandae at cupiditate a incidunt corrupti, quisquam, quas ullam, esse cumque. Vel, aut obcaecati fuga officia quibusdam voluptates atque commodi iste blanditiis, neque alias maxime error cumque est delectus, nobis dolore officiis ab accusantium animi? Dolor, quisquam explicabo. Quis placeat odio exercitationem?",
+          "phone_number": "722-308-5765",
+          "unique_id": 2,
+          "last_logged": 1617056146000,
+          "profile_photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2FzEZJzZFEXm23z-Iw9ESls2jYFYA%3D%2F89x0%3A1511x800%2F1600x900%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_image%2Fimage%2F55717463%2Fgoogle_ai_photography_street_view_2.0.jpg&f=1&nofb=1",
+          "current_gang": "Vanilla Wafers"
+        }
+      ],
+      "calendar": [
+        {
+          "id": 58,
+          "title": "333",
+          "start": 1616407200000,
+          "description": "333",
+          "allDay": false,
+          "gang_name": "Vanilla Wafers",
+          "end": 1616436000000
+        },
+        {
+          "id": 59,
+          "title": "Spirit transfer",
+          "start": 1616752800000,
+          "description": "Do the stuff",
+          "allDay": true,
+          "gang_name": "Vanilla Wafers",
+          "end": 1616839200000
+        },
+        {
+          "id": 61,
+          "title": "Gang Meeting",
+          "start": 1616911200000,
+          "description": "Talk about boobs",
+          "allDay": false,
+          "gang_name": "Vanilla Wafers",
+          "end": 1616914800000
+        }
+      ]
+    },
+    "Grove Street Family's": {
+      "members": [
+        {
+          "gang_rank": 0,
+          "char_name": "Papz Irishman",
+          "gang_snake_case": "grove_street_familys",
+          "backstory": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta, dolores quae unde laudantium expedita, cumque repellat dignissimos ab doloremque impedit pariatur, obcaecati numquam eligendi debitis nesciunt exercitationem. Accusantium tenetur cupiditate reiciendis explicabo, excepturi nemo? Accusantium provident nam sint est laudantium ipsa inventore incidunt suscipit tenetur sunt. Quam minus illum hic officiis ad optio ipsum accusamus laudantium debitis repudiandae at cupiditate a incidunt corrupti, quisquam, quas ullam, esse cumque. Vel, aut obcaecati fuga officia quibusdam voluptates atque commodi iste blanditiis, neque alias maxime error cumque est delectus, nobis dolore officiis ab accusantium animi? Dolor, quisquam explicabo. Quis placeat odio exercitationem?",
+          "phone_number": "111-743-6440",
+          "unique_id": 32879,
+          "last_logged": 1617050460000,
+          "profile_photo": "https://via.placeholder.com/350",
+          "current_gang": "Grove Street Family's"
+        }
+      ],
+      "calendar": []
+    }
+  }

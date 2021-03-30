@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import ExitIcon from "../assets/svg/exit.svg";
-import { closeWeb } from "../store/dark-web/dark-web.actions";
+import { closeWeb } from "../store/web/web.actions";
 
 const useStyles = makeStyles((theme) => ({
     box: {

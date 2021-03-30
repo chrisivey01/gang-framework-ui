@@ -1,9 +1,9 @@
 import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
-import ScriptImage from "../assets/png/script.png";
+import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Fragment, useEffect } from "react";
-import XIcon from "../assets/svg/x.svg";
+import ScriptImage from "../assets/png/script.png";
 import CheckIcon from "../assets/svg/check.svg";
+import XIcon from "../assets/svg/x.svg";
 import { denyGang, joinGang } from "../store/roster/roster.actions";
 
 const useStyles = makeStyles((theme) => ({

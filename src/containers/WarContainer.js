@@ -6,9 +6,10 @@ import {
     Grid,
     makeStyles,
     TextField,
-    Typography
+    Typography,
 } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import TabPanel from "../components/War/TabPanel";
 import VerticalTabs from "../components/War/VerticalTabs";
 import WarDialog from "../components/War/WarDialog";
@@ -17,7 +18,7 @@ import {
     showWarPrompt,
     updateDispute,
     updatePoints,
-    updateReward
+    updateReward,
 } from "../store/war/war.actions";
 
 const useStyles = makeStyles(() => ({
@@ -51,90 +52,89 @@ const useStyles = makeStyles(() => ({
 const WarContainer = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
+    const gangs = useSelector((state) => state.gang.gangs);
+    const gangKey = useSelector((state) => state.war.gangKey);
+    const gangText = useSelector((state) => state.war.gangText);
 
     return (
         <Grid container>
             <VerticalTabs />
 
-            {gangs.map((gang, i) => {
-                return (
-                    <TabPanel index={i} key={i}>
-                        <Card className={classes.container} elevation={3}>
-                            <CardContent>
-                                <Typography variant="body2">
-                                    Gang Name: {gang.name}
-                                </Typography>
-                                <Box className="box">
-                                    <TextField
-                                        label="Total War Points"
-                                        type="number"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        variant="outlined"
-                                        defaultValue={0}
-                                        onChange={(e) =>
-                                            dispatch(
-                                                updatePoints(
-                                                    parseInt(e.target.value)
-                                                )
-                                            )
-                                        }
-                                        inputProps={{
-                                            min: 0,
-                                            max: 30,
-                                        }}
-                                    />
-                                </Box>
-                                <Box className="box">
-                                    <TextField
-                                        style={{
-                                            width: "100%",
-                                            color: "white",
-                                        }}
-                                        label="Dispute"
-                                        type="search"
-                                        multiline
-                                        rows={4}
-                                        variant="outlined"
-                                        onChange={(e) =>
-                                            dispatch(
-                                                updateDispute(e.target.value)
-                                            )
-                                        }
-                                    />
-                                </Box>
-                                <Box className="box">
-                                    <TextField
-                                        style={{
-                                            width: "100%",
-                                            color: "white",
-                                        }}
-                                        label="Reward"
-                                        type="search"
-                                        multiline
-                                        rows={2}
-                                        variant="outlined"
-                                        onChange={(e) =>
-                                            dispatch(
-                                                updateReward(e.target.value)
-                                            )
-                                        }
-                                    />
-                                </Box>
-                                <Button
-                                    onClick={() => dispatch(showWarPrompt())}
-                                >
-                                    Submit
-                                </Button>
-                            </CardContent>
-                        </Card>
-                        <WarDialog />
-                    </TabPanel>
-                );
-            })}
+            <TabPanel>
+                <Card className={classes.container} elevation={3}>
+                    <CardContent>
+                        <Typography variant="body2">
+                            Gang Name: {gangText}
+                        </Typography>
+                        <Box className="box">
+                            <TextField
+                                label="Total War Points"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                variant="outlined"
+                                defaultValue={0}
+                                onChange={(e) =>
+                                    dispatch(
+                                        updatePoints(parseInt(e.target.value))
+                                    )
+                                }
+                                inputProps={{
+                                    min: 0,
+                                    max: 30,
+                                }}
+                            />
+                        </Box>
+                        <Box className="box">
+                            <TextField
+                                style={{
+                                    width: "100%",
+                                    color: "white",
+                                }}
+                                label="Dispute"
+                                type="search"
+                                multiline
+                                rows={4}
+                                variant="outlined"
+                                onChange={(e) =>
+                                    dispatch(updateDispute(e.target.value))
+                                }
+                            />
+                        </Box>
+                        <Box className="box">
+                            <TextField
+                                style={{
+                                    width: "100%",
+                                    color: "white",
+                                }}
+                                label="Reward"
+                                type="search"
+                                multiline
+                                rows={2}
+                                variant="outlined"
+                                onChange={(e) =>
+                                    dispatch(updateReward(e.target.value))
+                                }
+                            />
+                        </Box>
+                        <Button onClick={() => dispatch(showWarPrompt())}>
+                            Submit
+                        </Button>
+                    </CardContent>
+                </Card>
+                <WarDialog />
+            </TabPanel>
         </Grid>
     );
 };
 
 export default WarContainer;
+
+{
+    /* 
+            {Object.keys(gangs)[panel]
+                .sort()
+                .map((gang) => {
+                    return gangs[gang]["members"].map((mem, i) => { */
+}

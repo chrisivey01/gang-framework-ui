@@ -20,9 +20,11 @@ export const getEvents = (gameEvents) => {
             let response;
             if (process.env.NODE_ENV !== "development") {
                 response = gameEvents.map((events) => {
-                    events.start = new Date(events.start);
-                    events.end = new Date(events.end);
-                    return events;
+                    if (events) {
+                        events.start = new Date(events.start);
+                        events.end = new Date(events.end);
+                        return events;
+                    }
                 });
                 dispatch({ type: GET_EVENTS, payload: response });
             } else {
@@ -60,13 +62,12 @@ export const updateEvent = (eventId, update) => {
         try {
             if (process.env.NODE_ENV !== "development") {
                 //this needs ID to identify the event
-                update.id = eventId
+                update.id = eventId;
                 await Apis.updateCalendarEvents({ eventId, update });
                 dispatch({ type: UPDATE_EVENT, payload: { eventId, update } });
             } else {
                 dispatch({ type: UPDATE_EVENT, payload: data });
             }
-
         } catch (e) {
             console.log(e);
         }

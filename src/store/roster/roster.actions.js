@@ -1,9 +1,9 @@
 import gangJson from "../../helpers/gang.json";
 import Apis from "../../services/api";
 
-export const LOAD_ROSTER = "LOAD_ROSTER";
-export const LOAD_ROSTER_FAILURE = "LOAD_ROSTER_FAILURE";
-export const LOAD_ROSTER_SUCCESS = "LOAD_ROSTER_SUCCESS";
+export const LOAD_ROSTERS = "LOAD_ROSTERS";
+export const LOAD_ROSTERS_FAILURE = "LOAD_ROSTERS_FAILURE";
+export const LOAD_ROSTERS_SUCCESS = "LOAD_ROSTERS_SUCCESS";
 export const VIEW_MEMBER = "VIEW_MEMBER";
 export const CHANGE_RANK = "CHANGE_RANK";
 export const UPDATE_CHARACTER = "UPDATE_CHARACTER";
@@ -17,7 +17,7 @@ export const SHOW_GANG_INVITE = "SHOW_GANG_INVITE";
 export const JOIN_GANG = "JOIN_GANG";
 export const DENY_GANG = "DENY_GANG";
 
-export const loadRoster = (roster, character, gangCap) => {
+export const loadRosters = (roster, character, gangs, gangCap) => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "development") {
             try {
@@ -26,20 +26,22 @@ export const loadRoster = (roster, character, gangCap) => {
                     gangCap: gangJson.gangCap
                 }
                 
-                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: data });
+                dispatch({ type: LOAD_ROSTERS_SUCCESS, payload: data });
             } catch (e) {
-                dispatch({ type: LOAD_ROSTER_FAILURE });
+                dispatch({ type: LOAD_ROSTERS_FAILURE });
             }
         } else {
             try {
+                gangs[character['current_gang']]['calendar'] = gangs[character['current_gang']]['calendar'].filter(g => g !== null)
                 const data = {
                     roster: roster,
                     character: character,
+                    gangs: gangs,
                     gangCap: gangCap
                 }
-                dispatch({ type: LOAD_ROSTER_SUCCESS, payload: data });
+                dispatch({ type: LOAD_ROSTERS_SUCCESS, payload: data });
             } catch (e) {
-                dispatch({ type: LOAD_ROSTER_FAILURE });
+                dispatch({ type: LOAD_ROSTERS_FAILURE });
             }
         }
     };

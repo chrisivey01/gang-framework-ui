@@ -34,8 +34,8 @@ module.exports = {
             },
             {
                 test: /\.(png|jp(e*)g|svg|gif|woff|woff2|eot|ttf)$/,
-                type: 'asset'
-            }   
+                type: "asset",
+            },
         ],
     },
 };

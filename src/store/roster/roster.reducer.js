@@ -1,7 +1,7 @@
 import {
     UPDATE_CHARACTER,
-    LOAD_ROSTER_FAILURE,
-    LOAD_ROSTER_SUCCESS,
+    LOAD_ROSTERS_FAILURE,
+    LOAD_ROSTERS_SUCCESS,
     VIEW_MEMBER,
     EXCOMMUNICADO_PROMPT_SHOW,
     EXCOMMUNICADO_PROMPT_HIDE,
@@ -15,20 +15,22 @@ const initialState = {
     gangCap: 0,
     roster: [],
     character: {},
+    gangs: {},
     showDialog: false,
     gangInvite: false,
 };
 
 export const rosterReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_ROSTER_SUCCESS:
+        case LOAD_ROSTERS_SUCCESS:
             return {
                 ...state,
                 roster: action.payload.roster,
                 character: action.payload.character,
                 gangCap: action.payload.gangCap,
+                gangs: action.payload.gangs
             };
-        case LOAD_ROSTER_FAILURE:
+        case LOAD_ROSTERS_FAILURE:
             return {
                 ...state,
                 errorMessage: {
