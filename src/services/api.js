@@ -7,9 +7,14 @@ const excommunicadoUrl = "http://pma-gang-framework/ExcommunicadoMember";
 const closeGangInviteUrl = "http://pma-gang-framework/CloseGangInvite";
 
 const getCalendarEventsUrl = "http://pma-gang-framework/GetCalendarEvents";
-const createCalendarEventsUrl = "http://pma-gang-framework/CreateCalendarEvents";
-const updateCalendarEventsUrl = "http://pma-gang-framework/UpdateCalendarEvents";
-const deleteCalendarEventsUrl = "http://pma-gang-framework/DeleteCalendarEvents";
+const createCalendarEventsUrl =
+    "http://pma-gang-framework/CreateCalendarEvents";
+const updateCalendarEventsUrl =
+    "http://pma-gang-framework/UpdateCalendarEvents";
+const deleteCalendarEventsUrl =
+    "http://pma-gang-framework/DeleteCalendarEvents";
+
+const joinGangUrl = "http://pma-gang-framework/JoinGang";
 
 const Apis = {
     openDarkWeb(data) {
@@ -82,7 +87,15 @@ const Apis = {
         } else {
             return axios.post(deleteCalendarEventsUrl, data);
         }
-    }
+    },
+
+    joinGang(gangName) {
+        if (process.env.NODE_ENV === "development") {
+            return true;
+        } else {
+            return axios.post(joinGangUrl, {gangName: gangName});
+        }
+    },
 };
 
 export default Apis;

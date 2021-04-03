@@ -38,7 +38,7 @@ export default () => {
 
     const gangInviteListener = (event) => {
         if (event.data.showGangInvite) {
-            dispatch(showGangInvite());
+            dispatch(showGangInvite(event.data.gangName));
         }
     };
 

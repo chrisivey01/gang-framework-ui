@@ -34,47 +34,48 @@ const useStyles = makeStyles((theme) => ({
 
 const GangRecruit = () => {
     const dispatch = useDispatch();
-    const roster = useSelector((state) => state.gang.roster);
     const classes = useStyles();
-    const gangInvite = useSelector((state) => state.gang.gangInvite);
+    const invite = useSelector((state) => state.gang.invite);
 
-    if (roster.length > 0 && gangInvite) {
-        return (
-            <Grid className={classes.script}>
-                <img
-                    src={ScriptImage}
-                    style={{ width: "100%", height: "100%" }}
-                />
-                <Box className="script-wrapper">
-                    <Grid>
-                        <Typography style={{ fontSize: "35px" }}>
-                            Do you wish to join {roster[0].current_gang}?
-                        </Typography>
-                    </Grid>
-                    <Grid container className="wrapper-button">
+    return (
+        <Fragment>
+            {invite.show ? (
+                <Grid className={classes.script}>
+                    <img
+                        src={ScriptImage}
+                        style={{ width: "100%", height: "100%" }}
+                    />
+                    <Box className="script-wrapper">
                         <Grid>
-                            <Button
-                                style={{ margin: "20px" }}
-                                onClick={() => dispatch(joinGang())}
-                            >
-                                <Typography>Yes</Typography>
-                                <img className="svg" src={CheckIcon}></img>
-                            </Button>
-                            <Button
-                                style={{ margin: "20px" }}
-                                onClick={() => dispatch(denyGang())}
-                            >
-                                <Typography>No</Typography>
-                                <img className="svg" src={XIcon}></img>
-                            </Button>
+                            <Typography style={{ fontSize: "35px" }}>
+                                Do you wish to join {invite.name}?
+                            </Typography>
                         </Grid>
-                    </Grid>
-                </Box>
-            </Grid>
-        );
-    } else {
-        return <Fragment />;
-    }
+                        <Grid container className="wrapper-button">
+                            <Grid>
+                                <Button
+                                    style={{ margin: "20px" }}
+                                    onClick={() =>
+                                        dispatch(joinGang(invite.name))
+                                    }
+                                >
+                                    <Typography>Yes</Typography>
+                                    <img className="svg" src={CheckIcon}></img>
+                                </Button>
+                                <Button
+                                    style={{ margin: "20px" }}
+                                    onClick={() => dispatch(denyGang())}
+                                >
+                                    <Typography>No</Typography>
+                                    <img className="svg" src={XIcon}></img>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </Grid>
+            ) : null}
+        </Fragment>
+    );
 };
 
 export default GangRecruit;

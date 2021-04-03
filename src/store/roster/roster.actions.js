@@ -23,22 +23,24 @@ export const loadRosters = (roster, character, gangs, gangCap) => {
             try {
                 const data = {
                     roster: gangJson.roster,
-                    gangCap: gangJson.gangCap
-                }
-                
+                    gangCap: gangJson.gangCap,
+                };
+
                 dispatch({ type: LOAD_ROSTERS_SUCCESS, payload: data });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTERS_FAILURE });
             }
         } else {
             try {
-                gangs[character['current_gang']]['calendar'] = gangs[character['current_gang']]['calendar'].filter(g => g !== null)
+                gangs[character["current_gang"]]["calendar"] = gangs[
+                    character["current_gang"]
+                ]["calendar"].filter((g) => g !== null);
                 const data = {
                     roster: roster,
                     character: character,
                     gangs: gangs,
-                    gangCap: gangCap
-                }
+                    gangCap: gangCap,
+                };
                 dispatch({ type: LOAD_ROSTERS_SUCCESS, payload: data });
             } catch (e) {
                 dispatch({ type: LOAD_ROSTERS_FAILURE });
@@ -120,26 +122,27 @@ export const updateBackstory = (character, roster, event) => {
     };
 };
 
-export const showGangInvite = () => {
+export const showGangInvite = (gangName) => {
     return (dispatch) => {
-        dispatch({ type: SHOW_GANG_INVITE });
+        dispatch({ type: SHOW_GANG_INVITE, payload: gangName });
     };
 };
 
-
 //TODO
-export const joinGang = (character, roster) => {
+export const joinGang = (gangName) => {
     return (dispatch) => {
         //character and roster need to be added to cache
         if (process.env.NODE_ENV === "production") {
-            dispatch({ type: JOIN_GANG });
+            Apis.joinGang(gangName).then(() => {
+                dispatch({ type: JOIN_GANG });
+            })
         } else {
             dispatch({ type: JOIN_GANG });
         }
     };
 };
 
-export const denyGang = (character, roster) => {
+export const denyGang = () => {
     return (dispatch) => {
         if (process.env.NODE_ENV === "production") {
             dispatch({ type: DENY_GANG });
@@ -151,5 +154,5 @@ export const denyGang = (character, roster) => {
 };
 
 // const closeGangInvite = (joinOrNo) => {
-    
+
 // };

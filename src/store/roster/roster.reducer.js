@@ -17,7 +17,10 @@ const initialState = {
     character: {},
     gangs: {},
     showDialog: false,
-    gangInvite: false,
+    invite: {
+        show: false,
+        name: ""
+    }
 };
 
 export const rosterReducer = (state = initialState, action) => {
@@ -69,19 +72,28 @@ export const rosterReducer = (state = initialState, action) => {
         case SHOW_GANG_INVITE:
             return {
                 ...state,
-                gangInvite: true,
+                invite: {
+                    show: true,
+                    name: action.payload
+                }
             };
         case JOIN_GANG:
             return {
                 ...state,
-                gangInvite: false,
-                // roster: action.payload,
+                invite: {
+                    ...state.invite,
+                    show: false,
+                }
             };
         case DENY_GANG:
             return {
                 ...state,
                 gangInvite: false,
-                // roster: action.payload,
+                invite: {
+                    ...state.invite,
+                    show: false,
+                    name: ''
+                }
             };
 
         default:

@@ -15,6 +15,7 @@ import moment from "moment";
 import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+    excommunicadoPromptShow,
     updateBackstory,
     updateCharacter,
 } from "../../store/roster/roster.actions";
@@ -290,10 +291,14 @@ const RosterView = () => {
 
     return (
         <Card className={classes.container}>
-            <EditDisableSwitch
-                isEdit={isEdit}
-                handleEditChange={handleEditChange}
-            />
+            {character.gang_rank === 4 ? (
+                <EditDisableSwitch
+                    isEdit={isEdit}
+                    handleEditChange={handleEditChange}
+                />
+            ) : (
+                <Fragment />
+            )}
             {process.env.NODE_ENV === "development" ? (
                 <CardHeader
                     className="header"
