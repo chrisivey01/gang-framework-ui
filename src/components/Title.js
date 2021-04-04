@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import { Fragment } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CalendarIcon from "../assets/svg/calendar.svg";
 import StoreIcon from "../assets/svg/store.svg";
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Title = ({ pathHandler }) => {
     const classes = useStyles();
+    const character = useSelector((state) => state.gang.character);
 
     return (
         <Fragment>
@@ -68,14 +70,18 @@ const Title = ({ pathHandler }) => {
                 <img src={RosterIcon} className="svg" />
                 <Typography component={"span"}>Roster</Typography>
             </Link>
-            <Link
-                to={"/war"}
-                className={classes.box}
-                onClick={(e) => pathHandler(e)}
-            >
-                <img src={WarIcon} className="svg" />
-                <Typography component={"span"}>War</Typography>
-            </Link>
+            {character.gang_rank === 4 ? (
+                <Link
+                    to={"/war"}
+                    className={classes.box}
+                    onClick={(e) => pathHandler(e)}
+                >
+                    <img src={WarIcon} className="svg" />
+                    <Typography component={"span"}>War</Typography>
+                </Link>
+            ) : (
+                <Fragment />
+            )}
             <Link
                 to={"/chat"}
                 className={classes.box}

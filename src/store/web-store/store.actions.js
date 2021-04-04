@@ -1,9 +1,13 @@
+import Apis from "../../services/api";
+
 export const LOAD_STORE = "LOAD_STORE";
 export const LOAD_STORE_SUCCESS = "LOAD_STORE_SUCCESS";
 export const LOAD_STORE_FAILURE = "LOAD_STORE_FAILURE";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+
+export const PURCHASE_WEAPONS = "PURCHASE_WEAPONS";
 
 export const loadStore = (items) => {
     return (dispatch) => {
@@ -115,5 +119,30 @@ export const removeFromCart = (items, item, cart) => {
             type: REMOVE_FROM_CART,
             payload: data,
         });
+    };
+};
+
+export const purchaseWeapons = (items, cart, character) => {
+    return (dispatch) => {
+
+        const data = {
+            items: items,
+            cart: cart,
+            character: character,
+        };
+
+        data.cart = [...data.cart].map(([name, value]) => (value));
+
+        Apis.purchaseWeapons(data).then(() => {
+            let copyCart = new Map(cart)
+            copyCart.forEach((value, key) => {
+                if(value.quantity > 0){
+                    value.quantity = 0;
+                }
+                copyCart[key] = value
+            });
+
+            dispatch({ type: PURCHASE_WEAPONS, payload: copyCart });
+        })
     };
 };

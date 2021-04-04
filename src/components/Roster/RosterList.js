@@ -6,9 +6,8 @@ import {
     makeStyles,
     Paper,
 } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import withRoster from "../../hoc/withRoster";
 import StarIcon from "@material-ui/icons/Star";
+import { useDispatch, useSelector } from "react-redux";
 import { viewMember } from "../../store/roster/roster.actions";
 
 const useStyles = makeStyles((theme) => ({

@@ -9,7 +9,7 @@ import {
     makeStyles,
     MenuItem,
     TextField,
-    Typography,
+    Typography
 } from "@material-ui/core";
 import moment from "moment";
 import { Fragment, useState } from "react";
@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     excommunicadoPromptShow,
     updateBackstory,
-    updateCharacter,
+    updateCharacter
 } from "../../store/roster/roster.actions";
 import EditDisableSwitch from "./EditDisableSwitch";
 import Excommunicado from "./Excommunicado";

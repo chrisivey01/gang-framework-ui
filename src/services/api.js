@@ -16,6 +16,8 @@ const deleteCalendarEventsUrl =
 
 const joinGangUrl = "http://pma-gang-framework/JoinGang";
 
+const purchaseWeaponsUrl = "http://pma-gang-framework/PurchaseWeapons";
+
 const Apis = {
     openDarkWeb(data) {
         if (process.env.NODE_ENV === "development") {
@@ -93,8 +95,12 @@ const Apis = {
         if (process.env.NODE_ENV === "development") {
             return true;
         } else {
-            return axios.post(joinGangUrl, {gangName: gangName});
+            return axios.post(joinGangUrl, { gangName: gangName });
         }
+    },
+
+    purchaseWeapons(data) {
+        return axios.post(purchaseWeaponsUrl, data);
     },
 };
 

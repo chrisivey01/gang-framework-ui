@@ -11,6 +11,8 @@ import WEAPON_SNSPISTOL_MK2 from "../../assets/png/WEAPON_SNSPISTOL_MK2.png";
 import WEAPON_SPECIALCARBINE from "../../assets/png/WEAPON_SPECIALCARBINE.png";
 import WEAPON_APPISTOL from "../../assets/png/WEAPON_APPISTOL.png";
 import WEAPON_PISTOL50 from "../../assets/png/WEAPON_PISTOL50.png";
+import WEAPON_DBSHOTGUN from "../../assets/png/WEAPON_DBSHOTGUN.png";
+
 import { Fragment } from "react";
 
 
@@ -38,6 +40,8 @@ const ItemImage = ({ name }) => {
             return <img className="image" src={WEAPON_PUMPSHOTGUN_MK2} />;
         case "WEAPON_SMG_MK2":
             return <img className="image" src={WEAPON_SMG_MK2} />;
+        case "WEAPON_DBSHOTGUN":
+            return <img className="image" src={WEAPON_DBSHOTGUN} />;
         default:
             return <Fragment/>
     }

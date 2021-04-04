@@ -8,11 +8,11 @@ import {
     makeStyles,
     Table,
     TableBody,
-    TableContainer,
     TablePagination,
 } from "@material-ui/core";
-import { Fragment, useState } from "react";
-import { useSelector } from "react-redux";
+import { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { purchaseWeapons } from "../../store/web-store/store.actions";
 import Bids from "./Bids";
 import ItemList from "./ItemList.js";
 
@@ -41,9 +41,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Store = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
     const items = useSelector((state) => state.store.items);
+    const cart = useSelector((state) => state.store.cart);
+    const character = useSelector((state) => state.gang.character);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(4);
+    const [rowsPerPage, setRowsPerPage] = useState(6);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -53,6 +56,8 @@ const Store = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
+    useEffect(() => {}, [cart]);
 
     const renderTable = () => {
         if (items.size > 0) {
@@ -64,7 +69,7 @@ const Store = () => {
                                 style={{
                                     display: "flex",
                                     flexWrap: "wrap",
-                                    justifyContent: "center",
+                                    paddingLeft: "100px",
                                 }}
                             >
                                 <ItemList
@@ -77,7 +82,7 @@ const Store = () => {
                         <TablePagination
                             component="div"
                             count={items.size}
-                            rowsPerPage={4}
+                            rowsPerPage={6}
                             rowsPerPageOptions={[]}
                             page={page}
                             onChangePage={handleChangePage}
@@ -85,7 +90,16 @@ const Store = () => {
                             style={{ flexGrow: 10, color: "#fff" }}
                         />
                         <Grid className="button-bar">
-                            <Button className="button">Purchase</Button>
+                            <Button
+                                className="button"
+                                onClick={() =>
+                                    dispatch(
+                                        purchaseWeapons(items, cart, character)
+                                    )
+                                }
+                            >
+                                Purchase
+                            </Button>
                         </Grid>
                     </Grid>
                 </CardContent>

@@ -1,10 +1,10 @@
 import {
-    ADD_TO_CART, LOAD_STORE,
-
-    LOAD_STORE_FAILURE, LOAD_STORE_SUCCESS,
-
-
-    REMOVE_FROM_CART
+    ADD_TO_CART,
+    LOAD_STORE,
+    LOAD_STORE_FAILURE,
+    LOAD_STORE_SUCCESS,
+    PURCHASE_WEAPONS,
+    REMOVE_FROM_CART,
 } from "./store.actions";
 
 const initialState = {
@@ -59,6 +59,11 @@ export const storeReducer = (state = initialState, action) => {
                 totalCost: action.payload.totalCost,
                 totalCostDisplay: action.payload.totalCostDisplay,
             };
+        case PURCHASE_WEAPONS:
+            return {
+                ...state,
+                cart: action.payload
+            }
         default:
             return state;
     }

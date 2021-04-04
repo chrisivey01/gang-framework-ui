@@ -22,7 +22,9 @@ export const loadRosters = (roster, character, gangs, gangCap) => {
         if (process.env.NODE_ENV === "development") {
             try {
                 const data = {
-                    roster: gangJson.roster,
+                    roster: gangJson.gang.members,
+                    character: gangJson.character,
+                    gangs: gangJson.gangs,
                     gangCap: gangJson.gangCap,
                 };
 

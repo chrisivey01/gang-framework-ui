@@ -4,7 +4,9 @@ const ItemDescription = ({ item, cartItem }) => {
     if (item.quantity > 0) {
         return (
             <Grid>
-                <Typography style={{color: "rgb(186,134,34"}}variant="h6">{item.label}</Typography>
+                <Typography style={{ color: "rgb(186,134,34" }} variant="h6">
+                    {item.label}
+                </Typography>
                 <Typography variant="body2">
                     Available: {item.quantity}
                 </Typography>

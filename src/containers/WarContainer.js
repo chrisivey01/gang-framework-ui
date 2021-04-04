@@ -52,8 +52,6 @@ const useStyles = makeStyles(() => ({
 const WarContainer = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
-    const gangs = useSelector((state) => state.gang.gangs);
-    const gangKey = useSelector((state) => state.war.gangKey);
     const gangText = useSelector((state) => state.war.gangText);
 
     return (
@@ -130,11 +128,3 @@ const WarContainer = () => {
 };
 
 export default WarContainer;
-
-{
-    /* 
-            {Object.keys(gangs)[panel]
-                .sort()
-                .map((gang) => {
-                    return gangs[gang]["members"].map((mem, i) => { */
-}
