@@ -1,5 +1,6 @@
 import axios from "axios";
 import character from "../helpers/character.json";
+import { acceptWarPrompt } from "../store/war/war.actions";
 const openDarkWebUrl = "http://pma-gang-framework/OpenDarkWeb";
 const closeDarkWebUrl = "http://pma-gang-framework/CloseDarkWeb";
 const updateCharacterUrl = "http://pma-gang-framework/UpdateGangCharacter";
@@ -17,6 +18,11 @@ const deleteCalendarEventsUrl =
 const joinGangUrl = "http://pma-gang-framework/JoinGang";
 
 const purchaseWeaponsUrl = "http://pma-gang-framework/PurchaseWeapons";
+
+const warRequestUrl = "http://pma-gang-framework/WarRequest";
+const sendWarUrl = "http://pma-gang-framework/SendWar";
+
+const acceptWarRequestUrl = "http://pma-gang-framework/AcceptWarRequest";
 
 const Apis = {
     openDarkWeb(data) {
@@ -101,6 +107,30 @@ const Apis = {
 
     purchaseWeapons(data) {
         return axios.post(purchaseWeaponsUrl, data);
+    },
+
+    warRequest(data) {
+        if (process.env.NODE_ENV === "development") {
+            return true;
+        } else {
+            return axios.post(warRequestUrl, data);
+        }
+    },
+
+    sendWarPrompt(data) {
+        if (process.env.NODE_ENV === "development") {
+            return true;
+        } else {
+            return axios.post(sendWarUrl, data);
+        }
+    },
+
+    acceptWarRequest(data) {
+        if (process.env.NODE_ENV === "development") {
+            return true;
+        } else {
+            return axios.post(acceptWarRequestUrl, data);
+        }
     },
 };
 

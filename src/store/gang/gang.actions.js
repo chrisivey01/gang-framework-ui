@@ -5,6 +5,7 @@ export const LOAD_ROSTERS = "LOAD_ROSTERS";
 export const LOAD_ROSTERS_FAILURE = "LOAD_ROSTERS_FAILURE";
 export const LOAD_ROSTERS_SUCCESS = "LOAD_ROSTERS_SUCCESS";
 export const VIEW_MEMBER = "VIEW_MEMBER";
+
 export const CHANGE_RANK = "CHANGE_RANK";
 export const UPDATE_CHARACTER = "UPDATE_CHARACTER";
 export const UPDATE_BACKSTORY = "UPDATE_BACKSTORY";
@@ -59,6 +60,9 @@ export const viewMember = (data) => {
 
 export const updateCharacter = (roster, character) => {
     return (dispatch) => {
+        roster = roster.map((char) =>
+            char.char_name === character.char_name ? (char = character) : char
+        );
         const data = { roster: roster, character: character };
         Apis.updateCharacter(data);
         dispatch({ type: UPDATE_CHARACTER, payload: data });
@@ -106,7 +110,7 @@ export const updateBackstory = (character, roster, event) => {
         let copyRoster = [...roster];
         let copyCharacter = { ...character };
 
-        copyRoster = copyRoster.map((char) => {
+        copyRoster.map((char) => {
             if (char.char_name === character.char_name) {
                 char.backstory = event.target.value;
                 copyCharacter.backstory = event.target.value;
@@ -137,7 +141,7 @@ export const joinGang = (gangName) => {
         if (process.env.NODE_ENV === "production") {
             Apis.joinGang(gangName).then(() => {
                 dispatch({ type: JOIN_GANG });
-            })
+            });
         } else {
             dispatch({ type: JOIN_GANG });
         }

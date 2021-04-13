@@ -1,0 +1,14 @@
+{
+    "activeWar": true,
+    "war": {
+        "gang_id1": 5,
+        "gang_name1": "Gambetti's",
+        "gang_id2": 1,
+        "gang_name2": "Vanilla Wafers",
+        "points": {
+            "score1": 22,
+            "score2": 22,
+            "max": 30
+        }
+    }
+}

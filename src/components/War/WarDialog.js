@@ -4,40 +4,31 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
-    Typography
+    Typography,
 } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { acceptWarPrompt, closeWarPrompt } from "../../store/war/war.actions";
+import { useDispatch } from "react-redux";
 
-const WarDialog = () => {
+const WarDialog = ({ text, title, showDialog, handleData, closePrompt }) => {
     const dispatch = useDispatch();
-    const showWarPrompt = useSelector((state) => state.war.showWarPrompt);
 
     return (
-        <Dialog open={showWarPrompt} onClose={() => dispatch(closeWarPrompt())}>
+        <Dialog open={showDialog} onClose={() => dispatch(closePrompt())}>
             <DialogTitle
                 id="customized-dialog-title"
-                onClose={() => dispatch(closeWarPrompt())}
+                onClose={() => dispatch(closePrompt())}
             >
-                Gang War Declaration
+                {title}
             </DialogTitle>
             <DialogContent dividers>
-                <Typography gutterBottom>
-                    Declaring a gang war is a big deal. Are you sure you want
-                    this?
-                </Typography>
+                <Typography gutterBottom>{text}</Typography>
             </DialogContent>
             <DialogActions>
-                <Button
-                    autoFocus
-                    onClick={() => dispatch(acceptWarPrompt())}
-                    color="primary"
-                >
+                <Button autoFocus onClick={handleData} color="primary">
                     Yes
                 </Button>
                 <Button
                     autoFocus
-                    onClick={() => dispatch(closeWarPrompt())}
+                    onClick={() => dispatch(closePrompt())}
                     color="primary"
                 >
                     No

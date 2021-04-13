@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ScriptImage from "../assets/png/script.png";
 import CheckIcon from "../assets/svg/check.svg";
 import XIcon from "../assets/svg/x.svg";
-import { denyGang, joinGang } from "../store/roster/roster.actions";
+import { denyGang, joinGang } from "../store/gang/gang.actions";
 
 const useStyles = makeStyles((theme) => ({
     script: {

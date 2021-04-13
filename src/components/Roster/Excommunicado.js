@@ -3,19 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     excommunicadoPromptHide,
     excommunicadoPromptSuccess,
-} from "../../store/roster/roster.actions";
+} from "../../store/gang/gang.actions";
 
 const Excommunicado = () => {
     const dispatch = useDispatch();
     const roster = useSelector((state) => state.gang.roster);
-    const character = useSelector((state) => state.gang.character);
+    const gangMember = useSelector((state) => state.gang.gangMember);
     const showDialog = useSelector((state) => state.gang.showDialog);
 
     return (
         <Dialog open={showDialog}>
             <DialogTitle>
                 {"Are you sure you wish to excommunicado " +
-                    character.char_name +
+                    gangMember.char_name +
                     "?"}
             </DialogTitle>
             <DialogActions>
@@ -28,7 +28,7 @@ const Excommunicado = () => {
                 </Button>
                 <Button
                     onClick={() =>
-                        dispatch(excommunicadoPromptSuccess(roster, character))
+                        dispatch(excommunicadoPromptSuccess(roster, gangMember))
                     }
                     color="primary"
                     autoFocus

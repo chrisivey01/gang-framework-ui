@@ -1,128 +1,63 @@
-import {
-    Box,
-    Button,
-    Card,
-    CardContent,
-    Grid,
-    makeStyles,
-    TextField,
-    Typography,
-} from "@material-ui/core";
-import { useEffect } from "react";
+import { Grid } from "@material-ui/core";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TabPanel from "../components/War/TabPanel";
 import VerticalTabs from "../components/War/VerticalTabs";
 import WarDialog from "../components/War/WarDialog";
-import gangs from "../helpers/gangwar.json";
 import {
-    showWarPrompt,
-    updateDispute,
-    updatePoints,
-    updateReward,
+    closeWarPrompt,
+    sendWarPrompt,
+    acceptWarRequest,
 } from "../store/war/war.actions";
-
-const useStyles = makeStyles(() => ({
-    container: {
-        margin: 10,
-        backgroundColor: "#333",
-        color: "white",
-        "& .box": {
-            marginTop: 10,
-            marginBottom: 10,
-        },
-        "& .MuiFormLabel-root.Mui-focused": {
-            color: "white",
-        },
-        "& .MuiOutlinedInput-root": {
-            color: "white",
-        },
-        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "rgba(0, 0, 0, 0.87)",
-        },
-        "& .MuiFormLabel-root": {
-            color: "white",
-        },
-        "& .MuiButton-root": {
-            backgroundColor: "#212121",
-            color: "white",
-        },
-    },
-}));
 
 const WarContainer = () => {
     const dispatch = useDispatch();
-    const classes = useStyles();
+    const [warForm, setWarForm] = useState({
+        points: 0,
+        dispute: "",
+        reward: "",
+    });
+    const character = useSelector((state) => state.gang.character);
     const gangText = useSelector((state) => state.war.gangText);
+    const showWarPrompt = useSelector((state) => state.war.showWarPrompt);
+    const showWarRequest = useSelector((state) => state.war.showWarRequest);
+    const gangs = useSelector((state) => state.gang.gangs);
+
+    const handleWarData = () => {
+        dispatch(sendWarPrompt(character, gangText, warForm));
+        setWarForm({ ...warForm, points: 0, dispute: "", reward: "" });
+        dispatch(closeWarPrompt());
+    };
+
+    const acceptWar = () => {
+        dispatch(acceptWarRequest(showWarRequest, gangs));
+        dispatch(closeWarPrompt());
+    };
 
     return (
         <Grid container>
             <VerticalTabs />
-
-            <TabPanel>
-                <Card className={classes.container} elevation={3}>
-                    <CardContent>
-                        <Typography variant="body2">
-                            Gang Name: {gangText}
-                        </Typography>
-                        <Box className="box">
-                            <TextField
-                                label="Total War Points"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                variant="outlined"
-                                defaultValue={0}
-                                onChange={(e) =>
-                                    dispatch(
-                                        updatePoints(parseInt(e.target.value))
-                                    )
-                                }
-                                inputProps={{
-                                    min: 0,
-                                    max: 30,
-                                }}
-                            />
-                        </Box>
-                        <Box className="box">
-                            <TextField
-                                style={{
-                                    width: "100%",
-                                    color: "white",
-                                }}
-                                label="Dispute"
-                                type="search"
-                                multiline
-                                rows={4}
-                                variant="outlined"
-                                onChange={(e) =>
-                                    dispatch(updateDispute(e.target.value))
-                                }
-                            />
-                        </Box>
-                        <Box className="box">
-                            <TextField
-                                style={{
-                                    width: "100%",
-                                    color: "white",
-                                }}
-                                label="Reward"
-                                type="search"
-                                multiline
-                                rows={2}
-                                variant="outlined"
-                                onChange={(e) =>
-                                    dispatch(updateReward(e.target.value))
-                                }
-                            />
-                        </Box>
-                        <Button onClick={() => dispatch(showWarPrompt())}>
-                            Submit
-                        </Button>
-                    </CardContent>
-                </Card>
-                <WarDialog />
-            </TabPanel>
+            <TabPanel setWarForm={setWarForm} warForm={warForm} />
+            <WarDialog
+                handleData={handleWarData}
+                showDialog={showWarPrompt}
+                text={
+                    "Declaring a gang war is a big deal. Are you sure you want this?"
+                }
+                title={"Gang War Declaration"}
+                closePrompt={closeWarPrompt}
+            />
+            <WarDialog
+                handleData={acceptWar}
+                showDialog={showWarRequest.show}
+                text={
+                    "Are you ready to go to war with " +
+                    showWarRequest.gangFrom +
+                    "?"
+                }
+                title={"War Request"}
+                closePrompt={closeWarPrompt}
+            />
         </Grid>
     );
 };

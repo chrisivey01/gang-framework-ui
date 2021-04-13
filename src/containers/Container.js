@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexWrap: "wrap",
         width: "80%",
+        zIndex: 1,
 
         "& .app-bar": {
             zIndex: theme.zIndex.drawer + 1,

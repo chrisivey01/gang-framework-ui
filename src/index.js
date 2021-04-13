@@ -17,6 +17,7 @@ import "@fontsource/roboto";
 import RosterContainer from "./containers/RosterContainer";
 import CalendarView from "./components/Calendar/CalendarView";
 import GangRecruit from "./components/GangRecruit";
+import GangWarScore from "./components/GangWarScore";
 const middle = [thunk, logger];
 const store = createStore(combineReducers, applyMiddleware(...middle));
 
@@ -47,6 +48,7 @@ ReactDOM.render(
                             </Switch>
                         </Container>
                         <GangRecruit />
+                        <GangWarScore />
                     </HashRouter>
                 </SnackbarProvider>
             </MuiPickersUtilsProvider>
