@@ -7,7 +7,8 @@ import { loadWeb } from "../store/web/web.actions";
 import { loadRosters, showGangInvite } from "../store/gang/gang.actions";
 import { loadStore } from "../store/web-store/store.actions";
 import { getEvents } from "../store/calendar/calendar.actions";
-import { activeWar, getWarRequest } from "../store/war/war.actions";
+import { getWarRequest } from "../store/war/war.actions";
+import { activeWar, endWar } from "../store/points/points.actions";
 export default () => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.store.items);
@@ -122,6 +123,9 @@ export default () => {
         switch (event.data.activeWar) {
             case true:
                 dispatch(activeWar(event.data));
+                break;
+            case false:
+                dispatch(endWar());
                 break;
             default:
                 null;

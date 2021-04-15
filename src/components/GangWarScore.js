@@ -26,14 +26,7 @@ const useStyles = makeStyles(() => ({
 const GangWarScore = () => {
     const classes = useStyles();
     const activeWar = useSelector((state) => state.points.activeWar);
-    const gang_id1 = useSelector((state) => state.points.gang_id1);
-    const gang_name1 = useSelector((state) => state.points.gang_name1);
-    const gang_id2 = useSelector((state) => state.points.gang_id2);
-    const gang_name2 = useSelector((state) => state.points.gang_name2);
-    const score1 = useSelector((state) => state.points.score1);
-    const score2 = useSelector((state) => state.points.score2);
-    const max = useSelector((state) => state.points.max);
-
+    const warData = useSelector((state) => state.points.warData);
     if (Object.keys(warData).length > 1 && activeWar) {
         return (
             <Card className={classes.warContainer}>
@@ -48,12 +41,12 @@ const GangWarScore = () => {
                     <Divider style={{ backgroundColor: "#fff" }} light />
                     <Box style={{marginTop: 10}}>
                         <Typography>
-                            {gang_name1}: {score1}/
-                            {max}
+                            {warData.gang_name1}: {warData.score1}/
+                            {warData.max}
                         </Typography>
                         <Typography>
-                            {gang_name2}: {score2}/
-                            {max}
+                            {warData.gang_name2}: {warData.score2}/
+                            {warData.max}
                         </Typography>
                     </Box>
                 </CardContent>

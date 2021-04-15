@@ -19,13 +19,12 @@ export const pointsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 activeWar: action.payload.activeWar,
-                warData: action.payload.warData,
+                warData: {...state.warData, ...action.payload.warData},
             };
         case END_WAR:
             return {
                 ...state,
                 activeWar: false,
-                warData: action.payload.warData,
             };
         default:
             return state;
