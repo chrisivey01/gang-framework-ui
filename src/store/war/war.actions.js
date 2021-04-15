@@ -9,8 +9,6 @@ export const ACCEPT_WAR_PROMPT = "ACCEPT_WAR_PROMPT";
 export const GET_WAR_REQUEST = "GET_WAR_REQUEST";
 export const ACCEPT_WAR_REQUEST = "ACCEPT_WAR_REQUEST";
 
-export const ACTIVE_WAR = "ACTIVE_WAR";
-export const END_WAR = "END_WAR";
 
 export const updatePanel = (gangKey, gangText) => {
     return (dispatch) => {
@@ -72,20 +70,7 @@ export const acceptWarRequest = (gangWar, gangs) => {
             warForm: gangWar.warForm,
         };
         Apis.acceptWarRequest(data);
-
-        // dispatch({ type: ACCEPT_WAR_REQUEST, payload: gangWar });
         dispatch({ type: CLOSE_WAR_PROMPT });
     };
 };
 
-export const activeWar = (data) => {
-    return (dispatch) => {
-        dispatch({ type: ACTIVE_WAR, payload: data });
-    };
-};
-
-export const endWar = () => {
-    return (dispatch) => {
-        dispatch({ type: END_WAR });
-    };
-};
