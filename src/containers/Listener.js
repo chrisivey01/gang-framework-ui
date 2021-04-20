@@ -24,11 +24,11 @@ export default () => {
 
     //launches on startup currently
     // useEffect(() => {
-    //     // if (process.env.NODE_ENV === "development") {
-    //         // openStore();
-    //         // openWarRequest();
-    //         openWarScore(event);
-    //     // }
+        // if (process.env.NODE_ENV === "development") {
+            // openStore();
+            // openWarRequest();
+            // openWarScore(event);
+        // }
     // }, []);
 
     const openStore = () => {

@@ -122,27 +122,33 @@ export const removeFromCart = (items, item, cart) => {
     };
 };
 
-export const purchaseWeapons = (items, cart, character) => {
+export const purchaseWeapons = (store, cart, character) => {
     return (dispatch) => {
-
-        const data = {
-            items: items,
-            cart: cart,
-            character: character,
-        };
-
-        data.cart = [...data.cart].map(([name, value]) => (value));
-
+        let data = {};
+        let boughtItems = [...cart.values()].map((items) => {
+            if (items.quantity > 0) {
+                return items;
+            }
+        });
+        data.character = character;
+        data.boughtItems = boughtItems;
+        store = [...store].map(([name, value]) => {
+            if(value.quantity > 0){
+                return value
+            } 
+        })
+        data.store = store.filter(item => item !== undefined)
         Apis.purchaseWeapons(data).then(() => {
-            let copyCart = new Map(cart)
-            copyCart.forEach((value, key) => {
-                if(value.quantity > 0){
-                    value.quantity = 0;
+            let copyCart = new Map(cart);
+
+            [...copyCart].map(([cartName, cartValue]) => {
+                if (copyCart.get(cartName).quantity > 0) {
+                    return (copyCart.get(cartName).quantity = 0);
                 }
-                copyCart[key] = value
             });
 
             dispatch({ type: PURCHASE_WEAPONS, payload: copyCart });
-        })
+        });
     };
 };
+
