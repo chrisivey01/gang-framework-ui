@@ -9,6 +9,7 @@ import {
     Table,
     TableBody,
     TablePagination,
+    Typography,
 } from "@material-ui/core";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,7 +48,7 @@ const Store = () => {
     const character = useSelector((state) => state.gang.character);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(6);
-
+    const amountOfWeapons = useSelector((state) => state.store.amountOfWeapons);
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -63,6 +64,7 @@ const Store = () => {
         if (items.size > 0) {
             return (
                 <CardContent>
+                    <Typography variant="h5">Black Market</Typography>
                     <Grid justify="center" container>
                         <Table>
                             <TableBody
@@ -111,7 +113,11 @@ const Store = () => {
     return (
         <Grid style={{ width: "100%" }}>
             <Card className={classes.card}>
-                <CardHeader title={<Bids />} />
+                {amountOfWeapons > 0 ? (
+                    <CardHeader title={<Bids cart={cart} />} />
+                ) : (
+                    <Fragment />
+                )}
                 <Divider className="divider" variant="middle" />
                 {renderTable()}
             </Card>

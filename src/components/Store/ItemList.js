@@ -5,6 +5,7 @@ import Item from "./Item";
 const ItemList = ({ page, rowsPerPage }) => {
     const items = useSelector((state) => state.store.items);
     const cart = useSelector((state) => state.store.cart);
+    const amountOfWeapons = useSelector((state) => state.store.amountOfWeapons);
 
     return [...items.keys()]
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -17,6 +18,7 @@ const ItemList = ({ page, rowsPerPage }) => {
                             cart={cart}
                             cartItem={cart.get(item)}
                             item={items.get(item)}
+                            amountOfWeapons={amountOfWeapons}
                         />
                     </TableCell>
                 </TableRow>

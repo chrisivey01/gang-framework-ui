@@ -119,6 +119,7 @@ const RosterView = () => {
             {Object.keys(member).length > 0 ? (
                 <Fragment>
                     <View
+                        character={character}
                         isEdit={isEdit}
                         roster={roster}
                         dispatch={dispatch}

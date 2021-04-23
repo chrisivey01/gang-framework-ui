@@ -1,5 +1,9 @@
 import { Box, Button, CardContent, Grid, TextField } from "@material-ui/core";
-import { excommunicadoPromptShow, updateCharacter } from "../../store/gang/gang.actions.js";
+import { Fragment } from "react";
+import {
+    excommunicadoPromptShow,
+    updateCharacter,
+} from "../../store/gang/gang.actions.js";
 import CharacterInfo from "./CharacterInfo.js";
 import ImageRenderer from "./ImageRenderer.js";
 
@@ -46,14 +50,18 @@ const View = ({ isEdit, roster, dispatch, setMember, member }) => {
                     </Box>
                 </Box>
             </Grid>
-            <Box className="excommunicado">
-                <Button
-                    color="secondary"
-                    onClick={() => dispatch(excommunicadoPromptShow())}
-                >
-                    Excommunicado
-                </Button>
-            </Box>
+            {CharacterInfo.gang_rank === 4 ? (
+                <Box className="excommunicado">
+                    <Button
+                        color="secondary"
+                        onClick={() => dispatch(excommunicadoPromptShow())}
+                    >
+                        Excommunicado
+                    </Button>
+                </Box>
+            ) : (
+                <Fragment />
+            )}
         </CardContent>
     );
 };

@@ -10,9 +10,8 @@ import {
 const initialState = {
     loading: false,
     items: [],
-    cart: [],
-    totalCost: 0,
-    totalCostDisplay: "0",
+    cart: new Map(),
+    amountOfWeapons: 0,
     errorMessage: {
         message: "",
         showToggle: false,
@@ -25,8 +24,6 @@ export const storeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
-                totalCostDisplay: 0,
-                totalCost: 0,
             };
         }
         case LOAD_STORE_SUCCESS:
@@ -36,7 +33,6 @@ export const storeReducer = (state = initialState, action) => {
                 cart: action.payload.cart,
                 loading: false,
             };
-
         case LOAD_STORE_FAILURE:
             return {
                 ...state,
@@ -48,16 +44,14 @@ export const storeReducer = (state = initialState, action) => {
                 ...state,
                 cart: action.payload.cart,
                 items: action.payload.items,
-                totalCost: action.payload.totalCost,
-                totalCostDisplay: action.payload.totalCostDisplay,
+                amountOfWeapons: action.payload.amountOfWeapons
             };
         case REMOVE_FROM_CART:
             return {
                 ...state,
                 cart: action.payload.cart,
                 items: action.payload.items,
-                totalCost: action.payload.totalCost,
-                totalCostDisplay: action.payload.totalCostDisplay,
+                amountOfWeapons: action.payload.amountOfWeapons
             };
         case PURCHASE_WEAPONS:
             return {

@@ -1,8 +1,6 @@
-import { Button, Card, CardContent, Grid, makeStyles } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
+import { Card, CardContent, makeStyles } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../store/web-store/store.actions";
+import AddOrRemoveItem from "./AddOrRemoveItem";
 import ItemDescription from "./ItemDescription";
 import ItemImage from "./ItemImage";
 
@@ -31,44 +29,22 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Item = ({ items, item, cart, cartItem }) => {
+const Item = ({ items, item, cart, cartItem, amountOfWeapons }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
-
-    const renderButtonStatus = () => {
-        if (cartItem.quantity > 0) {
-            return (
-                <Button
-                    onClick={() => dispatch(removeFromCart(items, item, cart))}
-                >
-                    <RemoveIcon style={{ color: "rgb(232,0,46)" }} />
-                </Button>
-            );
-        } else {
-            return (
-                <Button
-                    disabled
-                    onClick={() => dispatch(removeFromCart(items, item, cart))}
-                >
-                    <RemoveIcon style={{ color: "rgb(232,0,46)" }} />
-                </Button>
-            );
-        }
-    };
 
     return (
         <Card className={classes.item}>
             <ItemImage name={item.name} />
             <CardContent className="content">
                 <ItemDescription item={item} cartItem={cartItem} />
-                <Grid>
-                    <Button
-                        onClick={() => dispatch(addToCart(items, item, cart))}
-                    >
-                        <AddIcon style={{ color: "rgb(0,153,0)" }} />
-                    </Button>
-                    {renderButtonStatus()}
-                </Grid>
+                <AddOrRemoveItem
+                    dispatch={dispatch}
+                    items={items}
+                    item={item}
+                    cart={cart}
+                    amountOfWeapons={amountOfWeapons}
+                />
             </CardContent>
         </Card>
     );

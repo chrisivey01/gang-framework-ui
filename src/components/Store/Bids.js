@@ -32,13 +32,11 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Bids = () => {
+const Bids = ({cart}) => {
     const classes = useStyles();
-    const cart = useSelector((state) => state.store.cart);
 
     return (
         <Grid className={classes.wrapper}>
-            <Grid>Black Market</Grid>
             <Card>
                 <CardHeader title={"Cart"} />
                 <Divider
@@ -46,10 +44,10 @@ const Bids = () => {
                     style={{ backgroundColor: "#fff" }}
                 />
                 <List style={{ width: 140 }}>
-                    {[...cart].map(([name, value]) => {
+                    {[...cart].map(([name, value], i) => {
                         if (value.quantity > 0) {
                             return (
-                                <ListItem dense style={{ fontSize: 12 }}>
+                                <ListItem key={i} dense style={{ fontSize: 12 }}>
                                     {value.label} x {value.quantity}
                                 </ListItem>
                             );

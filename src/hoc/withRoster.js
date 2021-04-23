@@ -42,25 +42,6 @@ const withRoster = (WrappedComponent) => (props) => {
         setIsEdit(!isEdit);
     };
 
-
-    const handleImgChange = (event) => {
-        let copyRoster = [...roster];
-        let copyCharacter = { ...character };
-
-        copyRoster = copyRoster.map((char) => {
-            if (char.char_name === character.char_name) {
-                char.profile_photo = event.target.value;
-                copyCharacter.profile_photo = event.target.value;
-                return char;
-            } else {
-                return char;
-            }
-        });
-
-        dispatch(updateCharacter(copyRoster, copyCharacter));
-    };
-
-
     return (
         <WrappedComponent
             renderRoster={renderRoster}

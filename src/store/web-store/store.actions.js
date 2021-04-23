@@ -74,7 +74,7 @@ export const loadStoreFailure = () => {
     };
 };
 
-export const addToCart = (items, item, cart) => {
+export const addToCart = (items, item, cart, amountOfWeapons) => {
     return (dispatch) => {
         let clonedItems = new Map(items);
         let clonedCart = new Map(cart);
@@ -89,6 +89,7 @@ export const addToCart = (items, item, cart) => {
         const data = {
             cart: clonedCart,
             items: clonedItems,
+            amountOfWeapons: amountOfWeapons + 1
         };
 
         dispatch({
@@ -98,7 +99,7 @@ export const addToCart = (items, item, cart) => {
     };
 };
 
-export const removeFromCart = (items, item, cart) => {
+export const removeFromCart = (items, item, cart, amountOfWeapons) => {
     return (dispatch) => {
         let clonedItems = new Map(items);
         let clonedCart = new Map(cart);
@@ -110,9 +111,15 @@ export const removeFromCart = (items, item, cart) => {
             clonedItems.get(item.name).quantity++;
         }
 
+        amountOfWeapons = amountOfWeapons - 1
+        if(amountOfWeapons <= 0){
+            amountOfWeapons = 0
+        }
+
         const data = {
             cart: clonedCart,
             items: clonedItems,
+            amountOfWeapons: amountOfWeapons
         };
 
         dispatch({
