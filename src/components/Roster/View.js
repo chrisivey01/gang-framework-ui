@@ -1,5 +1,6 @@
 import { Box, Button, CardContent, Grid, TextField } from "@material-ui/core";
 import { Fragment } from "react";
+import { useSelector } from "react-redux";
 import {
     excommunicadoPromptShow,
     updateCharacter,
@@ -8,6 +9,8 @@ import CharacterInfo from "./CharacterInfo.js";
 import ImageRenderer from "./ImageRenderer.js";
 
 const View = ({ isEdit, roster, dispatch, setMember, member }) => {
+    const character = useSelector((state) => state.gang.character);
+
     return (
         <CardContent>
             <Grid container justify="center">
@@ -50,7 +53,7 @@ const View = ({ isEdit, roster, dispatch, setMember, member }) => {
                     </Box>
                 </Box>
             </Grid>
-            {CharacterInfo.gang_rank === 4 ? (
+            {character.gang_rank === 4 ? (
                 <Box className="excommunicado">
                     <Button
                         color="secondary"

@@ -7,7 +7,6 @@ import {
     ListItem,
     makeStyles,
 } from "@material-ui/core";
-import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Bids = ({cart}) => {
+const Bids = ({ cart }) => {
     const classes = useStyles();
 
     return (
@@ -47,7 +46,11 @@ const Bids = ({cart}) => {
                     {[...cart].map(([name, value], i) => {
                         if (value.quantity > 0) {
                             return (
-                                <ListItem key={i} dense style={{ fontSize: 12 }}>
+                                <ListItem
+                                    key={i}
+                                    dense
+                                    style={{ fontSize: 12 }}
+                                >
                                     {value.label} x {value.quantity}
                                 </ListItem>
                             );

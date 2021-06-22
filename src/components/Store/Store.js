@@ -9,9 +9,9 @@ import {
     Table,
     TableBody,
     TablePagination,
-    Typography,
+    Typography
 } from "@material-ui/core";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { purchaseWeapons } from "../../store/web-store/store.actions";
 import Bids from "./Bids";
@@ -49,6 +49,7 @@ const Store = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(6);
     const amountOfWeapons = useSelector((state) => state.store.amountOfWeapons);
+    
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -57,8 +58,6 @@ const Store = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
-
-    useEffect(() => {}, [cart]);
 
     const renderTable = () => {
         if (items.size > 0) {

@@ -9,38 +9,44 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { showWarPrompt } from "../../store/war/war.actions";
 
-const useStyles = makeStyles(() => ({
-    container: {
-        margin: 10,
-        backgroundColor: "#333",
-        color: "white",
-        "& .box": {
-            marginTop: 10,
-            marginBottom: 10,
-        },
-        "& .MuiFormLabel-root.Mui-focused": {
-            color: "white",
-        },
-        "& .MuiOutlinedInput-root": {
-            color: "white",
-        },
-        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "rgba(0, 0, 0, 0.87)",
-        },
-        "& .MuiFormLabel-root": {
-            color: "white",
-        },
-        "& .MuiButton-root": {
-            backgroundColor: "#212121",
-            color: "white",
-        },
-    },
-}));
+const Container = styled(Card)`
+    margin: 10;
+    background-color:#333 !important;
+    color: #fff;
+    
+    .MuiButton-root {
+        background-color: #212121,
+        color: #fff,
+    }
+`;
+
+const Wrapper = styled(Box)`
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+`;
+
+const Text = styled(TextField)`
+    color: #fff;
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(0, 0, 0, 0.87) !important;
+    }
+    .MuiFormLabel-root.Mui-focused {
+        color: #fff !important;
+    }
+
+    .MuiOutlinedInput-root {
+        color: #fff !important;
+    }
+
+    .MuiFormLabel-root {
+        color: #fff !important;
+    }
+`;
 
 const TabPanel = ({ setWarForm, warForm }) => {
-    const classes = useStyles();
     const dispatch = useDispatch();
     const points = useSelector((state) => state.war.points);
     const gangText = useSelector((state) => state.war.gangText);
@@ -52,13 +58,13 @@ const TabPanel = ({ setWarForm, warForm }) => {
             aria-labelledby={`vertical-tab-${points}`}
             style={{ flexGrow: 1 }}
         >
-            <Card className={classes.container} elevation={3}>
+            <Container elevation={3}>
                 <CardContent>
                     <Typography variant="body2">
                         Gang Name: {gangText}
                     </Typography>
-                    <Box className="box">
-                        <TextField
+                    <Wrapper>
+                        <Text
                             label="Total War Points"
                             type="number"
                             InputLabelProps={{
@@ -85,9 +91,9 @@ const TabPanel = ({ setWarForm, warForm }) => {
                                 max: 30,
                             }}
                         />
-                    </Box>
-                    <Box className="box">
-                        <TextField
+                    </Wrapper>
+                    <Wrapper>
+                        <Text
                             style={{
                                 width: "100%",
                                 color: "white",
@@ -105,9 +111,9 @@ const TabPanel = ({ setWarForm, warForm }) => {
                                 })
                             }
                         />
-                    </Box>
-                    <Box className="box">
-                        <TextField
+                    </Wrapper>
+                    <Wrapper>
+                        <Text
                             style={{
                                 width: "100%",
                                 color: "white",
@@ -125,12 +131,15 @@ const TabPanel = ({ setWarForm, warForm }) => {
                                 })
                             }
                         />
-                    </Box>
-                    <Button onClick={() => dispatch(showWarPrompt())}>
+                    </Wrapper>
+                    <Button
+                        color="secondary"
+                        onClick={() => dispatch(showWarPrompt())}
+                    >
                         Submit
                     </Button>
                 </CardContent>
-            </Card>
+            </Container>
         </div>
     );
 };

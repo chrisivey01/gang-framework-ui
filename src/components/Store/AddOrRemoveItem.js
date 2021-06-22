@@ -1,7 +1,7 @@
-import { addToCart, removeFromCart } from "../../store/web-store/store.actions";
+import { Button, Grid } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import { Button, Grid } from "@material-ui/core";
+import { addToCart, removeFromCart } from "../../store/web-store/store.actions";
 
 const AddOrRemoveItem = ({ items, item, cart, amountOfWeapons, dispatch }) => {
     return (

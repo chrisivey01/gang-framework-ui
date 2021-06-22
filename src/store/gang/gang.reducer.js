@@ -68,7 +68,7 @@ export const gangReducer = (state = initialState, action) => {
         case EXCOMMUNICADO_PROMPT_SUCCESS:
             return {
                 ...state,
-                roster: action.payload.roster,
+                roster: action.payload,
                 showDialog: false,
             };
         case SHOW_GANG_INVITE:

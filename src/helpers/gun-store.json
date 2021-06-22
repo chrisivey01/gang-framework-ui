@@ -1,68 +1,68 @@
 [
     {
-      "name": "WEAPON_SMG_MK2",
-      "label": "SMG",
-      "percent": 5,
-      "ammo": 128
+        "name": "WEAPON_DBSHOTGUN",
+        "label": "Double Shotgun",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_SMG_MK2",
-      "label": "SMG",
-      "percent": 5,
-      "ammo": 128
+        "name": "WEAPON_PISTOL50",
+        "label": "Pistol .50",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_HEAVYPISTOL",
-      "label": "Heavy Pistol",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_PISTOL50",
+        "label": "Pistol .50",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_HEAVYPISTOL",
-      "label": "Heavy Pistol",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_HEAVYPISTOL",
-      "label": "Heavy Pistol",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_HEAVYPISTOL",
+        "label": "Heavy Pistol",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_HEAVYPISTOL",
-      "label": "Heavy Pistol",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_COMPACTRIFLE",
+        "label": "Compact Rifle",
+        "percent": 5,
+        "ammo": 128
     },
     {
-      "name": "WEAPON_PISTOL50",
-      "label": "Pistol .50",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_DBSHOTGUN",
+        "label": "Double Shotgun",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_PISTOL50",
-      "label": "Pistol .50",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_BULLPUPSHOTGUN",
+        "label": "Bullpup Shotgun",
+        "percent": 5,
+        "ammo": 48
     },
     {
-      "name": "WEAPON_BULLPUPSHOTGUN",
-      "label": "Bullpup Shotgun",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_ASSAULTRIFLE_MK2",
+        "label": "Assault Rifle",
+        "percent": 5,
+        "ammo": 128
     },
     {
-      "name": "WEAPON_PISTOL50",
-      "label": "Pistol .50",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_ASSAULTRIFLE_MK2",
+        "label": "Assault Rifle",
+        "percent": 5,
+        "ammo": 128
     },
     {
-      "name": "WEAPON_PISTOL50",
-      "label": "Pistol .50",
-      "percent": 5,
-      "ammo": 48
+        "name": "WEAPON_ASSAULTRIFLE_MK2",
+        "label": "Assault Rifle",
+        "percent": 5,
+        "ammo": 128
     }
-  ]
+]

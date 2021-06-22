@@ -4,9 +4,9 @@ import {
     Grid,
     makeStyles,
     Toolbar,
-    Typography
+    Typography,
+    Fade,
 } from "@material-ui/core";
-import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../components/LogoutButton";
 import { default as Title } from "../components/Title";
@@ -58,75 +58,31 @@ export default (props) => {
     const classes = useStyles();
     const showWeb = useSelector((state) => state.web.showWeb);
 
-    const renderEnvironment = () => {
-        if (process.env.NODE_ENV !== "development") {
-            return (
-                <div
-                    className={
-                        showWeb ? classes.showContainer : classes.hideContainer
-                    }
-                >
-                    <Listener />
-                    <AppBar position="static" className="app-bar">
-                        <Toolbar className="title-bar">
-                            <Grid>
-                                <Typography noWrap={true} variant="h6">
-                                    Dark Web
-                                </Typography>
-                            </Grid>
-                            <Grid
-                                className="wrapper"
-                                justify="flex-end"
-                                container
-                            >
-                                <Box className="wrapper">
-                                    <Title />
-                                    <LogoutButton />
-                                </Box>
-                            </Grid>
-                        </Toolbar>
-                    </AppBar>
-                    <Grid container className="container">
-                        <Grid className="wrapper">{props.children}</Grid>
-                    </Grid>
-                </div>
-            );
-        } else {
-            return (
-                <div
-                    className={
-                        showWeb ? classes.showContainer : classes.hideContainer
-                    }
-                >
-                    <Listener />
-                    <AppBar position="static" className="app-bar">
-                        <Toolbar className="title-bar">
-                            <Grid>
-                                <Typography noWrap={true} variant="h6">
-                                    Dark Web
-                                </Typography>
-                            </Grid>
-                            <Grid
-                                className="wrapper"
-                                justify="flex-end"
-                                container
-                            >
-                                <Box className="wrapper">
-                                    <Title />
-                                    <LogoutButton />
-                                </Box>
-                            </Grid>
-                        </Toolbar>
-                    </AppBar>
-                    <Grid container className="container">
-                        <Grid className="wrapper">{props.children}</Grid>
-                    </Grid>
-                </div>
-            );
-        }
-    };
-
     //If development it will not use the ternary and wait for the postMessage
     //It will just open the UI immediately with the JSON required.
-    return <Fragment>{renderEnvironment()}</Fragment>;
+    return (
+        <Fade in={showWeb} timeout={(1000, 1000)}>
+            <div className={classes.showContainer}>
+                <Listener />
+                <AppBar position="static" className="app-bar">
+                    <Toolbar className="title-bar">
+                        <Grid>
+                            <Typography noWrap={true} variant="h6">
+                                Dark Web
+                            </Typography>
+                        </Grid>
+                        <Grid className="wrapper" justify="flex-end" container>
+                            <Box className="wrapper">
+                                <Title />
+                                <LogoutButton />
+                            </Box>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
+                <Grid container className="container">
+                    <Grid className="wrapper">{props.children}</Grid>
+                </Grid>
+            </div>
+        </Fade>
+    );
 };

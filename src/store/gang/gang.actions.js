@@ -89,16 +89,33 @@ export const excommunicadoPromptSuccess = (roster, character) => {
         const data = { roster: roster, character: character };
         if (process.env.NODE_ENV === "production") {
             Apis.excommunicadoMember(data).then(() => {
-                dispatch({
-                    type: EXCOMMUNICADO_PROMPT_SUCCESS,
-                    payload: data,
-                });
+                if (Array.isArray(data.roster)) {
+                    dispatch({
+                        type: EXCOMMUNICADO_PROMPT_SUCCESS,
+                        payload: data.roster,
+                    });
+                } else {
+                    dispatch({
+                        type: EXCOMMUNICADO_PROMPT_SUCCESS,
+                        payload: data.roster,
+                    });
+                }
                 //go back to leader
                 dispatch(viewMember(roster[0]));
             });
         } else {
-            console.log("Success!");
-            dispatch({ type: EXCOMMUNICADO_PROMPT_SUCCESS, payload: roster });
+            if (Array.isArray(roster)) {
+                dispatch({
+                    type: EXCOMMUNICADO_PROMPT_SUCCESS,
+                    payload: roster,
+                });
+            } else {
+                dispatch({
+                    type: EXCOMMUNICADO_PROMPT_SUCCESS,
+                    payload: [roster],
+                });
+            }
+
             //go back to leader
             dispatch(viewMember(roster[0]));
         }
