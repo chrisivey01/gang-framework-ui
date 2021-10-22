@@ -1,7 +1,7 @@
-import { Tab, Tabs } from "@material-ui/core";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { updatePanel } from "../../store/war/war.actions";
+import {Tab, Tabs} from "@material-ui/core";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {updatePanel} from "../../store/war/war.actions";
 
 const VerticalTabs = () => {
     const dispatch = useDispatch();
@@ -27,19 +27,19 @@ const VerticalTabs = () => {
         >
             {process.env.NODE_ENV === "development"
                 ? Object.keys(gangs)
-                      .sort()
-                      .map((gang, i) => {
-                          if (character.current_gang !== gang) {
-                              return <Tab key={i} label={gang} />;
-                          }
-                      })
+                    .sort()
+                    .map((gang, i) => {
+                        if (character.current_gang !== gang) {
+                            return <Tab key={i} label={gang}/>;
+                        }
+                    })
                 : Object.keys(gangs)
-                      .sort()
-                      .map((gang, i) => {
-                          if (character.current_gang !== gang) {
-                              return <Tab key={i} label={gang} />;
-                          }
-                      })}
+                    .sort()
+                    .map((gang, i) => {
+                        if (character.current_gang !== gang) {
+                            return <Tab key={i} label={gang}/>;
+                        }
+                    })}
         </Tabs>
     );
 };

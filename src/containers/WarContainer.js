@@ -1,14 +1,10 @@
-import { Grid } from "@material-ui/core";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {Grid} from "@material-ui/core";
+import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import TabPanel from "../components/War/TabPanel";
 import VerticalTabs from "../components/War/VerticalTabs";
 import WarDialog from "../components/War/WarDialog";
-import {
-    closeWarPrompt,
-    sendWarPrompt,
-    acceptWarRequest,
-} from "../store/war/war.actions";
+import {acceptWarRequest, closeWarPrompt, sendWarPrompt,} from "../store/war/war.actions";
 
 const WarContainer = () => {
     const dispatch = useDispatch();
@@ -25,7 +21,7 @@ const WarContainer = () => {
 
     const handleWarData = () => {
         dispatch(sendWarPrompt(character, gangText, warForm));
-        setWarForm({ ...warForm, points: 0, dispute: "", reward: "" });
+        setWarForm({...warForm, points: 0, dispute: "", reward: ""});
         dispatch(closeWarPrompt());
     };
 
@@ -36,8 +32,8 @@ const WarContainer = () => {
 
     return (
         <Grid container>
-            <VerticalTabs />
-            <TabPanel setWarForm={setWarForm} warForm={warForm} />
+            <VerticalTabs/>
+            <TabPanel setWarForm={setWarForm} warForm={warForm}/>
             <WarDialog
                 handleData={handleWarData}
                 showDialog={showWarPrompt}
@@ -47,17 +43,7 @@ const WarContainer = () => {
                 title={"Gang War Declaration"}
                 closePrompt={closeWarPrompt}
             />
-            <WarDialog
-                handleData={acceptWar}
-                showDialog={showWarRequest.show}
-                text={
-                    "Are you ready to go to war with " +
-                    showWarRequest.gangFrom +
-                    "?"
-                }
-                title={"War Request"}
-                closePrompt={closeWarPrompt}
-            />
+
         </Grid>
     );
 };

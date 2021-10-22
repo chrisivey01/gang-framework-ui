@@ -24,6 +24,7 @@ export const showWarPrompt = () => {
 
 export const closeWarPrompt = () => {
     return (dispatch) => {
+        Apis.closeWarPrompt();
         dispatch({ type: CLOSE_WAR_PROMPT });
     };
 };

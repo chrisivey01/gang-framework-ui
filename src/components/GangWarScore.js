@@ -1,14 +1,6 @@
-import {
-    Box,
-    Card,
-    CardContent,
-    Divider,
-    Grid,
-    makeStyles,
-    Typography,
-} from "@material-ui/core";
-import { Fragment } from "react";
-import { useSelector } from "react-redux";
+import {Box, Card, CardContent, Divider, makeStyles, Typography,} from "@material-ui/core";
+import {Fragment} from "react";
+import {useSelector} from "react-redux";
 
 const useStyles = makeStyles(() => ({
     warContainer: {
@@ -33,12 +25,12 @@ const GangWarScore = () => {
                 <CardContent>
                     <Typography
                         variant="body2"
-                        style={{ display: "flex", justifyContent: "center" }}
+                        style={{display: "flex", justifyContent: "center"}}
                         gutterBottom
                     >
                         Gang War
                     </Typography>
-                    <Divider style={{ backgroundColor: "#fff" }} light />
+                    <Divider style={{backgroundColor: "#fff"}} light/>
                     <Box style={{marginTop: 10}}>
                         <Typography>
                             {warData.gang_name1}: {warData.score1}/
@@ -53,7 +45,7 @@ const GangWarScore = () => {
             </Card>
         );
     } else {
-        return <Fragment />;
+        return <Fragment/>;
     }
 };
 

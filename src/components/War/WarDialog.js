@@ -1,14 +1,7 @@
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    Typography,
-} from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography,} from "@material-ui/core";
+import {useDispatch} from "react-redux";
 
-const WarDialog = ({ text, title, showDialog, handleData, closePrompt }) => {
+const WarDialog = ({text, title, showDialog, handleData, closePrompt}) => {
     const dispatch = useDispatch();
 
     return (

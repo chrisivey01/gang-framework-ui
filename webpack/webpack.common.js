@@ -5,10 +5,6 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: path.resolve(__dirname, "..", "./src/index.js"),
-    output: {
-        path: path.resolve(__dirname, "..", "..", "./gta/dist"),
-        filename: "bundle.js",
-    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({

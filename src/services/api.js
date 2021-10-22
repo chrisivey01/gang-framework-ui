@@ -21,6 +21,7 @@ const purchaseWeaponsUrl = "http://pma-gang-framework/PurchaseWeapons";
 
 const warRequestUrl = "http://pma-gang-framework/WarRequest";
 const sendWarUrl = "http://pma-gang-framework/SendWar";
+const denyWarUrl = "http://pma-gang-framework/DenyWar";
 
 const acceptWarRequestUrl = "http://pma-gang-framework/AcceptWarRequest";
 
@@ -122,6 +123,14 @@ const Apis = {
             return true;
         } else {
             return axios.post(sendWarUrl, data);
+        }
+    },
+
+    closeWarPrompt(data) {
+        if (process.env.NODE_ENV === "development") {
+            return true;
+        } else {
+            return axios.post(denyWarUrl, data);
         }
     },
 
