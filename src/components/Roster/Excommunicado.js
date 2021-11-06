@@ -10,7 +10,7 @@ const Excommunicado = () => {
     const roster = useSelector((state) => state.gang.roster);
     const gangMember = useSelector((state) => state.gang.gangMember);
     const showDialog = useSelector((state) => state.gang.showDialog);
-
+    const events = useSelector((state) => state.calendar.events);
     return (
         <Dialog open={showDialog}>
             <DialogTitle>
@@ -28,7 +28,7 @@ const Excommunicado = () => {
                 </Button>
                 <Button
                     onClick={() =>
-                        dispatch(excommunicadoPromptSuccess(roster, gangMember))
+                        dispatch(excommunicadoPromptSuccess(roster, gangMember, events))
                     }
                     color="primary"
                     autoFocus

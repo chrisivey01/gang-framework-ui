@@ -37,11 +37,12 @@ const useStyles = makeStyles((theme) => ({
         },
 
         "& .container": {
-            height: "inherit",
             backgroundColor: "#212121",
             color: "#fff",
             padding: 30,
             minWidth: "790px",
+            height: "720px",
+            overflow: "hidden",
 
             "& .wrapper": {
                 display: "flex",

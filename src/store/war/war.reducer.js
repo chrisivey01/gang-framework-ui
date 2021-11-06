@@ -1,6 +1,6 @@
 import {
     ACCEPT_WAR_REQUEST,
-    ACTIVE_WAR,
+    ACTIVE_WAR, CLOSE_PROMPT,
     CLOSE_WAR_PROMPT,
     END_WAR,
     GET_WAR_REQUEST,
@@ -43,6 +43,12 @@ export const warReducer = (state = initialState, action) => {
                 showWarPrompt: false,
                 showWarRequest: false,
             };
+        case CLOSE_PROMPT:
+            return {
+                ...state,
+                showWarPrompt: false,
+                showWarRequest: false,
+            }
         case GET_WAR_REQUEST:
             return {
                 ...state,

@@ -1,6 +1,6 @@
-import { Card, CardHeader, makeStyles } from "@material-ui/core";
-import { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {Card, CardHeader, makeStyles} from "@material-ui/core";
+import {Fragment, useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import EditDisableSwitch from "./EditDisableSwitch";
 import Excommunicado from "./Excommunicado";
 import PickCharacter from "./PickCharacter";
@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
         width: "inherit",
         backgroundColor: "#333",
         color: "#fff",
+        height: "650px",
+        overflow: "auto",
 
         "& .edit": {
             justifyContent: "flex-end",
@@ -99,40 +101,45 @@ const RosterView = () => {
         setIsEdit(!isEdit);
     };
 
-    return (
-        <Card className={classes.container}>
-            {character.gang_rank === 4 ? (
-                <EditDisableSwitch
-                    isEdit={isEdit}
-                    handleEditChange={handleEditChange}
-                />
-            ) : (
-                <Fragment />
-            )}
+    if (roster[0]) {
 
-            <CardHeader
-                className="header"
-                title={roster[0].current_gang}
-                subheader={"Member count: " + roster.length + "/" + gangCap}
-            />
-
-            {Object.keys(member).length > 0 ? (
-                <Fragment>
-                    <View
-                        character={character}
+        return (
+            <Card className={classes.container}>
+                {character.gang_rank === 4 ? (
+                    <EditDisableSwitch
                         isEdit={isEdit}
-                        roster={roster}
-                        dispatch={dispatch}
-                        setMember={setMember}
-                        member={member}
+                        handleEditChange={handleEditChange}
                     />
-                    <Excommunicado />
-                </Fragment>
-            ) : (
-                <PickCharacter />
-            )}
-        </Card>
-    );
+                ) : (
+                    <Fragment/>
+                )}
+
+                <CardHeader
+                    className="header"
+                    title={roster[0].current_gang}
+                    subheader={"Member count: " + roster.length + "/" + gangCap}
+                />
+
+                {Object.keys(member).length > 0 ? (
+                    <Fragment>
+                        <View
+                            character={character}
+                            isEdit={isEdit}
+                            roster={roster}
+                            dispatch={dispatch}
+                            setMember={setMember}
+                            member={member}
+                        />
+                        <Excommunicado/>
+                    </Fragment>
+                ) : (
+                    <PickCharacter/>
+                )}
+            </Card>
+        );
+    } else {
+        return <></>
+    }
 };
 
 export default RosterView;

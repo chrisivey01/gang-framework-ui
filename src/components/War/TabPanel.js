@@ -5,13 +5,15 @@ import styled from "styled-components";
 import {showWarPrompt} from "../../store/war/war.actions";
 
 const Container = styled(Card)`
-  margin: 10;
+  height: 620px;
+  overflow: auto;
+  margin: 10px;
   background-color: #333 !important;
   color: #fff;
 
   .MuiButton-root {
-    background-color: #212121,
-    color: #fff,
+    background-color: #212121;
+    color: #fff;
   }
 `;
 

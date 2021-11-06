@@ -1,14 +1,15 @@
-import { Fragment, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {Fragment, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import data from "../helpers/weapons.json";
 import warRequest from "../helpers/warRequest.json";
 import war from "../helpers/war.json";
-import { loadWeb } from "../store/web/web.actions";
-import { loadRosters, showGangInvite } from "../store/gang/gang.actions";
-import { loadStore } from "../store/web-store/store.actions";
-import { getEvents } from "../store/calendar/calendar.actions";
-import { getWarRequest } from "../store/war/war.actions";
-import { activeWar, endWar } from "../store/points/points.actions";
+import {loadWeb} from "../store/web/web.actions";
+import {loadRosters, showGangInvite} from "../store/gang/gang.actions";
+import {loadStore} from "../store/web-store/store.actions";
+import {getEvents} from "../store/calendar/calendar.actions";
+import {getWarRequest} from "../store/war/war.actions";
+import {activeWar, endWar} from "../store/points/points.actions";
+
 export default () => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.store.items);
@@ -32,7 +33,7 @@ export default () => {
     }, []);
 
     const openStore = () => {
-        window.postMessage({ darkWeb: "open" });
+        window.postMessage({darkWeb: "open"});
     };
 
     const openWarRequest = () => {
@@ -84,7 +85,7 @@ export default () => {
                             getEvents(
                                 event.data.gangs[
                                     event.data.character["current_gang"]
-                                ]["calendar"]
+                                    ]["calendar"]
                             )
                         );
                     }
@@ -103,7 +104,7 @@ export default () => {
                     getEvents(
                         event.data.gangs[event.data.character["current_gang"]][
                             "calendar"
-                        ]
+                            ]
                     )
                 );
                 break;
@@ -116,6 +117,7 @@ export default () => {
                     )
                 );
                 break;
+
             default:
                 null;
         }
@@ -140,5 +142,5 @@ export default () => {
         }
     };
 
-    return <Fragment />;
+    return <Fragment/>;
 };

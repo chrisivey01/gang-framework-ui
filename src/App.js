@@ -21,7 +21,6 @@ const App = () => {
 
     const acceptWar = () => {
         dispatch(acceptWarRequest(showWarRequest, gangs));
-        dispatch(closeWarPrompt());
     };
 
     return (

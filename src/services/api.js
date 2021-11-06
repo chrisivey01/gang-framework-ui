@@ -1,6 +1,7 @@
 import axios from "axios";
 import character from "../helpers/character.json";
-import { acceptWarPrompt } from "../store/war/war.actions";
+import {closeWeb} from "../store/web/web.actions";
+
 const openDarkWebUrl = "http://pma-gang-framework/OpenDarkWeb";
 const closeDarkWebUrl = "http://pma-gang-framework/CloseDarkWeb";
 const updateCharacterUrl = "http://pma-gang-framework/UpdateGangCharacter";
@@ -102,7 +103,7 @@ const Apis = {
         if (process.env.NODE_ENV === "development") {
             return true;
         } else {
-            return axios.post(joinGangUrl, { gangName: gangName });
+            return axios.post(joinGangUrl, {gangName: gangName});
         }
     },
 

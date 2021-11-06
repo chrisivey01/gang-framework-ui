@@ -81,12 +81,12 @@ export const excommunicadoPromptHide = () => {
     };
 };
 
-export const excommunicadoPromptSuccess = (roster, character) => {
+export const excommunicadoPromptSuccess = (roster, character, events) => {
     return (dispatch) => {
         roster = roster.filter(
             (member) => member.char_name !== character.char_name
         );
-        const data = { roster: roster, character: character };
+        const data = { roster: roster, character: character, calendar:events };
         if (process.env.NODE_ENV === "production") {
             Apis.excommunicadoMember(data).then(() => {
                 if (Array.isArray(data.roster)) {

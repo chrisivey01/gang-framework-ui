@@ -18,6 +18,7 @@ const VerticalTabs = () => {
 
     return (
         <Tabs
+            style={{overflow: "auto", height: "700px"}}
             orientation="vertical"
             variant="scrollable"
             value={points}

@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import TabPanel from "../components/War/TabPanel";
 import VerticalTabs from "../components/War/VerticalTabs";
 import WarDialog from "../components/War/WarDialog";
-import {acceptWarRequest, closeWarPrompt, sendWarPrompt,} from "../store/war/war.actions";
+import {acceptWarRequest, closePrompt, closeWarPrompt, sendWarPrompt} from "../store/war/war.actions";
 
 const WarContainer = () => {
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const WarContainer = () => {
     const handleWarData = () => {
         dispatch(sendWarPrompt(character, gangText, warForm));
         setWarForm({...warForm, points: 0, dispute: "", reward: ""});
-        dispatch(closeWarPrompt());
+        dispatch(closePrompt());
     };
 
     const acceptWar = () => {
@@ -41,7 +41,7 @@ const WarContainer = () => {
                     "Declaring a gang war is a big deal. Are you sure you want this?"
                 }
                 title={"Gang War Declaration"}
-                closePrompt={closeWarPrompt}
+                closePrompt={closePrompt}
             />
 
         </Grid>

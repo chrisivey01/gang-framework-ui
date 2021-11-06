@@ -9,23 +9,30 @@ export const ACCEPT_WAR_PROMPT = "ACCEPT_WAR_PROMPT";
 export const GET_WAR_REQUEST = "GET_WAR_REQUEST";
 export const ACCEPT_WAR_REQUEST = "ACCEPT_WAR_REQUEST";
 
+export const CLOSE_PROMPT = "CLOSE_PROMPT";
 
 export const updatePanel = (gangKey, gangText) => {
     return (dispatch) => {
-        dispatch({ type: UPDATE_PANEL, payload: { gangKey, gangText } });
+        dispatch({type: UPDATE_PANEL, payload: {gangKey, gangText}});
     };
 };
 
 export const showWarPrompt = () => {
     return (dispatch) => {
-        dispatch({ type: SHOW_WAR_PROMPT });
+        dispatch({type: SHOW_WAR_PROMPT});
+    };
+};
+
+export const closePrompt = () => {
+    return (dispatch) => {
+        dispatch({type: CLOSE_PROMPT});
     };
 };
 
 export const closeWarPrompt = () => {
     return (dispatch) => {
         Apis.closeWarPrompt();
-        dispatch({ type: CLOSE_WAR_PROMPT });
+        dispatch({type: CLOSE_WAR_PROMPT});
     };
 };
 
@@ -36,7 +43,7 @@ export const acceptWarPrompt = (character, gangName) => {
             to: gangName,
         };
         Apis.warRequest(data);
-        dispatch({ type: CLOSE_WAR_PROMPT });
+        dispatch({type: CLOSE_WAR_PROMPT});
     };
 };
 
@@ -48,7 +55,7 @@ export const sendWarPrompt = (character, gangText, warForm) => {
             warForm: warForm,
         };
         Apis.sendWarPrompt(data);
-        dispatch({ type: CLOSE_WAR_PROMPT });
+        dispatch({type: CLOSE_WAR_PROMPT});
     };
 };
 
@@ -59,7 +66,7 @@ export const getWarRequest = (enemyGang, ownGang, warForm) => {
             to: ownGang,
             warForm: warForm,
         };
-        dispatch({ type: GET_WAR_REQUEST, payload: data });
+        dispatch({type: GET_WAR_REQUEST, payload: data});
     };
 };
 
@@ -71,7 +78,7 @@ export const acceptWarRequest = (gangWar, gangs) => {
             warForm: gangWar.warForm,
         };
         Apis.acceptWarRequest(data);
-        dispatch({ type: CLOSE_WAR_PROMPT });
+        dispatch({type: CLOSE_WAR_PROMPT});
     };
 };
 

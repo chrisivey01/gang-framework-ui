@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 14,
         color: "rgba(227,227,227)",
         padding: 0,
-        height: "fit-content",
+        height: "520px",
+        overflow: "auto",
         "& .MuiCardContent-root": {
             padding: 0,
         },
