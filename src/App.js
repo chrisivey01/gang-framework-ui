@@ -52,20 +52,10 @@ const App = () => {
                         <WarDialog
                             handleData={acceptWar}
                             showDialog={showWarRequest.show}
-                            text={
-                                "Are you ready to go to war with " +
-                                showWarRequest.gangFrom +
-                                "? \n \n" +
-                                "Dispute: " +
-                                showWarRequest.warForm.dispute +
-                                "\n \n" +
-                                "Terms: " +
-                                showWarRequest.warForm.terms +
-                                "\n \n" +
-                                "Reward: " +
-                                showWarRequest.warForm.reward +
-                                "\n \n"
-                            }
+                            gangFrom={showWarRequest.gangFrom}
+                            dispute={showWarRequest.warForm.dispute}
+                            terms={showWarRequest.warForm.terms}
+                            reward={showWarRequest.warForm.reward}
                             title={"War Request"}
                             closePrompt={closeWarPrompt}
                         />

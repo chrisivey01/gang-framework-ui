@@ -1,7 +1,23 @@
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography,} from "@material-ui/core";
-import {useDispatch} from "react-redux";
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    Typography,
+} from "@material-ui/core";
+import { useDispatch } from "react-redux";
 
-const WarDialog = ({text, title, showDialog, handleData, closePrompt}) => {
+const WarDialog = ({
+    gangFrom,
+    dispute,
+    terms,
+    reward,
+    title,
+    showDialog,
+    handleData,
+    closePrompt,
+}) => {
     const dispatch = useDispatch();
 
     return (
@@ -13,7 +29,18 @@ const WarDialog = ({text, title, showDialog, handleData, closePrompt}) => {
                 {title}
             </DialogTitle>
             <DialogContent dividers>
-                <Typography gutterBottom>{text}</Typography>
+                <Typography gutterBottom>
+                    <bolder>From: </bolder> {gangFrom}{" "}
+                </Typography>
+                <Typography gutterBottom>
+                    <bolder>Dispute: </bolder> {dispute}{" "}
+                </Typography>
+                <Typography gutterBottom>
+                    <bolder>Terms: </bolder> {terms}{" "}
+                </Typography>
+                <Typography gutterBottom>
+                    <bolder>Reward: </bolder> {reward}{" "}
+                </Typography>
             </DialogContent>
             <DialogActions>
                 <Button autoFocus onClick={handleData} color="primary">
