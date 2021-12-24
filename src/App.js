@@ -1,5 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import {HashRouter, Route, Switch} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Store from "./components/Store/Store";
 import WarContainer from "./containers/WarContainer";
 import Container from "./containers/Container";
@@ -8,13 +8,12 @@ import CalendarView from "./components/Calendar/CalendarView";
 import GangRecruit from "./components/GangRecruit";
 import GangWarScore from "./components/GangWarScore";
 import WarDialog from "./components/War/WarDialog";
-import {acceptWarRequest, closeWarPrompt} from "./store/war/war.actions";
-import {MuiPickersUtilsProvider} from "@material-ui/pickers";
-import {SnackbarProvider} from "notistack";
+import { acceptWarRequest, closeWarPrompt } from "./store/war/war.actions";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { SnackbarProvider } from "notistack";
 import MomentUtils from "@date-io/moment";
 
 const App = () => {
-
     const dispatch = useDispatch();
     const showWarRequest = useSelector((state) => state.war.showWarRequest);
     const gangs = useSelector((state) => state.gang.gangs);
@@ -47,23 +46,36 @@ const App = () => {
                             ></Route>
                         </Switch>
                     </Container>
-                    <GangRecruit/>
-                    <GangWarScore/>
-                    <WarDialog
-                        handleData={acceptWar}
-                        showDialog={showWarRequest.show}
-                        text={
-                            "Are you ready to go to war with " +
-                            showWarRequest.gangFrom +
-                            "?"
-                        }
-                        title={"War Request"}
-                        closePrompt={closeWarPrompt}
-                    />
+                    <GangRecruit />
+                    <GangWarScore />
+                    {showWarRequest.warForm ? (
+                        <WarDialog
+                            handleData={acceptWar}
+                            showDialog={showWarRequest.show}
+                            text={
+                                "Are you ready to go to war with " +
+                                showWarRequest.gangFrom +
+                                "? \n \n" +
+                                "Dispute: " +
+                                showWarRequest.warForm.dispute +
+                                "\n \n" +
+                                "Terms: " +
+                                showWarRequest.warForm.terms +
+                                "\n \n" +
+                                "Reward: " +
+                                showWarRequest.warForm.reward +
+                                "\n \n"
+                            }
+                            title={"War Request"}
+                            closePrompt={closeWarPrompt}
+                        />
+                    ) : (
+                        <></>
+                    )}
                 </HashRouter>
             </SnackbarProvider>
         </MuiPickersUtilsProvider>
-    )
-}
+    );
+};
 
 export default App;

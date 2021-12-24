@@ -59,6 +59,16 @@ export default () => {
 
     const actionListener = (event) => {
         switch (event.data.darkWeb) {
+            case "preload":
+                dispatch(
+                    loadRosters(
+                        event.data.gang.members,
+                        event.data.character,
+                        event.data.gangs,
+                        event.data.gangCap
+                    )
+                );
+                break;
             case "open":
                 if (process.env.NODE_ENV === "development") {
                     if (event.data.darkWeb) {

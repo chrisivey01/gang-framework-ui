@@ -1,48 +1,55 @@
-import {Box, Button, Card, CardContent, TextField, Typography,} from "@material-ui/core";
+import {
+    Box,
+    Button,
+    Card,
+    CardContent,
+    TextField,
+    Typography,
+} from "@material-ui/core";
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import {showWarPrompt} from "../../store/war/war.actions";
+import { showWarPrompt } from "../../store/war/war.actions";
 
 const Container = styled(Card)`
-  height: 620px;
-  overflow: auto;
-  margin: 10px;
-  background-color: #333 !important;
-  color: #fff;
-
-  .MuiButton-root {
-    background-color: #212121;
+    height: 620px;
+    overflow: auto;
+    margin: 10px;
+    background-color: #333 !important;
     color: #fff;
-  }
+
+    .MuiButton-root {
+        background-color: #212121;
+        color: #fff;
+    }
 `;
 
 const Wrapper = styled(Box)`
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 `;
 
 const Text = styled(TextField)`
-  color: #fff;
+    color: #fff;
 
-  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: rgba(0, 0, 0, 0.87) !important;
-  }
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(0, 0, 0, 0.87) !important;
+    }
 
-  .MuiFormLabel-root.Mui-focused {
-    color: #fff !important;
-  }
+    .MuiFormLabel-root.Mui-focused {
+        color: #fff !important;
+    }
 
-  .MuiOutlinedInput-root {
-    color: #fff !important;
-  }
+    .MuiOutlinedInput-root {
+        color: #fff !important;
+    }
 
-  .MuiFormLabel-root {
-    color: #fff !important;
-  }
+    .MuiFormLabel-root {
+        color: #fff !important;
+    }
 `;
 
-const TabPanel = ({setWarForm, warForm}) => {
+const TabPanel = ({ setWarForm, warForm }) => {
     const dispatch = useDispatch();
     const points = useSelector((state) => state.war.points);
     const gangText = useSelector((state) => state.war.gangText);
@@ -52,7 +59,7 @@ const TabPanel = ({setWarForm, warForm}) => {
             role="tabpanel"
             id={`vertical-tabpanel-${points}`}
             aria-labelledby={`vertical-tab-${points}`}
-            style={{flexGrow: 1}}
+            style={{ flexGrow: 1 }}
         >
             <Container elevation={3}>
                 <CardContent>
@@ -104,6 +111,26 @@ const TabPanel = ({setWarForm, warForm}) => {
                                 setWarForm({
                                     ...warForm,
                                     dispute: e.target.value,
+                                })
+                            }
+                        />
+                    </Wrapper>
+                    <Wrapper>
+                        <Text
+                            style={{
+                                width: "100%",
+                                color: "white",
+                            }}
+                            label="Terms"
+                            type="search"
+                            multiline
+                            rows={4}
+                            value={warForm.terms}
+                            variant="outlined"
+                            onChange={(e) =>
+                                setWarForm({
+                                    ...warForm,
+                                    terms: e.target.value,
                                 })
                             }
                         />
